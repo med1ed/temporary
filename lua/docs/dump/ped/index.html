@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773999266819">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Ped</title>
+    <meta name="title" content="Ped">
+    <meta name="description" content="All clothes can be found: https://forge.plebmasters.de/clothes">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/dump/ped/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/dump/ped/">
+    <meta property="og:title" content="Ped">
+    <meta property="og:description" content="All clothes can be found: https://forge.plebmasters.de/clothes">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/dump/ped/">
+    <meta property="twitter:title" content="Ped">
+    <meta property="twitter:description" content="All clothes can be found: https://forge.plebmasters.de/clothes">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../../image/favicon.png" rel="icon">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.773999266819" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../../image/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../../image/logo.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="ped" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped">#</doc-anchor-trigger>
+        <span>Ped</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="ped-component-ids">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped-component-ids">#</doc-anchor-trigger>
+        <span>Ped Component IDs</span>
+    </h2>
+</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>All clothes can be found: <a href="https://forge.plebmasters.de/clothes">https://forge.plebmasters.de/clothes</a></p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="story">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#story">#</doc-anchor-trigger>
+        <span>Story</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>0</code> =&gt; <code v-pre>Head</code></li>
+<li><code v-pre>1</code> =&gt; <code v-pre>Beard</code></li>
+<li><code v-pre>2</code> =&gt; <code v-pre>Hair</code></li>
+<li><code v-pre>3</code> =&gt; <code v-pre>Torso</code></li>
+<li><code v-pre>4</code> =&gt; <code v-pre>Legs</code></li>
+<li><code v-pre>5</code> =&gt; <code v-pre>Hands</code></li>
+<li><code v-pre>6</code> =&gt; <code v-pre>Foot</code></li>
+<li><code v-pre>7</code> =&gt; <code v-pre>Eyes</code></li>
+<li><code v-pre>8</code> =&gt; <code v-pre>Accessories like parachute, scuba tank</code></li>
+<li><code v-pre>9</code> =&gt; <code v-pre>Accessories like bags, mask, scuba mask</code></li>
+<li><code v-pre>10</code> =&gt; <code v-pre>Decals and mask</code></li>
+<li><code v-pre>11</code> =&gt; <code v-pre>Auxiliary parts for torso</code></li>
+</ul>
+<doc-anchor-target id="multiplayer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#multiplayer">#</doc-anchor-trigger>
+        <span>Multiplayer</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>0</code> =&gt; <code v-pre>Head</code></li>
+<li><code v-pre>1</code> =&gt; <code v-pre>Masks</code></li>
+<li><code v-pre>2</code> =&gt; <code v-pre>Hair Styles</code></li>
+<li><code v-pre>3</code> =&gt; <code v-pre>Torsos</code></li>
+<li><code v-pre>4</code> =&gt; <code v-pre>Legs</code></li>
+<li><code v-pre>5</code> =&gt; <code v-pre>Bags &amp; Parachutes</code></li>
+<li><code v-pre>6</code> =&gt; <code v-pre>Shoes</code></li>
+<li><code v-pre>7</code> =&gt; <code v-pre>Accessories</code></li>
+<li><code v-pre>8</code> =&gt; <code v-pre>Undershirts</code></li>
+<li><code v-pre>9</code> =&gt; <code v-pre>Body Armors</code></li>
+<li><code v-pre>10</code> =&gt; <code v-pre>Decals</code></li>
+<li><code v-pre>11</code> =&gt; <code v-pre>Tops</code></li>
+</ul>
+<doc-anchor-target id="ped-prop-ids">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped-prop-ids">#</doc-anchor-trigger>
+        <span>Ped Prop IDs</span>
+    </h2>
+</doc-anchor-target>
+<p><code v-pre>0</code> =&gt; <code v-pre>Helmets</code>, <code v-pre>Hats</code>, <code v-pre>Earphones</code> and <code v-pre>Masks</code>
+<code v-pre>1</code> =&gt; <code v-pre>Glasses</code>
+<code v-pre>2</code> =&gt; <code v-pre>Ear Accessories</code>
+<code v-pre>6</code> =&gt; <code v-pre>Watches</code>
+<code v-pre>7</code> =&gt; <code v-pre>Bracelets</code></p>
+<doc-anchor-target id="ped-configuration-flags">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped-configuration-flags">#</doc-anchor-trigger>
+        <span>Ped Configuration Flags</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>NoCriticalHits</code> =&gt; <code v-pre>2</code></li>
+<li><code v-pre>DrownsInWater</code> =&gt; <code v-pre>3</code></li>
+<li><code v-pre>DisableReticuleFixedLockon</code> =&gt; <code v-pre>4</code></li>
+<li><code v-pre>UpperBodyDamageAnimsOnly</code> =&gt; <code v-pre>7</code></li>
+<li><code v-pre>NeverLeavesGroup</code> =&gt; <code v-pre>13</code></li>
+<li><code v-pre>BlockNonTemporaryEvents</code> =&gt; <code v-pre>17</code></li>
+<li><code v-pre>IgnoreSeenMelee</code> =&gt; <code v-pre>24</code></li>
+<li><code v-pre>PED_FLAG_CAN_FLY_THRU_WINDSCREEN</code> =&gt; <code v-pre>32</code></li>
+<li><code v-pre>DieWhenRagdoll</code> =&gt; <code v-pre>33</code></li>
+<li><code v-pre>HasHelmet</code> =&gt; <code v-pre>34</code></li>
+<li><code v-pre>UseHelmet</code> =&gt; <code v-pre>35</code></li>
+<li><code v-pre>DisableEvasiveDives</code> =&gt; <code v-pre>39</code></li>
+<li><code v-pre>DontInfluenceWantedLevel</code> =&gt; <code v-pre>42</code></li>
+<li><code v-pre>DisablePlayerLockon</code> =&gt; <code v-pre>43</code></li>
+<li><code v-pre>DisableLockonToRandomPeds</code> =&gt; <code v-pre>44</code></li>
+<li><code v-pre>PedBeingDeleted</code> =&gt; <code v-pre>47</code></li>
+<li><code v-pre>BlockWeaponSwitching</code> =&gt; <code v-pre>48</code></li>
+<li><code v-pre>PED_FLAG_NO_COLLISION</code> =&gt; <code v-pre>52</code></li>
+<li><code v-pre>IsFiring</code> =&gt; <code v-pre>58</code></li>
+<li><code v-pre>WasFiring</code> =&gt; <code v-pre>59</code></li>
+<li><code v-pre>IsStanding</code> =&gt; <code v-pre>60</code></li>
+<li><code v-pre>WasStanding</code> =&gt; <code v-pre>61</code></li>
+<li><code v-pre>InVehicle</code> =&gt; <code v-pre>62</code></li>
+<li><code v-pre>OnMount</code> =&gt; <code v-pre>63</code></li>
+<li><code v-pre>AttachedToVehicle</code> =&gt; <code v-pre>64</code></li>
+<li><code v-pre>IsSwimming</code> =&gt; <code v-pre>65</code></li>
+<li><code v-pre>WasSwimming</code> =&gt; <code v-pre>66</code></li>
+<li><code v-pre>IsSkiing</code> =&gt; <code v-pre>67</code></li>
+<li><code v-pre>IsSitting</code> =&gt; <code v-pre>68</code></li>
+<li><code v-pre>KilledByStealth</code> =&gt; <code v-pre>69</code></li>
+<li><code v-pre>KilledByTakedown</code> =&gt; <code v-pre>70</code></li>
+<li><code v-pre>Knockedout</code> =&gt; <code v-pre>71</code></li>
+<li><code v-pre>PED_FLAG_IS_SNIPER_SCOPE_ACTIVE</code> =&gt; <code v-pre>72</code></li>
+<li><code v-pre>PED_FLAG_SUPER_DEAD</code> =&gt; <code v-pre>73</code></li>
+<li><code v-pre>UsingCoverPoint</code> =&gt; <code v-pre>75</code></li>
+<li><code v-pre>IsInTheAir</code> =&gt; <code v-pre>76</code></li>
+<li><code v-pre>IsAimingGun</code> =&gt; <code v-pre>78</code></li>
+<li><code v-pre>ForcePedLoadCover</code> =&gt; <code v-pre>93</code></li>
+<li><code v-pre>VaultFromCover</code> =&gt; <code v-pre>97</code></li>
+<li><code v-pre>PED_FLAG_DRUNK</code> =&gt; <code v-pre>100</code></li>
+<li><code v-pre>ForcedAim</code> =&gt; <code v-pre>101</code></li>
+<li><code v-pre>_PED_FLAG_IS_NOT_RAGDOLL_AND_NOT_PLAYING_ANIM</code> =&gt; <code v-pre>104</code></li>
+<li><code v-pre>ForceReload</code> =&gt; <code v-pre>105</code></li>
+<li><code v-pre>BumpedByPlayer</code> =&gt; <code v-pre>117</code></li>
+<li><code v-pre>IsHandCuffed</code> =&gt; <code v-pre>120</code></li>
+<li><code v-pre>IsAnkleCuffed</code> =&gt; <code v-pre>121</code></li>
+<li><code v-pre>DisableMelee</code> =&gt; <code v-pre>122</code></li>
+<li><code v-pre>PED_FLAG_NM_MESSAGE_466</code> =&gt; <code v-pre>125</code></li>
+<li><code v-pre>CanBeAgitated</code> =&gt; <code v-pre>128</code></li>
+<li><code v-pre>IsScuba</code> =&gt; <code v-pre>135</code></li>
+<li><code v-pre>WillArrestRatherThanJack</code> =&gt; <code v-pre>136</code></li>
+<li><code v-pre>RidingTrain</code> =&gt; <code v-pre>138</code></li>
+<li><code v-pre>ArrestResult</code> =&gt; <code v-pre>139</code></li>
+<li><code v-pre>CanAttackFriendly</code> =&gt; <code v-pre>140</code></li>
+<li><code v-pre>ShootingAnimFlag</code> =&gt; <code v-pre>145</code></li>
+<li><code v-pre>DisableLadderClimbing</code> =&gt; <code v-pre>146</code></li>
+<li><code v-pre>StairsDetected</code> =&gt; <code v-pre>147</code></li>
+<li><code v-pre>SlopeDetected</code> =&gt; <code v-pre>148</code></li>
+<li><code v-pre>PED_FLAG_HELMET_DAMAGE_REDUCTION</code> =&gt; <code v-pre>149</code></li>
+<li><code v-pre>CanPerformArrest</code> =&gt; <code v-pre>155</code></li>
+<li><code v-pre>CanPerformUncuff</code> =&gt; <code v-pre>156</code></li>
+<li><code v-pre>CanBeArrested</code> =&gt; <code v-pre>157</code></li>
+<li><code v-pre>IsInjured</code> =&gt; <code v-pre>166</code></li>
+<li><code v-pre>PED_FLAG_INJURED_LIMP_2</code> =&gt; <code v-pre>170</code></li>
+<li><code v-pre>IsInCustody</code> =&gt; <code v-pre>180</code></li>
+<li><code v-pre>IsAgitated</code> =&gt; <code v-pre>183</code></li>
+<li><code v-pre>PreventAutoShuffleToDriversSeat</code> =&gt; <code v-pre>184</code></li>
+<li><code v-pre>EnableWeaponBlocking</code> =&gt; <code v-pre>186</code></li>
+<li><code v-pre>HasHurtStarted</code> =&gt; <code v-pre>187</code></li>
+<li><code v-pre>DisableHurt</code> =&gt; <code v-pre>188</code></li>
+<li><code v-pre>PlayerIsWeird</code> =&gt; <code v-pre>189</code></li>
+<li><code v-pre>UsingScenario</code> =&gt; <code v-pre>194</code></li>
+<li><code v-pre>VisibleOnScreen</code> =&gt; <code v-pre>195</code></li>
+<li><code v-pre>DisableExplosionReactions</code> =&gt; <code v-pre>208</code></li>
+<li><code v-pre>DodgedPlayer</code> =&gt; <code v-pre>209</code></li>
+<li><code v-pre>DontEnterLeadersVehicle</code> =&gt; <code v-pre>220</code></li>
+<li><code v-pre>PED_FLAG_SHRINK</code> =&gt; <code v-pre>223</code></li>
+<li><code v-pre>PED_FLAG_MELEE_COMBAT</code> =&gt; <code v-pre>224</code></li>
+<li><code v-pre>DisablePotentialToBeWalkedIntoResponse</code> =&gt; <code v-pre>225</code></li>
+<li><code v-pre>DisablePedAvoidance</code> =&gt; <code v-pre>226</code></li>
+<li><code v-pre>DisablePanicInVehicle</code> =&gt; <code v-pre>229</code></li>
+<li><code v-pre>IsHoldingProp</code> =&gt; <code v-pre>236</code></li>
+<li><code v-pre>DisableVehicleSeatRandomAnimations</code> =&gt; <code v-pre>248</code></li>
+<li><code v-pre>OnStairs</code> =&gt; <code v-pre>253</code></li>
+<li><code v-pre>OnStairSlope</code> =&gt; <code v-pre>270</code></li>
+<li><code v-pre>DontBlipCop</code> =&gt; <code v-pre>272</code></li>
+<li><code v-pre>ClimbedShiftedFence</code> =&gt; <code v-pre>273</code></li>
+<li><code v-pre>EdgeDetected</code> =&gt; <code v-pre>276</code></li>
+<li><code v-pre>AvoidTearGas</code> =&gt; <code v-pre>279</code></li>
+<li><code v-pre>PED_FLAG_NO_WRITHE</code> =&gt; <code v-pre>281</code></li>
+<li><code v-pre>RagdollingOnBoat</code> =&gt; <code v-pre>287</code></li>
+<li><code v-pre>HasBrandishedWeapon</code> =&gt; <code v-pre>288</code></li>
+<li><code v-pre>PED_FLAG_FREEZE</code> =&gt; <code v-pre>292</code></li>
+<li><code v-pre>DisableShockingEvents</code> =&gt; <code v-pre>294</code></li>
+<li><code v-pre>DisablePedConstraints</code> =&gt; <code v-pre>301</code></li>
+<li><code v-pre>IsInCluster</code> =&gt; <code v-pre>310</code></li>
+<li><code v-pre>PED_FLAG_NO_PED_MELEE</code> =&gt; <code v-pre>314</code></li>
+<li><code v-pre>HasHighHeels</code> =&gt; <code v-pre>322</code></li>
+<li><code v-pre>DisableTalkTo</code> =&gt; <code v-pre>329</code></li>
+<li><code v-pre>DontBlip</code> =&gt; <code v-pre>330</code></li>
+<li><code v-pre>IsSwitchingWeapon</code> =&gt; <code v-pre>331</code></li>
+<li><code v-pre>EquipJetpack</code> =&gt; <code v-pre>349</code></li>
+<li><code v-pre>IsDuckingInVehicle</code> =&gt; <code v-pre>359</code></li>
+<li><code v-pre>HasReserveParachute</code> =&gt; <code v-pre>362</code></li>
+<li><code v-pre>UseReserveParachute</code> =&gt; <code v-pre>363</code></li>
+<li><code v-pre>NeverLeaveTrain</code> =&gt; <code v-pre>374</code></li>
+<li><code v-pre>IsClimbingLadder</code> =&gt; <code v-pre>388</code></li>
+<li><code v-pre>HasBareFeet</code> =&gt; <code v-pre>389</code></li>
+<li><code v-pre>PED_FLAG_ALPHA</code> =&gt; <code v-pre>410</code></li>
+<li><code v-pre>IsHolsteringWeapon</code> =&gt; <code v-pre>413</code></li>
+<li><code v-pre>IsSwitchingHelmetVisor</code> =&gt; <code v-pre>418</code></li>
+<li><code v-pre>DisableVehicleCombat</code> =&gt; <code v-pre>422</code></li>
+<li><code v-pre>FallsLikeAircraft</code> =&gt; <code v-pre>424</code></li>
+<li><code v-pre>DisableStartEngine</code> =&gt; <code v-pre>429</code></li>
+<li><code v-pre>IgnoreBeingOnFire</code> =&gt; <code v-pre>430</code></li>
+<li><code v-pre>DisableHomingMissileLockon</code> =&gt; <code v-pre>434</code></li>
+<li><code v-pre>DisableHelmetArmor</code> =&gt; <code v-pre>438</code></li>
+<li><code v-pre>PedIsArresting</code> =&gt; <code v-pre>450</code></li>
+<li><code v-pre>IsDecoyPed</code> =&gt; <code v-pre>451</code></li>
+<li><code v-pre>CanBeIncapacitated</code> =&gt; <code v-pre>456</code></li>
+</ul>
+<doc-anchor-target id="ped-eye-colors">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped-eye-colors">#</doc-anchor-trigger>
+        <span>Ped Eye Colors</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>0</code> =&gt; <code v-pre>Green</code> – Default for new MP characters</li>
+<li><code v-pre>1</code> =&gt; <code v-pre>Emerald</code></li>
+<li><code v-pre>2</code> =&gt; <code v-pre>Light Blue</code></li>
+<li><code v-pre>3</code> =&gt; <code v-pre>Ocean Blue</code></li>
+<li><code v-pre>4</code> =&gt; <code v-pre>Light Brown</code></li>
+<li><code v-pre>5</code> =&gt; <code v-pre>Dark Brown</code></li>
+<li><code v-pre>6</code> =&gt; <code v-pre>Hazel</code></li>
+<li><code v-pre>7</code> =&gt; <code v-pre>Dark Gray</code></li>
+<li><code v-pre>8</code> =&gt; <code v-pre>Light Gray</code></li>
+<li><code v-pre>9</code> =&gt; <code v-pre>Pink</code></li>
+<li><code v-pre>10</code> =&gt; <code v-pre>Yellow</code></li>
+<li><code v-pre>11</code> =&gt; <code v-pre>Purple</code></li>
+<li><code v-pre>12</code> =&gt; <code v-pre>Blackout</code></li>
+<li><code v-pre>13</code> =&gt; <code v-pre>Shades of Gray</code></li>
+<li><code v-pre>14</code> =&gt; <code v-pre>Tequila Sunrise</code></li>
+<li><code v-pre>15</code> =&gt; <code v-pre>Atomic</code></li>
+<li><code v-pre>16</code> =&gt; <code v-pre>Warp</code></li>
+<li><code v-pre>17</code> =&gt; <code v-pre>Ecola</code></li>
+<li><code v-pre>18</code> =&gt; <code v-pre>Space Ranger</code></li>
+<li><code v-pre>19</code> =&gt; <code v-pre>Ying Yang</code></li>
+<li><code v-pre>20</code> =&gt; <code v-pre>Bullseye</code></li>
+<li><code v-pre>21</code> =&gt; <code v-pre>Lizard</code></li>
+<li><code v-pre>22</code> =&gt; <code v-pre>Dragon</code></li>
+<li><code v-pre>23</code> =&gt; <code v-pre>Extra terrestrial</code></li>
+<li><code v-pre>24</code> =&gt; <code v-pre>Goat</code></li>
+<li><code v-pre>25</code> =&gt; <code v-pre>Smiley</code></li>
+<li><code v-pre>26</code> =&gt; <code v-pre>Possessed</code></li>
+<li><code v-pre>27</code> =&gt; <code v-pre>Demon</code></li>
+<li><code v-pre>28</code> =&gt; <code v-pre>Infected</code></li>
+<li><code v-pre>29</code> =&gt; <code v-pre>Alien</code></li>
+<li><code v-pre>30</code> =&gt; <code v-pre>Undead</code></li>
+<li><code v-pre>31</code> =&gt; <code v-pre>Zombie</code></li>
+</ul>
+<doc-anchor-target id="ped-movement-clipsets">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ped-movement-clipsets">#</doc-anchor-trigger>
+        <span>Ped Movement Clipsets</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>ANIM_GROUP_MOVE_BALLISTIC</code></li>
+<li><code v-pre>ANIM_GROUP_MOVE_LEMAR_ALLEY</code></li>
+<li><code v-pre>clipset@move@trash_fast_turn</code></li>
+<li><code v-pre>FEMALE_FAST_RUNNER</code></li>
+<li><code v-pre>missfbi4prepp1_garbageman</code></li>
+<li><code v-pre>move_characters@franklin@fire</code></li>
+<li><code v-pre>move_characters@Jimmy@slow@</code></li>
+<li><code v-pre>move_characters@michael@fire</code></li>
+<li><code v-pre>move_f@flee@a</code></li>
+<li><code v-pre>move_f@scared</code></li>
+<li><code v-pre>move_f@sexy@a</code></li>
+<li><code v-pre>move_heist_lester</code></li>
+<li><code v-pre>move_injured_generic</code></li>
+<li><code v-pre>move_lester_CaneUp</code></li>
+<li><code v-pre>move_m@bag</code></li>
+<li><code v-pre>MOVE_M@BAIL_BOND_NOT_TAZERED</code></li>
+<li><code v-pre>MOVE_M@BAIL_BOND_TAZERED</code></li>
+<li><code v-pre>move_m@brave</code></li>
+<li><code v-pre>move_m@casual@d</code></li>
+<li><code v-pre>move_m@drunk@moderatedrunk</code></li>
+<li><code v-pre>MOVE_M@DRUNK@MODERATEDRUNK</code></li>
+<li><code v-pre>MOVE_M@DRUNK@MODERATEDRUNK_HEAD_UP</code></li>
+<li><code v-pre>MOVE_M@DRUNK@SLIGHTLYDRUNK</code></li>
+<li><code v-pre>MOVE_M@DRUNK@VERYDRUNK</code></li>
+<li><code v-pre>move_m@fire</code></li>
+<li><code v-pre>move_m@gangster@var_e</code></li>
+<li><code v-pre>move_m@gangster@var_f</code></li>
+<li><code v-pre>move_m@gangster@var_i</code></li>
+<li><code v-pre>move_m@JOG@</code></li>
+<li><code v-pre>MOVE_M@PRISON_GAURD</code></li>
+<li><code v-pre>MOVE_P_M_ONE</code></li>
+<li><code v-pre>MOVE_P_M_ONE_BRIEFCASE</code></li>
+<li><code v-pre>move_p_m_zero_janitor</code></li>
+<li><code v-pre>move_p_m_zero_slow</code></li>
+<li><code v-pre>move_ped_bucket</code></li>
+<li><code v-pre>move_ped_crouched</code></li>
+<li><code v-pre>move_ped_mop</code></li>
+<li><code v-pre>MOVE_M@FEMME@</code></li>
+<li><code v-pre>MOVE_F@FEMME@</code></li>
+<li><code v-pre>MOVE_M@GANGSTER@NG</code></li>
+<li><code v-pre>MOVE_F@GANGSTER@NG</code></li>
+<li><code v-pre>MOVE_M@POSH@</code></li>
+<li><code v-pre>MOVE_F@POSH@</code></li>
+<li><code v-pre>MOVE_M@TOUGH_GUY@</code></li>
+<li><code v-pre>MOVE_F@TOUGH_GUY@</code></li>
+</ul>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/interior_types/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Interior Types</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/groups/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Groups</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. Project W1TCH. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Ped", level: 4, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

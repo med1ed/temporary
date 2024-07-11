@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773999266819">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>RE Namespaces</title>
+    <meta name="title" content="RE Namespaces">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/namespaces/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/namespaces/">
+    <meta property="og:title" content="RE Namespaces">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/namespaces/">
+    <meta property="twitter:title" content="RE Namespaces">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../image/favicon.png" rel="icon">
+    <link href="../../../resources/css/retype.css?v=3.5.0.773999266819" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.773999266819" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../image/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../image/logo.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="re-namespaces" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#re-namespaces">#</doc-anchor-trigger>
+        <span>RE Namespaces</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="rawlua_api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rawlua_api">#</doc-anchor-trigger>
+        <span>raw.lua_api</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-cpp"><code v-pre class="language-cpp">namespace native {
+	/**
+	 * @brief Prepares a value for the invoker by wrapping it with type information, primarily for scalar types.
+	 * 
+	 * This helper function constructs an argument for the native invoker. It is used for non-reference types.
+	 * 
+	 * @param type The InvokerType enum value representing the type of the argument.
+	 * @param val The value to be wrapped and passed to the invoker.
+	 * @return A structure with the argument's type and value, suitable for the invoker, with is_ref set to false.
+	 */
+	table arg(InvokerType type, object val);
+
+	/**
+	 * @brief Prepares a reference argument for the invoker, capable of handling modifications, including arrays.
+	 * 
+	 * This function is designed to handle arguments that are passed by reference to the native function. It is suitable
+	 * for all reference types and ensures that the argument can be modified by the native function. When used with arrays,
+	 * it provides additional functionality to resize an existing table or create a new one to match a specified size.
+	 * 
+	 * @param type The InvokerType enum value specifying the type of the reference argument.
+	 * @param tbl The Lua table to pass by reference; can be a pre-existing or newly created table.
+	 * @param array_size Optionally specifies the size for an array; defaults to 0, which is suitable for non-array types.
+	 * @return A structure tailored for the invoker that contains the type and the table to be passed by reference, with is_ref set to true.
+	 */
+	table ref(InvokerType type, table tbl, int array_size = 0);
+
+	/**
+	 * @brief Helper functions 'arg' and 'ref' are primarily intended for use in native function wrappers.
+	 * 
+	 * These functions are designed to streamline the creation of invoker arguments, especially in the context of
+	 * abstracting native calls. While they can be used in general Lua scripting, it is recommended to employ them
+	 * mainly within the invoker wrappers to ensure the correct data types and structures are conveyed to the native layer.
+	 * This approach promotes cleaner and more maintainable code by abstracting complex argument preparations behind wrapper functions.
+	 */
+
+	/**
+	 * @brief Invokes a native game function with specified arguments and a return type.
+	 * 
+	 * This function is a central hub for calling native game functions from Lua. It accepts 
+	 * an enumerated type for the expected return type, the native function's hash, a variadic 
+	 * list of arguments wrapped by arg or ref functions, and the current Lua state.
+	 * 
+	 * @param type The expected return type of the native function, defined by the InvokerType enum.
+	 * @param hash The hash of the native function to invoke.
+	 * @param args A variadic list of arguments to pass to the native function. 
+	 *             Each argument should be wrapped using the arg or ref helper functions.
+	 * @return The result of the native function call as a object.
+	 * 
+	 * @usage
+	 * Usage examples:
+	 * 
+	 * For functions that do not modify the passed parameter, use `arg`:
+	 * local result = native.invoke(
+	 *     Type.Void,
+	 *     hash,
+	 *     arg(Type.String, &quot;Some Text&quot;),
+	 *     arg(Type.Int, 123)
+	 * );
+	 *
+	 * For reference types that are modified in-place, such as objects that the native function may alter, use `ref`:
+	 * local my_ref_var = {}
+	 * local result = native.invoke(
+	 *     Type.Void,
+	 *     hash,
+	 *     ref(Type.Any, my_ref_var) -- Here, my_ref_var can be modified by the native function.
+	 * );
+	 *
+	 * When passing an array that the native function may modify, use `ref` with an additional parameter specifying the array size:
+	 * local arrayHandle = {}
+	 * local result = native.invoke(
+	 *     Type.Void,
+	 *     hash,
+	 *     ref(Type.Array, arrayHandle, arraySize) -- arraySize should match the expected size by the native function.
+	 * );
+	 *
+	 * Note: When `ref` is used with an Array type, the array_size parameter dictates the size of the array to be passed.
+	 *       For non-Array types, the array_size should be omitted or set to zero.
+	 *
+	 * Wrapper example for NETWORK.NETWORK_HANDLE_FROM_PLAYER, where `gamerHandleSize` is used
+	 * both as the array size for `gamerHandle` and as the last argument to the native function, 
+	 * since this native function expects the array size as its last parameter.
+	 * 
+	 * function NETWORK_HANDLE_FROM_PLAYER(player, gamerHandle, gamerHandleSize)
+	 *   native.invoke(
+	 *     Type.Void,
+	 *     0x388EB2B86C73B6B3,
+	 *     arg(Type.Player, player),
+	 *     ref(Type.Array, gamerHandle, gamerHandleSize), // here gamerHandleSize is used to define the array size
+	 *     arg(Type.Int, gamerHandleSize) // and also passed as the last argument to the native function
+	 *   )
+	 * end
+	 * 
+	 * -- Calling the wrapper function:
+	 * local handle = {}
+	 * NETWORK_HANDLE_FROM_PLAYER(PLAYER.PLAYER_ID(), handle, 13)
+	 *
+	 * for id, val in pairs(handle.result) do
+	 *   log.warning(&quot;ID: &quot; .. id .. &quot; Val: &quot; .. val)
+	 * end
+	 *
+	 * -- Here, `handle` is a Lua table that will be passed as an array to the native function.
+	 * -- It will be resized to contain 13 elements to meet the function's expectation, and 13 is also passed to the function as gamerHandleSize.
+	 */
+	object invoke(Type type, Hash hash, Args args);
+}
+
+/**
+ * Enums for categorizing types used by the native invoker.
+ * Note: The 'Array' type is intended exclusively for use as a parameter; 
+ * it cannot be used as a return type. Arrays can be modified in-place when 
+ * passed by reference to a function expecting an array parameter.
+ */
+enum class Type
+{
+	Void,
+	Any,
+	Int,
+	Float,
+	Bool,
+	String,
+	Array, 
+	Vector3,
+	Hash,
+	Entity,
+	Player,
+	Ped,
+	Vehicle,
+	FireId,
+	Interior,
+	Cam,
+	Object,
+	Pickup,
+	Blip,
+	ScrHandle
+};
+
+namespace events 
+{
+	/**
+	 * @brief Registers an event handler for a specified event type.
+	 *
+	 * This function allows the registration of a Lua function as an event handler for a specific type of game event.
+	 * Each handler is identified by a unique hash to prevent duplicate handlers for the same event.
+	 *
+	 * @param type The type of the menu event for which the handler is being registered.
+	 * @param hash A unique string identifier for the handler, used to avoid duplicates.
+	 * @param func Lua function to be registered as the event handler.
+	 */
+	void register(EventType type, string hash, function fn)
+
+	/**
+	 * @brief Documentation for handling different types of events in Lua.
+	 *
+	 * Different types of events trigger with specific sets of parameters.
+	 * Below is the detail of the parameters passed to the handler functions 
+	 * based on the event type (check EventType enum class below):
+	 *
+	 * - ScriptedEventReceived: player_id, player_name, event_id, event_args
+	 * - PlayerJoin/PlayerLeave: player_id, player_name
+	 * - ChatMessageReceived: player_id, player_name, message
+	 *
+	 * Here is an example Lua script for handling a ScriptedEventReceived event.
+	 * The approach for other event types is similar, but pay attention to the 
+	 * parameters passed to the handler.
+	 *
+	 * @code
+	 *   events.register(EventType.ScriptedEventReceived, &quot;main_se_handler&quot;, function (player_id, player_name, event_id, event_args)
+	 *       -- Logging event details
+	 *       log.warning(&quot;---=== Incoming event ===---&quot;)
+	 *       log.warning(&quot;Sender Name: &quot; .. player_name)
+	 *       log.warning(&quot;Sender ID: &quot; .. player_id)
+	 *       log.warning(&quot;Event ID: &quot; .. event_id)
+	 *
+	 *       -- Formatting and logging event arguments
+	 *       local argsStr = &quot;{ &quot;
+	 *       for i, value in ipairs(event_args) do
+	 *           if i &gt; 1 then
+	 *               argsStr = argsStr .. &quot;, &quot;
+	 *           end
+	 *           argsStr = argsStr .. tostring(value)
+	 *       end
+	 *       argsStr = argsStr .. &quot; }&quot;
+	 *       log.warning(&quot;Event Args: &quot; .. argsStr)
+	 *
+	 *       -- Return true to block the event by its ID. You can also add additional checks
+     *		 -- for other parameters passed in event_args for more precise control over event handling.
+	 *       if event_id == 1234567890 then
+	 *           return true
+	 *       end
+	 *   end)
+	 * @endcode
+	 */
+}
+
+/**
+ * Enums for categorizing event types used by the events handlers.
+ * These values are used to determine the type of event that will be triggered
+ * in Lua scripts, aiding in the handling of specific events based on their type.
+ *
+ * - PlayerJoin: Event triggered when a player joins the lobby.
+ * - PlayerLeave: Event triggered when a player leaves the lobby.
+ * - ChatMessageReceived: Event triggered when a chat message is received.
+ * - ScriptedEventReceived: Event triggered when a scripted event is received.
+ */
+enum class EventType
+{
+    PlayerJoin,
+    PlayerLeave,
+    ChatMessageReceived,
+    ScriptedEventReceived,
+};
+
+// Functions
+namespace system {
+	/**
+	 * @brief Retrieves the current user's group level based on their permissions.
+	 *
+	 * This function checks the user's group status and returns an integer representing
+	 * the user's group level. The levels are assigned as follows:
+	 *
+	 * - 0: No group/Error
+	 * - 1: Basic
+	 * - 2: VIP
+	 * - 3: Test
+	 * - 4: Admin
+	 *
+	 * @return An integer representing the user's group level.
+	 */
+	int get_user_group();
+
+	/**
+	 * @brief Reload current Lua script. !!! CURRENTLY DISABLED !!!
+	 */
+	void script_reload();
+
+	/**
+	 * @brief Unload current Lua script. !!! CURRENTLY DISABLED !!!
+	 */
+	void script_unload();
+}
+
+namespace log {
+	void info(string text);
+	void reprotex(string text);
+	void warning(string text);
+}
+
+namespace notifications {
+	void info(string title, string message);
+	void success(string title, string message);
+	void warning(string title, string message);
+}
+
+namespace gui {
+	/**
+	 * @brief Adds a rendering layer for the script.
+	 *
+	 * This function adds a rendering layer for the script to utilize ImGui widgets.
+	 *
+	 * @param hash The unique identifier for the rendering layer.
+	 * @param fn The rendering function to be associated with the layer.
+	 */
+	void add_dx_layer(string hash, function fn);
+
+	/**
+	 * @brief Removes a rendering layer.
+	 *
+	 * This function removes a rendering layer previously added by `add_dx_layer`.
+	 *
+	 * @param hash The unique identifier of the rendering layer to be removed.
+	 */
+	void remove_dx_layer(string hash);
+
+	/**
+	 * @brief Adds a default root section for the script with a custom function.
+	 *
+	 * This function adds a root section for the script with a user-defined function in the Lua Manager section.
+	 *
+	 * @param fn The function to be associated with the root section.
+	 */
+	void add_root(function fn);
+
+	/**
+	 * @brief Adds a subsection to the root section of the script.
+	 *
+	 * This function adds a subsection to the root section of the script. If the root
+	 * section does not exist, it creates one without a user-defined function.
+	 *
+	 * @param hash The unique identifier for the subsection.
+	 * @param name The name of the subsection.
+	 * @param fn The function to be associated with the subsection.
+	 */
+	void add_section(string hash, string name, function fn);
+
+	/**
+	 * @brief Adds a subsection to an existing section of the script menu.
+	 *
+	 * This function adds a subsection to an existing section of the script menu.
+	 *
+	 * @param parent The unique identifier of the parent section.
+	 * @param hash The unique identifier for the subsection.
+	 * @param name The name of the subsection.
+	 * @param fn The function to be associated with the subsection.
+	 *
+	 * Available predefined section hashes:
+	 * - self
+	 * - vehicle
+	 * - online
+	 * - recovery
+	 * - weapons
+	 * - teleport
+	 * - model_changer
+	 * - model_swapper
+	 * - outfit_store
+	 * - animations
+	 * - crafting_workshop
+	 * - world
+	 * - about
+	 */
+	void add_section(string parent, string hash, string name, function fn);
+
+	/**
+	 * @brief Checks if a section added from the script exists.
+	 *
+	 * This function checks if a section added from the script exists.
+	 *
+	 * @param hash The unique identifier of the section.
+	 * @return True if the section exists, false otherwise.
+	 */
+	bool is_section_present(string hash);
+
+	/**
+	 * @brief Removes a section from the script section.
+	 *
+	 * This function removes a section from the script section if it exists.
+	 *
+	 * @param hash The unique identifier of the section to be removed.
+	 */
+	void remove_section(string hash);
+
+	/**
+	 * @brief Clears all sections.
+	 *
+	 * This function removes all sections from the script section.
+	 */
+	void clear_sections();
+
+	/**
+	 * @brief Sets the visibility of the cursor.
+	 *
+	 * This function sets the visibility of the cursor (show/hide).
+	 *
+	 * @param state The visibility state of the cursor.
+	 */
+	void set_cursor_active(bool state);
+
+	/**
+	 * @brief Checks if the cursor is active.
+	 *
+	 * This function checks if the cursor is currently active (visible).
+	 *
+	 * @return True if the cursor is active, false otherwise.
+	 */
+	bool is_cursor_active();
+
+	/**
+	 * @brief Checks if the script menu is open.
+	 *
+	 * This function checks if the script menu is currently open.
+	 *
+	 * @return True if the script menu is open, false otherwise.
+	 */
+	bool is_menu_open();
+
+	/**
+	 * @brief Returns the current menu scaling factor.
+	 *
+	 * This function returns the current scaling factor of the script menu.
+	 *
+	 * @return The current scaling factor of the script menu.
+	 */
+	float get_scale();
+
+	namespace elements {
+		/**
+		 * @brief Draws a separator with text.
+		 *
+		 * This function draws a horizontal line with text used to separate content visually.
+		 *
+		 * @param text The text to display on the separator.
+		 */
+		void text_separator(string text);
+
+		/**
+		 * @brief Creates a button.
+		 *
+		 * This function creates a button labeled with text. The button can have a specified size.
+		 *
+		 * @param text The text label of the button.
+		 * @param size_x The width of the button (optional).
+		 * @param size_y The height of the button (optional).
+		 * @return Returns true if the button is pressed.
+		 */
+		bool button(string text, float size_x = 0.f, float size_y = 0.f);
+
+		/**
+		 * @brief Creates a checkbox.
+		 *
+		 * This function creates a button style checkbox that the user can toggle.
+		 *
+		 * @param label The label associated with the checkbox.
+		 * @param v The initial checked state of the checkbox.
+		 * @param size_x The width of the checkbox (optional).
+		 * @param size_y The height of the checkbox (optional).
+		 * @return Returns a tuple containing the new checked state and a bool that is true if the checkbox was pressed.
+		 */
+		std::tuple&lt;bool, bool&gt; checkbox(string label, bool v, float size_x = 0.f, float size_y = 0.f);
+
+		/**
+		 * @brief Creates a collapsible header.
+		 *
+		 * This function creates a header that the user can collapse or expand.
+		 *
+		 * @param text The text label of the header.
+		 * @param flags Flags to customize the behavior and style of the header (optional).
+		 * @return Returns true if the header is open.
+		 */
+		bool collapsing_header(string text, ImGuiTreeNodeFlags flags);
+
+		/**
+		 * @brief Starts a combo box.
+		 *
+		 * This function creates a combo box with given text and preview value.
+		 *
+		 * @param text The label of the combo box.
+		 * @param preview_value The value currently selected in the combo box.
+		 * @param flags Flags to customize the behavior and style of the combo box (optional).
+		 * @return Returns true if the combo box is open.
+		 */
+		bool begin_combo(string text, string preview_value, ImGuiComboFlags flags = 0);
+
+		/**
+		 * @brief Creates a text input field.
+		 *
+		 * This function creates a text input field with an optional hint and label.
+		 *
+		 * @param label The label of the input field.
+		 * @param hint The hint displayed within the input field when it is empty.
+		 * @param input_str The initial input string.
+		 * @param max_size The maximum number of characters allowed (optional).
+		 * @param flag Flags to customize the behavior and style of the input field (optional).
+		 * @return Returns a tuple containing the input string and a bool that is true if the input field was used.
+		 */
+		std::tuple&lt;string, bool&gt; input_text(string_view label, string_view hint, string input_str, int max_size = 256, ImGuiInputTextFlags flag = ImGuiInputTextFlags_None);
+
+		/**
+		 * @brief Creates a text input field with a hint.
+		 *
+		 * This function creates a text input field with an optional hint.
+		 *
+		 * @param label The label of the input field.
+		 * @param input_str The initial input string.
+		 * @param flag Flags to customize the behavior and style of the input field (optional).
+		 * @return Returns a tuple containing the input string and a bool that is true if the input field was used.
+		 */
+		std::tuple&lt;string, bool&gt; input_text_with_hint(string_view label, string input_str, ImGuiInputTextFlags flag = ImGuiInputTextFlags_None);
+
+		/**
+		 * @brief Creates a selectable item.
+		 *
+		 * This function creates an item that can be selected.
+		 *
+		 * @param label The label of the selectable item.
+		 * @param selected The initial selected state of the item.
+		 * @return Returns true if the item is clicked.
+		 */
+		bool selectable(string label, bool selected);
+
+		/**
+		 * @brief Creates a slider for floating point values.
+		 *
+		 * This function creates a slider to select a floating point value within a specified range.
+		 *
+		 * @param label The label of the slider.
+		 * @param v The initial value of the slider.
+		 * @param v_min The minimum value of the slider.
+		 * @param v_max The maximum value of the slider.
+		 * @return Returns a tuple containing the new value of the slider and a bool that is true if the slider was used.
+		 */
+		std::tuple&lt;float, bool&gt; slider_float(string label, float v, float v_min, float v_max);
+
+		/**
+		 * @brief Creates a slider for integer values.
+		 *
+		 * This function creates a slider to select an integer value within a specified range.
+		 *
+		 * @param label The label of the slider.
+		 * @param v The initial value of the slider.
+		 * @param v_min The minimum value of the slider.
+		 * @param v_max The maximum value of the slider.
+		 * @return Returns a tuple containing the new value of the slider and a bool that is true if the slider was used.
+		 */
+		std::tuple&lt;int, bool&gt; slider_int(string label, int v, int v_min, int v_max);
+
+		/**
+		 * @brief Draws a sub-title text.
+		 *
+		 * This function draws a text used as a sub-title in the GUI.
+		 *
+		 * @param text The text to be displayed as a sub-title.
+		 */
+		void sub_title(string text);
+	}
+
+	namespace themes {
+		void apply(ImGuiStyle style);
+		ImGuiStyle get_default_style(string name);
+		ImGuiStyle get_requiem_style(string name);
+		ImGuiStyle get_current_style(string name);
+		void reset();
+	}
+}
+
+namespace fs {
+	/**
+	 * @brief Retrieves the directory path of the Requiem Engine project.
+	 *
+	 * @return A string representing the absolute path to the Requiem Engine project directory.
+	 */
+	string get_project_dir();
+
+	/**
+	 * @brief Retrieves a subdirectory path within the Requiem Engine directory structure.
+	 *
+	 * This function constructs the path to a specified subdirectory within the `%programdata%\Requiem` directory.
+	 *
+	 * @param dir The name of the subdirectory to retrieve.
+	 * @return A string representing the absolute path to the specified subdirectory.
+	 */
+	string get_project_sub_dir(string dir);
+
+	/**
+	 * @brief Retrieves the path to the directory containing the currently executed Lua script.
+	 *
+	 * @return A string representing the absolute path to the directory of the current Lua script.
+	 */
+	string get_script_dir();
+
+	bool dir_empty(string path);
+	bool dir_exist(string path);
+	bool file_empty(string path);
+	bool file_exist(string path);
+
+	void dir_check(string path);
+	void dir_copy(string from, string to);
+	void dir_create(string path);
+	void dir_remove(string path);
+	void file_check(string path);
+	void file_copy(string from, string to);
+	void file_create(string path);
+	void file_remove(string path);
+}
+
+namespace script {
+	void register_script(string name, function fn);
+	void unregister_script(string name);
+	void execute_as_script(function fn);
+
+	/**
+	 * @brief Pauses the script until the next game frame.
+	 *
+	 * This function is essential for loop-based operations where the script must wait for a condition to be met.
+	 * Using yield prevents the script from freezing the game by allowing other processes to run during the wait.
+	 */
+	void yield();
+
+	/**
+	 * @brief Pauses the script for a specified duration in milliseconds.
+	 *
+	 * Use this function to introduce a delay in script execution, which can be useful for timing actions or waiting for events.
+	 *
+	 * @param ms The duration of the pause in milliseconds.
+	 */
+	void sleep(int ms);
+}
+
+namespace scripting {
+	namespace player {
+		void change_model(Hash hash)
+	}
+}
+
+namespace network {
+	void trigger_script_event(table args, int bitset);
+}
+
+namespace memory {
+	pointer pointer(uint64_t addr);
+	pointer scan_pattern(string pattern);
+	pointer allocate(int size);
+	void free(pointer ptr);
+	pointer handle_to_ptr(int entity);
+	int ptr_to_handle(pointer addr);
+
+	class pointer {
+		uint64_t get_address();
+		bool is_null();
+		bool is_valid();
+		pointer add(uint64_t offset);
+		pointer sub(uint64_t offset);
+		pointer rip();
+		pointer deref();
+		uint8_t get_byte();
+		uint16_t get_word();
+		uint32_t get_dword();
+		uint64_t get_qword();
+		float get_float();
+		string get_string();
+		void set_byte(uint8_t value);
+		void set_word(uint16_t value);
+		void set_dword(uint32_t value);
+		void set_qword(uint64_t value);
+		void set_float(float value);
+		void set_string(string value);
+	}
+}
+
+namespace globals {
+	int get_int(int global);
+	void set_int(int global, int value);
+	int get_float(int global);
+	void set_float(int global, float value);
+	string get_string(int global);
+	void set_string(int global, string str, int length);
+}
+
+namespace locals {
+	int get_int(string scriptName, int local);
+	int get_float(string scriptName, int local);
+	void set_int(string scriptName, int local, int value);
+	void set_float(string scriptName, int local, float value);
+}
+
+namespace rage {
+	/**
+	 * @brief Calculates the hash of the given string using the Jenkins one-at-a-time algorithm.
+	 *
+	 * This function is widely used by the game engine to get the hash values for model names,
+	 * events, or other string identifiers that are required for invoking game functions.
+	 *
+	 * @param text The string to be hashed.
+	 * @return The Jenkins hash as a uint32_t.
+	 */
+	uint32_t joaat(string text);
+}
+
+namespace entities {
+	table&lt;Ped&gt; get_nearby_peds();
+	table&lt;Entity&gt; get_nearby_objects();
+	table&lt;Vehicle&gt; get_nearby_vehicles();
+}
+
+namespace stats {
+	bool get_bool(string stat_name);
+	bool get_bool_masked(string stat_name, int bit_index);
+	bool get_bool_packed(int index);
+
+	int get_int(string stat_name);
+	int get_int_masked(string stat_name, int bit_index);
+	int get_int_packed(int index);
+
+	float get_float(string stat_name);
+	void set_float(string stat_name, float value);
+
+	void set_bool(string stat_name);
+	void set_bool_masked(string stat_name, int value, int index);
+	void set_bool_packed(int index, int value);
+
+	void set_int(string stat_name, int value);
+	void set_int_masked(string stat_name, int value, int bit_start, int bit_size);
+	void set_int_packed(int index, int value);
+
+	void set_mass_packed_bool(int min, int max, bool value);
+	void set_mass_packed_int(int min, int max, bool value);
+
+	table&lt;bool&gt; get_mass_packed_bool(int min, int max);
+	table&lt;int&gt; get_mass_packed_int(int min, int max);
+}
+
+namespace http {
+	/**
+	* @brief Sends a GET request to the specified URL.
+	* 
+	* This function sends a GET request to the given URL and returns the server's response as a string.
+	* 
+	* @param url The URL to send the GET request to.
+	* @param headers A table of headers to include in the request.
+	* @return The server's response as a string or an error message.
+	* 
+	* @example
+	* -- Lua script example for sending a GET request
+ 	* local response = http.get(&quot;https://httpbin.org/get&quot;, {[&quot;Accept&quot;] = &quot;application/json&quot;})
+	* log.warning(response)
+	*/
+	string get(string url, table headers);
+
+	/**
+	* @brief Sends a POST request to the specified URL.
+	* 
+	* This function sends a POST request to the given URL with the specified body and headers. It returns the server's response as a string.
+	* 
+	* @param url The URL to send the POST request to.
+	* @param body The body of the POST request.
+	* @param headers A table of headers to include in the request.
+	* @return The server's response as a string or an error message.
+	* 
+	* @example
+	* -- Lua script example for sending a POST request
+ 	* local response = http.post(&quot;https://httpbin.org/post&quot;, &quot;field1=value1&amp;field2=value2&quot;, {[&quot;Content-Type&quot;] = &quot;application/x-www-form-urlencoded&quot;})
+	* log.warning(response)
+	*/
+	string post(string url, string body, table headers);
+}</code></pre>
+</doc-codeblock></div>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/docs/dump/zones/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Zones</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/docs/namespaces/types/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Types</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. Project W1TCH. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "RE Namespaces", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

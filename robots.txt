@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://docbox.w1tch.net/sitemap.xml.gz

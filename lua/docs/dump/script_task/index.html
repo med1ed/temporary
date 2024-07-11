@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773999266819">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Script task</title>
+    <meta name="title" content="Script task">
+    <meta name="description" content="script name=> stacksizes@ file found in">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/dump/script_task/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/dump/script_task/">
+    <meta property="og:title" content="Script task">
+    <meta property="og:description" content="script name=> stacksizes@ file found in">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/dump/script_task/">
+    <meta property="twitter:title" content="Script task">
+    <meta property="twitter:description" content="script name=> stacksizes@ file found in">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../../image/favicon.png" rel="icon">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.773999266819" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../../image/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../../image/logo.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="script-task" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#script-task">#</doc-anchor-trigger>
+        <span>Script task</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="script-list">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#script-list">#</doc-anchor-trigger>
+        <span>Script List</span>
+    </h2>
+</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Format</h5>
+<p><code v-pre>script name</code> =&gt; <code v-pre>stacksizes</code> @ <code v-pre>file found in</code></p>
+        </div>
+    </div>
+</div>
+<ul>
+<li><code v-pre>buddyDeathResponse</code> =&gt; <code v-pre>1424</code> @ <code v-pre>agency_heist1.c</code></li>
+<li><code v-pre>mission_stat_watcher</code> =&gt; <code v-pre>1828</code> @ <code v-pre>ambient_mrsphilips.c</code></li>
+<li><code v-pre>cellphone_flashhand</code> =&gt; <code v-pre>1424</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>AM_MP_BOARDROOM_SEATING</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_arcade.c</code></li>
+<li><code v-pre>arcade_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_arcade.c</code></li>
+<li><code v-pre>ob_jukebox</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_arcade.c</code></li>
+<li><code v-pre>arena_box_bench_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_arena_box.c</code></li>
+<li><code v-pre>arena_workshop_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_arena_garage.c</code></li>
+<li><code v-pre>appCovertOps</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_armory_truck.c</code></li>
+<li><code v-pre>AM_MP_SMOKING_ACTIVITY</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_auto_shop.c</code></li>
+<li><code v-pre>auto_shop_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_auto_shop.c</code></li>
+<li><code v-pre>business_hub_garage_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_business_hub.c</code></li>
+<li><code v-pre>appBusinessHub</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_business_hub.c</code></li>
+<li><code v-pre>appSecuroServ</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>appBikerBusiness</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>appImportExport</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>appInternet</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>AM_CASINO_PEDS</code> =&gt; <code v-pre>15900</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>CASINO_LUCKY_WHEEL</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>CASINO_SLOTS</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>Three_Card_Poker</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>CasinoRoulette</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>Blackjack</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>casino_bar_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino.c</code></li>
+<li><code v-pre>ob_mp_shower_med</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_casino_apartment.c</code></li>
+<li><code v-pre>casino_interior_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino_apartment.c</code></li>
+<li><code v-pre>casino_main_lounge_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino_apartment.c</code></li>
+<li><code v-pre>casino_penthouse_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino_apartment.c</code></li>
+<li><code v-pre>casino_nightclub_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_casino_nightclub.c</code></li>
+<li><code v-pre>base_lounge_seats</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>base_quaters_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>base_heist_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>base_corridor_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>base_reception_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>base_entrance_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_defunct_base.c</code></li>
+<li><code v-pre>fixer_hq_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_fixer_hq.c</code></li>
+<li><code v-pre>fixer_hq_seating_op_floor</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_fixer_hq.c</code></li>
+<li><code v-pre>fixer_hq_seating_pq</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_fixer_hq.c</code></li>
+<li><code v-pre>appHackerTruck</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_hacker_truck.c</code></li>
+<li><code v-pre>beach_exterior_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_island.c</code></li>
+<li><code v-pre>music_studio_smoking</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_music_studio.c</code></li>
+<li><code v-pre>music_studio_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_music_studio.c</code></li>
+<li><code v-pre>nightclub_ground_floor_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_nightclub.c</code></li>
+<li><code v-pre>nightclub_vip_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_nightclub.c</code></li>
+<li><code v-pre>nightclub_office_seats</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_nightclub.c</code></li>
+<li><code v-pre>NightClubPeds</code> =&gt; <code v-pre>15900</code> @ <code v-pre>am_mp_nightclub.c</code></li>
+<li><code v-pre>simeon_showroom_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_simeon_showroom.c</code></li>
+<li><code v-pre>appContacts</code> =&gt; <code v-pre>4000</code> @ <code v-pre>appmpemail.c</code></li>
+<li><code v-pre>postRC_Barry1and2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>barry1.c</code></li>
+<li><code v-pre>Traffick_Air</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_trafficking.c</code></li>
+<li><code v-pre>Country_Race</code> =&gt; <code v-pre>5050</code> @ <code v-pre>country_race_controller.c</code></li>
+<li><code v-pre>FM_Main_Menu</code> =&gt; <code v-pre>5050</code> @ <code v-pre>creator.c</code></li>
+<li><code v-pre>UGC_Global_Registration</code> =&gt; <code v-pre>128</code> @ <code v-pre>creator.c</code></li>
+<li><code v-pre>UGC_Global_Registration_2</code> =&gt; <code v-pre>128</code> @ <code v-pre>creator.c</code></li>
+<li><code v-pre>emergencycall</code> =&gt; <code v-pre>512</code> @ <code v-pre>emergencycalllauncher.c</code></li>
+<li><code v-pre>taxiService</code> =&gt; <code v-pre>1828</code> @ <code v-pre>family1taxi.c</code></li>
+<li><code v-pre>net_cloud_mission_loader</code> =&gt; <code v-pre>2050</code> @ <code v-pre>fmmc_launcher.c</code></li>
+<li><code v-pre>AM_MP_PROPERTY_INT</code> =&gt; <code v-pre>iVar0</code> @ <code v-pre>fmmc_launcher.c</code></li>
+<li><code v-pre>FM_Mission_Controller</code> =&gt; <code v-pre>68500</code> @ <code v-pre>fm_capture_creator.c</code></li>
+<li><code v-pre>AM_MP_ISLAND</code> =&gt; <code v-pre>15900</code> @ <code v-pre>fm_content_island_heist.c</code></li>
+<li><code v-pre>FM_Race_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>FM_Deathmatch_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>FM_Capture_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>FM_Mission_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>Freemode_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>Basic_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>FM_Survival_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>FM_LTS_Creator</code> =&gt; <code v-pre>51000</code> @ <code v-pre>fm_main_menu.c</code></li>
+<li><code v-pre>AM_MP_ORBITAL_CANNON</code> =&gt; <code v-pre>1424</code> @ <code v-pre>fm_mission_controller.c</code></li>
+<li><code v-pre>FM_Survival_Controller</code> =&gt; <code v-pre>68500</code> @ <code v-pre>fm_survival_creator.c</code></li>
+<li><code v-pre>FMMC_Launcher</code> =&gt; <code v-pre>23000</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>AM_MP_YACHT</code> =&gt; <code v-pre>5000</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>AM_MP_ARENA_BOX</code> =&gt; <code v-pre>5050</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>vehicle_stealth_mode</code> =&gt; <code v-pre>1424</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>missionIAATurret</code> =&gt; <code v-pre>15900</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>GB_BIKER_TARGET_RIVAL</code> =&gt; <code v-pre>512</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>FM_maintain_cloud_header_data</code> =&gt; <code v-pre>1424</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>emergencycalllauncher</code> =&gt; <code v-pre>1424</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>fake_interiors</code> =&gt; <code v-pre>1424</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>AM_PI_MENU</code> =&gt; <code v-pre>9800</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>freemode_clearGlobals</code> =&gt; <code v-pre>14100</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>blip_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>bootycallhandler</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>candidate_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>cheat_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>CompletionPercentage_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>controller_AmbientArea</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>email_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>event_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>taxiLauncher</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>restrictedAreas</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>flow_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>player_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>pickup_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>randomchar_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>vehicle_gen_controller</code> =&gt; <code v-pre>1828</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>mission_stat_alerter</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>MPStatsInit</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>stock_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>tennis_family</code> =&gt; <code v-pre>5050</code> @ <code v-pre>launcher_tennis.c</code></li>
+<li><code v-pre>ambient_Sonar</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>controller_Towing</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>InGameHud</code> =&gt; <code v-pre>5050</code> @ <code v-pre>maintransition.c</code></li>
+<li><code v-pre>Net_Rank_Tunable_Loader</code> =&gt; <code v-pre>1424</code> @ <code v-pre>maintransition.c</code></li>
+<li><code v-pre>error_listener</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>drunk_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>cellphone_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>dialogue_handler</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>selector</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>context_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>social_controller</code> =&gt; <code v-pre>1828</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>stats_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>achievement_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>shop_controller</code> =&gt; <code v-pre>3200</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>building_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>main_persistent.c</code></li>
+<li><code v-pre>ambient_Tonya</code> =&gt; <code v-pre>1424</code> @ <code v-pre>mission_repeat_controller.c</code></li>
+<li><code v-pre>MainTransition</code> =&gt; <code v-pre>8032</code> @ <code v-pre>selector.c</code></li>
+<li><code v-pre>ambient_TonyaCall2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>tonya2.c</code></li>
+<li><code v-pre>ambient_TonyaCall5</code> =&gt; <code v-pre>1424</code> @ <code v-pre>tonya5.c</code></li>
+<li><code v-pre>ambient_Diving</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>controller_Races</code> =&gt; <code v-pre>128</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>MrsPhilips2</code> =&gt; <code v-pre>51000</code> @ <code v-pre>ambient_mrsphilips.c</code></li>
+<li><code v-pre>appInternet</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appMPJobListNEW</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appChecklist</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appEmail</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appTextMessage</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appSettings</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appContacts</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appCamera</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appTrackify</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appMPEmail</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>AppJIPMP</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appMPCopBackup</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>AppVLSI</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>AppExtraction</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>AppSecuroHack</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>appMPBossAgency</code> =&gt; <code v-pre>4000, 2552</code> @ <code v-pre>ambient_sonar.c</code></li>
+<li><code v-pre>Tonya3</code> =&gt; <code v-pre>51000</code> @ <code v-pre>ambient_tonya.c</code></li>
+<li><code v-pre>Tonya4</code> =&gt; <code v-pre>51000</code> @ <code v-pre>ambient_tonya.c</code></li>
+<li><code v-pre>appFixerSecurity</code> =&gt; <code v-pre>4592</code> @ <code v-pre>am_mp_arcade.c</code></li>
+<li><code v-pre>Apartment_Minigame_Launcher</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_arcade.c</code></li>
+<li><code v-pre>wizard_arcade</code> =&gt; <code v-pre>8344</code> @ <code v-pre>am_mp_arcade_claw_crane.c</code></li>
+<li><code v-pre>ggsm_arcade</code> =&gt; <code v-pre>8344</code> @ <code v-pre>am_mp_arcade_claw_crane.c</code></li>
+<li><code v-pre>degenatron_games</code> =&gt; <code v-pre>8344</code> @ <code v-pre>am_mp_arcade_claw_crane.c</code></li>
+<li><code v-pre>carwash2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>am_mp_carwash_launch.c</code></li>
+<li><code v-pre>car_meet_exterior_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_smpl_interior_ext.c</code></li>
+<li><code v-pre>music_studio_seating_external</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_smpl_interior_ext.c</code></li>
+<li><code v-pre>casino_exterior_seating</code> =&gt; <code v-pre>5050</code> @ <code v-pre>am_mp_smpl_interior_ext.c</code></li>
+<li><code v-pre>appSmuggler</code> =&gt; <code v-pre>4592</code> @ <code v-pre>apparcadebusinesshub.c</code></li>
+<li><code v-pre>appBunkerBusiness</code> =&gt; <code v-pre>4592</code> @ <code v-pre>apparcadebusinesshub.c</code></li>
+<li><code v-pre>appBikerBusiness</code> =&gt; <code v-pre>4592</code> @ <code v-pre>apparcadebusinesshub.c</code></li>
+<li><code v-pre>Maude_PostBailBond</code> =&gt; <code v-pre>1424</code> @ <code v-pre>bailbond_launcher.c</code></li>
+<li><code v-pre>carwash1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>carwash1.c</code></li>
+<li><code v-pre>carwash2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>carwash2.c</code></li>
+<li><code v-pre>re_ArmyBase</code> =&gt; <code v-pre>1424</code> @ <code v-pre>controller_ambientarea.c</code></li>
+<li><code v-pre>golf_ai_foursome</code> =&gt; <code v-pre>5050</code> @ <code v-pre>controller_ambientarea.c</code></li>
+<li><code v-pre>re_Prison</code> =&gt; <code v-pre>1424</code> @ <code v-pre>controller_ambientarea.c</code></li>
+<li><code v-pre>golf_ai_foursome_putting</code> =&gt; <code v-pre>5050</code> @ <code v-pre>controller_ambientarea.c</code></li>
+<li><code v-pre>stripclub</code> =&gt; <code v-pre>2050</code> @ <code v-pre>controller_ambientarea.c</code></li>
+<li><code v-pre>Taxi_Procedural</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_NeedExcitement</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_TakeItEasy</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_Deadline</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_GotYourBack</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_TakeToBest</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_CutYouIn</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_GotYouNow</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_ClownCar</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>Taxi_FollowCar</code> =&gt; <code v-pre>51000</code> @ <code v-pre>controller_taxi.c</code></li>
+<li><code v-pre>DIRECTOR_MODE</code> =&gt; <code v-pre>unknown</code> @ <code v-pre>director_mode.c</code></li>
+<li><code v-pre>Dreyfuss1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>dreyfuss1.c</code></li>
+<li><code v-pre>Epsilon1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon1.c</code></li>
+<li><code v-pre>Epsilon2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon2.c</code></li>
+<li><code v-pre>Epsilon3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon3.c</code></li>
+<li><code v-pre>Epsilon4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon4.c</code></li>
+<li><code v-pre>Epsilon5</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon5.c</code></li>
+<li><code v-pre>Epsilon6</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon6.c</code></li>
+<li><code v-pre>Epsilon7</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon7.c</code></li>
+<li><code v-pre>Epsilon8</code> =&gt; <code v-pre>1424</code> @ <code v-pre>epsilon8.c</code></li>
+<li><code v-pre>Extreme1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>extreme1.c</code></li>
+<li><code v-pre>Extreme2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>extreme2.c</code></li>
+<li><code v-pre>Extreme3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>extreme3.c</code></li>
+<li><code v-pre>Extreme4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>extreme4.c</code></li>
+<li><code v-pre>Bigwheel</code> =&gt; <code v-pre>2050</code> @ <code v-pre>fairgroundhub.c</code> =&gt; <code v-pre>unconfirmed</code></li>
+<li><code v-pre>Rollercoaster</code> =&gt; <code v-pre>2050</code> @ <code v-pre>fairgroundhub.c</code> =&gt; <code v-pre>unconfirmed</code></li>
+<li><code v-pre>fairgroundhub</code> =&gt; <code v-pre>2050</code> @ <code v-pre>fairgroundhub.c</code> =&gt; <code v-pre>unconfirmed</code></li>
+<li><code v-pre>player_scene_ft_franklin1</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_m_fbi2</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_mf_traffic</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_m_shopping</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_t_bbfight</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_m_cinema</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_m_kids</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>player_scene_t_park</code> =&gt; <code v-pre>2050</code> @ <code v-pre>family6.c</code></li>
+<li><code v-pre>Abigail1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Abigail2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry3A</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry3C</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Barry4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Fanatic1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Fanatic2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Fanatic3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Hao1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Hunting1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Hunting2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Josh1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Josh2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Josh3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Josh4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Maude1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Minute1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Minute2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Minute3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>MrsPhilips1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>MrsPhilips2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel1A</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel1B</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel1C</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel1D</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Nigel3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Omega1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Omega2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo3A</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo3B</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Paparazzo4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Rampage1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Rampage2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Rampage3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Rampage4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Rampage5</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>TheLastOne</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Tonya1</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Tonya2</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Tonya3</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Tonya4</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>Tonya5</code> =&gt; <code v-pre>1424</code> @ <code v-pre>abigail1.c</code></li>
+<li><code v-pre>freemode</code> =&gt; <code v-pre>32750</code> @ <code v-pre>fm_maintain_transition_players.c</code></li>
+<li><code v-pre>Creator</code> =&gt; <code v-pre>23000</code> @ <code v-pre>fm_maintain_transition_players.c</code></li>
+<li><code v-pre>spawn_activities</code> =&gt; <code v-pre>1424</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>SCTV</code> =&gt; <code v-pre>8344</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>am_luxury_showroom</code> =&gt; <code v-pre>2324</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>freemode_init</code> =&gt; <code v-pre>5050</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>TimersHUD</code> =&gt; <code v-pre>4600</code> @ <code v-pre>freemode.c</code></li>
+<li><code v-pre>initial</code> =&gt; <code v-pre>2050</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>heist_ctrl_agency</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>heist_ctrl_docks</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>heist_ctrl_finale</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>heist_ctrl_jewel</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>heist_ctrl_rural</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>epsCars</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>epsDesert</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>epsRobes</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>epsilonTract</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>ambient_MrsPhilips</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>forSaleSigns</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>letterScraps</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>ambient_Sonar</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>spaceshipParts</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>controller_Taxi</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>controller_Trafficking</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>exile_city_denial</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>buildingSiteAmbience</code> =&gt; <code v-pre>128</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>finale_choice</code> =&gt; <code v-pre>512</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>pickupVehicles</code> =&gt; <code v-pre>128</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>BailBond_Launcher</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>rampage_controller</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>SH_Intro_F_Hills</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>SH_Intro_M_Home</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>FBI4_Prep3Amb</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>finale_heist_prepEamb</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>agency_prep2Amb</code> =&gt; <code v-pre>2050</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>ambient_Tonya</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>AF_Intro_T_Sandy</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>ambient_Solomon</code> =&gt; <code v-pre>1424</code> @ <code v-pre>initial.c</code></li>
+<li><code v-pre>launcher_carwash</code> =&gt; <code v-pre>1424</code> @ <code v-pre>launcher_carwash.c</code></li>
+<li><code v-pre>golf</code> =&gt; <code v-pre>2050</code> @ <code v-pre>launcher_golf.c</code></li>
+<li><code v-pre>stunt_plane_races</code> =&gt; <code v-pre>51000</code> @ <code v-pre>launcher_stunts.c</code></li>
+<li><code v-pre>tennis</code> =&gt; <code v-pre>2050 or 51000</code> @ <code v-pre>launcher_tennis.c</code></li>
+<li><code v-pre>Yoga</code> =&gt; <code v-pre>2050 or 51000</code> @ <code v-pre>launcher_yoga.c</code></li>
+<li><code v-pre>pm_delivery</code> =&gt; <code v-pre>51000</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>pm_defend</code> =&gt; <code v-pre>51000</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>pm_recover_stolen</code> =&gt; <code v-pre>51000</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>pm_gang_attack</code> =&gt; <code v-pre>51000</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>pm_plane_promotion</code> =&gt; <code v-pre>51000</code> @ <code v-pre>main.c</code></li>
+<li><code v-pre>Celebrations</code> =&gt; <code v-pre>5050</code> @ <code v-pre>pilot_school_mp.c</code></li>
+<li><code v-pre>startup_positioning</code> =&gt; <code v-pre>2324</code> @ <code v-pre>standard_global_reg.c</code></li>
+<li><code v-pre>main_persistent</code> =&gt; <code v-pre>1424</code> @ <code v-pre>standard_global_reg.c</code></li>
+<li><code v-pre>main_install</code> =&gt; <code v-pre>1424</code> @ <code v-pre>startup_install.c</code></li>
+</ul>
+<doc-anchor-target id="task-index">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#task-index">#</doc-anchor-trigger>
+        <span>Task Index</span>
+    </h2>
+</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Updated for build 2372.</h5>
+        </div>
+    </div>
+</div>
+<ul>
+<li><code v-pre>CTaskHandsUp</code> =&gt; <code v-pre>0</code></li>
+<li><code v-pre>CTaskClimbLadder</code> =&gt; <code v-pre>1</code></li>
+<li><code v-pre>CTaskExitVehicle</code> =&gt; <code v-pre>2</code></li>
+<li><code v-pre>CTaskCombatRoll</code> =&gt; <code v-pre>3</code></li>
+<li><code v-pre>CTaskAimGunOnFoot</code> =&gt; <code v-pre>4</code></li>
+<li><code v-pre>CTaskMovePlayer</code> =&gt; <code v-pre>5</code></li>
+<li><code v-pre>CTaskPlayerOnFoot</code> =&gt; <code v-pre>6</code></li>
+<li><code v-pre>CTaskWeapon</code> =&gt; <code v-pre>8</code></li>
+<li><code v-pre>CTaskPlayerWeapon</code> =&gt; <code v-pre>9</code></li>
+<li><code v-pre>CTaskPlayerIdles</code> =&gt; <code v-pre>10</code></li>
+<li><code v-pre>CTaskAimGun</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskComplex</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskFSMClone</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskMotionBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskMove</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskMoveBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskNMBehaviour</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskNavBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskScenario</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskSearchBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskSearchInVehicleBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskShockingEvent</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskTrainBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskVehicleFSM</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskVehicleGoTo</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskVehicleMissionBase</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskVehicleTempAction</code> =&gt; <code v-pre>12</code></li>
+<li><code v-pre>CTaskPause</code> =&gt; <code v-pre>14</code></li>
+<li><code v-pre>CTaskDoNothing</code> =&gt; <code v-pre>15</code></li>
+<li><code v-pre>CTaskGetUp</code> =&gt; <code v-pre>16</code></li>
+<li><code v-pre>CTaskGetUpAndStandStill</code> =&gt; <code v-pre>17</code></li>
+<li><code v-pre>CTaskFallOver</code> =&gt; <code v-pre>18</code></li>
+<li><code v-pre>CTaskFallAndGetUp</code> =&gt; <code v-pre>19</code></li>
+<li><code v-pre>CTaskCrawl</code> =&gt; <code v-pre>20</code></li>
+<li><code v-pre>CTaskComplexOnFire</code> =&gt; <code v-pre>25</code></li>
+<li><code v-pre>CTaskDamageElectric</code> =&gt; <code v-pre>26</code></li>
+<li><code v-pre>CTaskTriggerLookAt</code> =&gt; <code v-pre>28</code></li>
+<li><code v-pre>CTaskClearLookAt</code> =&gt; <code v-pre>29</code></li>
+<li><code v-pre>CTaskSetCharDecisionMaker</code> =&gt; <code v-pre>30</code></li>
+<li><code v-pre>CTaskSetPedDefensiveArea</code> =&gt; <code v-pre>31</code></li>
+<li><code v-pre>CTaskUseSequence</code> =&gt; <code v-pre>32</code></li>
+<li><code v-pre>CTaskMoveStandStill</code> =&gt; <code v-pre>34</code></li>
+<li><code v-pre>CTaskComplexControlMovement</code> =&gt; <code v-pre>35</code></li>
+<li><code v-pre>CTaskMoveSequence</code> =&gt; <code v-pre>36</code></li>
+<li><code v-pre>CTaskAmbientClips</code> =&gt; <code v-pre>38</code></li>
+<li><code v-pre>CTaskMoveInAir</code> =&gt; <code v-pre>39</code></li>
+<li><code v-pre>CTaskNetworkClone</code> =&gt; <code v-pre>40</code></li>
+<li><code v-pre>CTaskUseClimbOnRoute</code> =&gt; <code v-pre>41</code></li>
+<li><code v-pre>CTaskUseDropDownOnRoute</code> =&gt; <code v-pre>42</code></li>
+<li><code v-pre>CTaskUseLadderOnRoute</code> =&gt; <code v-pre>43</code></li>
+<li><code v-pre>CTaskSetBlockingOfNonTemporaryEvents</code> =&gt; <code v-pre>44</code></li>
+<li><code v-pre>CTaskForceMotionState</code> =&gt; <code v-pre>45</code></li>
+<li><code v-pre>CTaskSlopeScramble</code> =&gt; <code v-pre>46</code></li>
+<li><code v-pre>CTaskGoToAndClimbLadder</code> =&gt; <code v-pre>47</code></li>
+<li><code v-pre>CTaskClimbLadderFully</code> =&gt; <code v-pre>48</code></li>
+<li><code v-pre>CTaskRappel</code> =&gt; <code v-pre>49</code></li>
+<li><code v-pre>CTaskVault</code> =&gt; <code v-pre>50</code></li>
+<li><code v-pre>CTaskDropDown</code> =&gt; <code v-pre>51</code></li>
+<li><code v-pre>CTaskAffectSecondaryBehaviour</code> =&gt; <code v-pre>52</code></li>
+<li><code v-pre>CTaskAmbientLookAtEvent</code> =&gt; <code v-pre>53</code></li>
+<li><code v-pre>CTaskOpenDoor</code> =&gt; <code v-pre>54</code></li>
+<li><code v-pre>CTaskShovePed</code> =&gt; <code v-pre>55</code></li>
+<li><code v-pre>CTaskSwapWeapon</code> =&gt; <code v-pre>56</code></li>
+<li><code v-pre>CTaskGeneralSweep</code> =&gt; <code v-pre>57</code></li>
+<li><code v-pre>CTaskPolice</code> =&gt; <code v-pre>58</code></li>
+<li><code v-pre>CTaskPoliceOrderResponse</code> =&gt; <code v-pre>59</code></li>
+<li><code v-pre>CTaskPursueCriminal</code> =&gt; <code v-pre>60</code></li>
+<li><code v-pre>CTaskArrestPed</code> =&gt; <code v-pre>62</code></li>
+<li><code v-pre>CTaskArrestPed2</code> =&gt; <code v-pre>63</code></li>
+<li><code v-pre>CTaskBusted</code> =&gt; <code v-pre>64</code></li>
+<li><code v-pre>CTaskFirePatrol</code> =&gt; <code v-pre>65</code></li>
+<li><code v-pre>CTaskHeliOrderResponse</code> =&gt; <code v-pre>66</code></li>
+<li><code v-pre>CTaskHeliPassengerRappel</code> =&gt; <code v-pre>67</code></li>
+<li><code v-pre>CTaskAmbulancePatrol</code> =&gt; <code v-pre>68</code></li>
+<li><code v-pre>CTaskPoliceWantedResponse</code> =&gt; <code v-pre>69</code></li>
+<li><code v-pre>CTaskSwat</code> =&gt; <code v-pre>70</code></li>
+<li><code v-pre>CTaskSwatWantedResponse</code> =&gt; <code v-pre>72</code></li>
+<li><code v-pre>CTaskSwatOrderResponse</code> =&gt; <code v-pre>73</code></li>
+<li><code v-pre>CTaskSwatGoToStagingArea</code> =&gt; <code v-pre>74</code></li>
+<li><code v-pre>CTaskSwatFollowInLine</code> =&gt; <code v-pre>75</code></li>
+<li><code v-pre>CTaskWitness</code> =&gt; <code v-pre>76</code></li>
+<li><code v-pre>CTaskGangPatrol</code> =&gt; <code v-pre>77</code></li>
+<li><code v-pre>CTaskArmy</code> =&gt; <code v-pre>78</code></li>
+<li><code v-pre>CTaskShockingEventWatch</code> =&gt; <code v-pre>80</code></li>
+<li><code v-pre>CTaskShockingEventGoto</code> =&gt; <code v-pre>82</code></li>
+<li><code v-pre>CTaskShockingEventHurryAway</code> =&gt; <code v-pre>83</code></li>
+<li><code v-pre>CTaskShockingEventReactToAircraft</code> =&gt; <code v-pre>84</code></li>
+<li><code v-pre>CTaskShockingEventReact</code> =&gt; <code v-pre>85</code></li>
+<li><code v-pre>CTaskShockingEventBackAway</code> =&gt; <code v-pre>86</code></li>
+<li><code v-pre>CTaskShockingPoliceInvestigate</code> =&gt; <code v-pre>87</code></li>
+<li><code v-pre>CTaskShockingEventStopAndStare</code> =&gt; <code v-pre>88</code></li>
+<li><code v-pre>CTaskShockingNiceCarPicture</code> =&gt; <code v-pre>89</code></li>
+<li><code v-pre>CTaskShockingEventThreatResponse</code> =&gt; <code v-pre>90</code></li>
+<li><code v-pre>CTaskTakeOffHelmet</code> =&gt; <code v-pre>92</code></li>
+<li><code v-pre>CTaskCarReactToVehicleCollision</code> =&gt; <code v-pre>93</code></li>
+<li><code v-pre>CTaskCarReactToVehicleCollisionGetOut</code> =&gt; <code v-pre>95</code></li>
+<li><code v-pre>CTaskDyingDead</code> =&gt; <code v-pre>97</code></li>
+<li><code v-pre>CTaskWanderingScenario</code> =&gt; <code v-pre>100</code></li>
+<li><code v-pre>CTaskWanderingInRadiusScenario</code> =&gt; <code v-pre>101</code></li>
+<li><code v-pre>CTaskMoveBetweenPointsScenario</code> =&gt; <code v-pre>103</code></li>
+<li><code v-pre>CTaskChatScenario</code> =&gt; <code v-pre>104</code></li>
+<li><code v-pre>CTaskCowerScenario</code> =&gt; <code v-pre>106</code></li>
+<li><code v-pre>CTaskDeadBodyScenario</code> =&gt; <code v-pre>107</code></li>
+<li><code v-pre>CTaskSayAudio</code> =&gt; <code v-pre>114</code></li>
+<li><code v-pre>CTaskWaitForSteppingOut</code> =&gt; <code v-pre>116</code></li>
+<li><code v-pre>CTaskCoupleScenario</code> =&gt; <code v-pre>117</code></li>
+<li><code v-pre>CTaskUseScenario</code> =&gt; <code v-pre>118</code></li>
+<li><code v-pre>CTaskUseVehicleScenario</code> =&gt; <code v-pre>119</code></li>
+<li><code v-pre>CTaskUnalerted</code> =&gt; <code v-pre>120</code></li>
+<li><code v-pre>CTaskStealVehicle</code> =&gt; <code v-pre>121</code></li>
+<li><code v-pre>CTaskReactToPursuit</code> =&gt; <code v-pre>122</code></li>
+<li><code v-pre>CTaskHitWall</code> =&gt; <code v-pre>125</code></li>
+<li><code v-pre>CTaskCower</code> =&gt; <code v-pre>126</code></li>
+<li><code v-pre>CTaskCrouch</code> =&gt; <code v-pre>127</code></li>
+<li><code v-pre>CTaskMelee</code> =&gt; <code v-pre>128</code></li>
+<li><code v-pre>CTaskMoveMeleeMovement</code> =&gt; <code v-pre>129</code></li>
+<li><code v-pre>CTaskMeleeActionResult</code> =&gt; <code v-pre>130</code></li>
+<li><code v-pre>CTaskMeleeUpperbodyAnims</code> =&gt; <code v-pre>131</code></li>
+<li><code v-pre>CTaskMoVEScripted</code> =&gt; <code v-pre>133</code></li>
+<li><code v-pre>CTaskScriptedAnimation</code> =&gt; <code v-pre>134</code></li>
+<li><code v-pre>CTaskSynchronizedScene</code> =&gt; <code v-pre>135</code></li>
+<li><code v-pre>CTaskComplexEvasiveStep</code> =&gt; <code v-pre>137</code></li>
+<li><code v-pre>CTaskWalkRoundCarWhileWandering</code> =&gt; <code v-pre>138</code></li>
+<li><code v-pre>CTaskComplexStuckInAir</code> =&gt; <code v-pre>140</code></li>
+<li><code v-pre>CTaskWalkRoundEntity</code> =&gt; <code v-pre>141</code></li>
+<li><code v-pre>CTaskMoveWalkRoundVehicle</code> =&gt; <code v-pre>142</code></li>
+<li><code v-pre>CTaskReactToGunAimedAt</code> =&gt; <code v-pre>144</code></li>
+<li><code v-pre>CTaskDuckAndCover</code> =&gt; <code v-pre>146</code></li>
+<li><code v-pre>CTaskAggressiveRubberneck</code> =&gt; <code v-pre>147</code></li>
+<li><code v-pre>CTaskInVehicleBasic</code> =&gt; <code v-pre>150</code></li>
+<li><code v-pre>CTaskCarDriveWander</code> =&gt; <code v-pre>151</code></li>
+<li><code v-pre>CTaskLeaveAnyCar</code> =&gt; <code v-pre>152</code></li>
+<li><code v-pre>CTaskComplexGetOffBoat</code> =&gt; <code v-pre>153</code></li>
+<li><code v-pre>CTaskCarSetTempAction</code> =&gt; <code v-pre>155</code></li>
+<li><code v-pre>CTaskBringVehicleToHalt</code> =&gt; <code v-pre>156</code></li>
+<li><code v-pre>CTaskCarDrive</code> =&gt; <code v-pre>157</code></li>
+<li><code v-pre>CTaskPlayerDrive</code> =&gt; <code v-pre>159</code></li>
+<li><code v-pre>CTaskEnterVehicle</code> =&gt; <code v-pre>160</code></li>
+<li><code v-pre>CTaskEnterVehicleAlign</code> =&gt; <code v-pre>161</code></li>
+<li><code v-pre>CTaskOpenVehicleDoorFromOutside</code> =&gt; <code v-pre>162</code></li>
+<li><code v-pre>CTaskEnterVehicleSeat</code> =&gt; <code v-pre>163</code></li>
+<li><code v-pre>CTaskCloseVehicleDoorFromInside</code> =&gt; <code v-pre>164</code></li>
+<li><code v-pre>CTaskInVehicleSeatShuffle</code> =&gt; <code v-pre>165</code></li>
+<li><code v-pre>CTaskExitVehicleSeat</code> =&gt; <code v-pre>167</code></li>
+<li><code v-pre>CTaskCloseVehicleDoorFromOutside</code> =&gt; <code v-pre>168</code></li>
+<li><code v-pre>CTaskControlVehicle</code> =&gt; <code v-pre>169</code></li>
+<li><code v-pre>CTaskMotionInAutomobile</code> =&gt; <code v-pre>170</code></li>
+<li><code v-pre>CTaskMotionOnBicycle</code> =&gt; <code v-pre>171</code></li>
+<li><code v-pre>CTaskMotionOnBicycleController</code> =&gt; <code v-pre>172</code></li>
+<li><code v-pre>CTaskMotionInVehicle</code> =&gt; <code v-pre>173</code></li>
+<li><code v-pre>CTaskMotionInTurret</code> =&gt; <code v-pre>174</code></li>
+<li><code v-pre>CTaskReactToBeingJacked</code> =&gt; <code v-pre>175</code></li>
+<li><code v-pre>CTaskReactToBeingAskedToLeaveVehicle</code> =&gt; <code v-pre>176</code></li>
+<li><code v-pre>CTaskTryToGrabVehicleDoor</code> =&gt; <code v-pre>177</code></li>
+<li><code v-pre>CTaskGetOnTrain</code> =&gt; <code v-pre>178</code></li>
+<li><code v-pre>CTaskGetOffTrain</code> =&gt; <code v-pre>179</code></li>
+<li><code v-pre>CTaskRideTrain</code> =&gt; <code v-pre>180</code></li>
+<li><code v-pre>CTaskMountThrowProjectile</code> =&gt; <code v-pre>190</code></li>
+<li><code v-pre>CTaskGoToCarDoorAndStandStill</code> =&gt; <code v-pre>195</code></li>
+<li><code v-pre>CTaskMoveGoToVehicleDoor</code> =&gt; <code v-pre>196</code></li>
+<li><code v-pre>CTaskSetPedInVehicle</code> =&gt; <code v-pre>197</code></li>
+<li><code v-pre>CTaskSetPedOutOfVehicle</code> =&gt; <code v-pre>198</code></li>
+<li><code v-pre>CTaskVehicleMountedWeapon</code> =&gt; <code v-pre>199</code></li>
+<li><code v-pre>CTaskVehicleGun</code> =&gt; <code v-pre>200</code></li>
+<li><code v-pre>CTaskVehicleProjectile</code> =&gt; <code v-pre>201</code></li>
+<li><code v-pre>CTaskSmashCarWindow</code> =&gt; <code v-pre>204</code></li>
+<li><code v-pre>CTaskMoveGoToPoint</code> =&gt; <code v-pre>205</code></li>
+<li><code v-pre>CTaskMoveAchieveHeading</code> =&gt; <code v-pre>206</code></li>
+<li><code v-pre>CTaskMoveFaceTarget</code> =&gt; <code v-pre>207</code></li>
+<li><code v-pre>CTaskComplexGoToPointAndStandStillTimed</code> =&gt; <code v-pre>208</code></li>
+<li><code v-pre>CTaskMoveGoToPointAndStandStill</code> =&gt; <code v-pre>208</code></li>
+<li><code v-pre>CTaskMoveFollowPointRoute</code> =&gt; <code v-pre>209</code></li>
+<li><code v-pre>CTaskMoveSeekEntity_CEntitySeekPosCalculatorStandard</code> =&gt; <code v-pre>210</code></li>
+<li><code v-pre>CTaskMoveSeekEntity_CEntitySeekPosCalculatorLastNavMeshIntersection</code> =&gt; <code v-pre>211</code></li>
+<li><code v-pre>CTaskMoveSeekEntity_CEntitySeekPosCalculatorLastNavMeshIntersection2</code> =&gt; <code v-pre>212</code></li>
+<li><code v-pre>CTaskMoveSeekEntity_CEntitySeekPosCalculatorXYOffsetFixed</code> =&gt; <code v-pre>213</code></li>
+<li><code v-pre>CTaskMoveSeekEntity_CEntitySeekPosCalculatorXYOffsetFixed2</code> =&gt; <code v-pre>214</code></li>
+<li><code v-pre>CTaskExhaustedFlee</code> =&gt; <code v-pre>215</code></li>
+<li><code v-pre>CTaskGrowlAndFlee</code> =&gt; <code v-pre>216</code></li>
+<li><code v-pre>CTaskScenarioFlee</code> =&gt; <code v-pre>217</code></li>
+<li><code v-pre>CTaskSmartFlee</code> =&gt; <code v-pre>218</code></li>
+<li><code v-pre>CTaskFlyAway</code> =&gt; <code v-pre>219</code></li>
+<li><code v-pre>CTaskWalkAway</code> =&gt; <code v-pre>220</code></li>
+<li><code v-pre>CTaskWander</code> =&gt; <code v-pre>221</code></li>
+<li><code v-pre>CTaskWanderInArea</code> =&gt; <code v-pre>222</code></li>
+<li><code v-pre>CTaskFollowLeaderInFormation</code> =&gt; <code v-pre>223</code></li>
+<li><code v-pre>CTaskGoToPointAnyMeans</code> =&gt; <code v-pre>224</code></li>
+<li><code v-pre>CTaskTurnToFaceEntityOrCoord</code> =&gt; <code v-pre>225</code></li>
+<li><code v-pre>CTaskFollowLeaderAnyMeans</code> =&gt; <code v-pre>226</code></li>
+<li><code v-pre>CTaskFlyToPoint</code> =&gt; <code v-pre>228</code></li>
+<li><code v-pre>CTaskFlyingWander</code> =&gt; <code v-pre>229</code></li>
+<li><code v-pre>CTaskGoToPointAiming</code> =&gt; <code v-pre>230</code></li>
+<li><code v-pre>CTaskGoToScenario</code> =&gt; <code v-pre>231</code></li>
+<li><code v-pre>CTaskSeekEntityAiming</code> =&gt; <code v-pre>233</code></li>
+<li><code v-pre>CTaskSlideToCoord</code> =&gt; <code v-pre>234</code></li>
+<li><code v-pre>CTaskSwimmingWander</code> =&gt; <code v-pre>235</code></li>
+<li><code v-pre>CTaskMoveTrackingEntity</code> =&gt; <code v-pre>237</code></li>
+<li><code v-pre>CTaskMoveFollowNavMesh</code> =&gt; <code v-pre>238</code></li>
+<li><code v-pre>CTaskMoveGoToPointOnRoute</code> =&gt; <code v-pre>239</code></li>
+<li><code v-pre>CTaskEscapeBlast</code> =&gt; <code v-pre>240</code></li>
+<li><code v-pre>CTaskMoveWander</code> =&gt; <code v-pre>241</code></li>
+<li><code v-pre>CTaskMoveBeInFormation</code> =&gt; <code v-pre>242</code></li>
+<li><code v-pre>CTaskMoveCrowdAroundLocation</code> =&gt; <code v-pre>243</code></li>
+<li><code v-pre>CTaskMoveCrossRoadAtTrafficLights</code> =&gt; <code v-pre>244</code></li>
+<li><code v-pre>CTaskMoveWaitForTraffic</code> =&gt; <code v-pre>245</code></li>
+<li><code v-pre>CTaskMoveGoToPointStandStillAchieveHeading</code> =&gt; <code v-pre>246</code></li>
+<li><code v-pre>CTaskMoveGetOntoMainNavMesh</code> =&gt; <code v-pre>251</code></li>
+<li><code v-pre>CTaskMoveSlideToCoord</code> =&gt; <code v-pre>252</code></li>
+<li><code v-pre>CTaskMoveGoToPointRelativeToEntityAndStandStill</code> =&gt; <code v-pre>253</code></li>
+<li><code v-pre>CTaskHelicopterStrafe</code> =&gt; <code v-pre>254</code></li>
+<li><code v-pre>CTaskGetOutOfWater</code> =&gt; <code v-pre>256</code></li>
+<li><code v-pre>CTaskMoveFollowEntityOffset</code> =&gt; <code v-pre>259</code></li>
+<li><code v-pre>CTaskFollowWaypointRecording</code> =&gt; <code v-pre>261</code></li>
+<li><code v-pre>CTaskMotionPed</code> =&gt; <code v-pre>264</code></li>
+<li><code v-pre>CTaskMotionPedLowLod</code> =&gt; <code v-pre>265</code></li>
+<li><code v-pre>CTaskHumanLocomotion</code> =&gt; <code v-pre>268</code></li>
+<li><code v-pre>CTaskMotionBasicLocomotionLowLod</code> =&gt; <code v-pre>269</code></li>
+<li><code v-pre>CTaskMotionStrafing</code> =&gt; <code v-pre>270</code></li>
+<li><code v-pre>CTaskMotionTennis</code> =&gt; <code v-pre>271</code></li>
+<li><code v-pre>CTaskMotionAiming</code> =&gt; <code v-pre>272</code></li>
+<li><code v-pre>CTaskBirdLocomotion</code> =&gt; <code v-pre>273</code></li>
+<li><code v-pre>CTaskFlightlessBirdLocomotion</code> =&gt; <code v-pre>274</code></li>
+<li><code v-pre>CTaskFishLocomotion</code> =&gt; <code v-pre>278</code></li>
+<li><code v-pre>CTaskQuadLocomotion</code> =&gt; <code v-pre>279</code></li>
+<li><code v-pre>CTaskMotionDiving</code> =&gt; <code v-pre>280</code></li>
+<li><code v-pre>CTaskMotionSwimming</code> =&gt; <code v-pre>281</code></li>
+<li><code v-pre>CTaskMotionParachuting</code> =&gt; <code v-pre>282</code></li>
+<li><code v-pre>CTaskMotionDrunk</code> =&gt; <code v-pre>283</code></li>
+<li><code v-pre>CTaskRepositionMove</code> =&gt; <code v-pre>284</code></li>
+<li><code v-pre>CTaskMotionAimingTransition</code> =&gt; <code v-pre>285</code></li>
+<li><code v-pre>CTaskThrowProjectile</code> =&gt; <code v-pre>286</code></li>
+<li><code v-pre>CTaskCover</code> =&gt; <code v-pre>287</code></li>
+<li><code v-pre>CTaskMotionInCover</code> =&gt; <code v-pre>288</code></li>
+<li><code v-pre>CTaskAimAndThrowProjectile</code> =&gt; <code v-pre>289</code></li>
+<li><code v-pre>CTaskGun</code> =&gt; <code v-pre>290</code></li>
+<li><code v-pre>CTaskAimFromGround</code> =&gt; <code v-pre>291</code></li>
+<li><code v-pre>CTaskAimGunVehicleDriveBy</code> =&gt; <code v-pre>295</code></li>
+<li><code v-pre>CTaskAimGunScripted</code> =&gt; <code v-pre>296</code></li>
+<li><code v-pre>CTaskReloadGun</code> =&gt; <code v-pre>298</code></li>
+<li><code v-pre>CTaskWeaponBlocked</code> =&gt; <code v-pre>299</code></li>
+<li><code v-pre>CTaskEnterCover</code> =&gt; <code v-pre>300</code></li>
+<li><code v-pre>CTaskExitCover</code> =&gt; <code v-pre>301</code></li>
+<li><code v-pre>CTaskAimGunFromCoverIntro</code> =&gt; <code v-pre>302</code></li>
+<li><code v-pre>CTaskAimGunFromCoverOutro</code> =&gt; <code v-pre>303</code></li>
+<li><code v-pre>CTaskAimGunBlindFire</code> =&gt; <code v-pre>304</code></li>
+<li><code v-pre>CTaskCombatClosestTargetInArea</code> =&gt; <code v-pre>307</code></li>
+<li><code v-pre>CTaskCombatAdditionalTask</code> =&gt; <code v-pre>308</code></li>
+<li><code v-pre>CTaskInCover</code> =&gt; <code v-pre>309</code></li>
+<li><code v-pre>CTaskAimSweep</code> =&gt; <code v-pre>313</code></li>
+<li><code v-pre>CTaskSharkCircle</code> =&gt; <code v-pre>319</code></li>
+<li><code v-pre>CTaskSharkAttack</code> =&gt; <code v-pre>320</code></li>
+<li><code v-pre>CTaskAgitated</code> =&gt; <code v-pre>321</code></li>
+<li><code v-pre>CTaskAgitatedAction</code> =&gt; <code v-pre>322</code></li>
+<li><code v-pre>CTaskConfront</code> =&gt; <code v-pre>323</code></li>
+<li><code v-pre>CTaskIntimidate</code> =&gt; <code v-pre>324</code></li>
+<li><code v-pre>CTaskShove</code> =&gt; <code v-pre>325</code></li>
+<li><code v-pre>CTaskShoved</code> =&gt; <code v-pre>326</code></li>
+<li><code v-pre>CTaskCrouchToggle</code> =&gt; <code v-pre>328</code></li>
+<li><code v-pre>CTaskRevive</code> =&gt; <code v-pre>329</code></li>
+<li><code v-pre>CTaskParachute</code> =&gt; <code v-pre>335</code></li>
+<li><code v-pre>CTaskParachuteObject</code> =&gt; <code v-pre>336</code></li>
+<li><code v-pre>CTaskTakeOffPedVariation</code> =&gt; <code v-pre>337</code></li>
+<li><code v-pre>CTaskCombatSeekCover</code> =&gt; <code v-pre>340</code></li>
+<li><code v-pre>CTaskCombatFlank</code> =&gt; <code v-pre>342</code></li>
+<li><code v-pre>CTaskCombat</code> =&gt; <code v-pre>343</code></li>
+<li><code v-pre>CTaskCombatMounted</code> =&gt; <code v-pre>344</code></li>
+<li><code v-pre>CTaskMoveCircle</code> =&gt; <code v-pre>345</code></li>
+<li><code v-pre>CTaskMoveCombatMounted</code> =&gt; <code v-pre>346</code></li>
+<li><code v-pre>CTaskSearch</code> =&gt; <code v-pre>347</code></li>
+<li><code v-pre>CTaskSearchOnFoot</code> =&gt; <code v-pre>348</code></li>
+<li><code v-pre>CTaskSearchInAutomobile</code> =&gt; <code v-pre>349</code></li>
+<li><code v-pre>CTaskSearchInBoat</code> =&gt; <code v-pre>350</code></li>
+<li><code v-pre>CTaskSearchInHeli</code> =&gt; <code v-pre>351</code></li>
+<li><code v-pre>CTaskThreatResponse</code> =&gt; <code v-pre>352</code></li>
+<li><code v-pre>CTaskInvestigate</code> =&gt; <code v-pre>353</code></li>
+<li><code v-pre>CTaskStandGuardFSM</code> =&gt; <code v-pre>354</code></li>
+<li><code v-pre>CTaskPatrol</code> =&gt; <code v-pre>355</code></li>
+<li><code v-pre>CTaskShootAtTarget</code> =&gt; <code v-pre>356</code></li>
+<li><code v-pre>CTaskSetAndGuardArea</code> =&gt; <code v-pre>357</code></li>
+<li><code v-pre>CTaskStandGuard</code> =&gt; <code v-pre>358</code></li>
+<li><code v-pre>CTaskSeparate</code> =&gt; <code v-pre>359</code></li>
+<li><code v-pre>CTaskStayInCover</code> =&gt; <code v-pre>360</code></li>
+<li><code v-pre>CTaskVehicleCombat</code> =&gt; <code v-pre>361</code></li>
+<li><code v-pre>CTaskVehiclePersuit</code> =&gt; <code v-pre>362</code></li>
+<li><code v-pre>CTaskVehicleChase</code> =&gt; <code v-pre>363</code></li>
+<li><code v-pre>CTaskDraggingToSafety</code> =&gt; <code v-pre>364</code></li>
+<li><code v-pre>CTaskDraggedToSafety</code> =&gt; <code v-pre>365</code></li>
+<li><code v-pre>CTaskVariedAimPose</code> =&gt; <code v-pre>366</code></li>
+<li><code v-pre>CTaskMoveWithinAttackWindow</code> =&gt; <code v-pre>367</code></li>
+<li><code v-pre>CTaskMoveWithinDefensiveArea</code> =&gt; <code v-pre>368</code></li>
+<li><code v-pre>CTaskShootOutTire</code> =&gt; <code v-pre>369</code></li>
+<li><code v-pre>CTaskShellShocked</code> =&gt; <code v-pre>370</code></li>
+<li><code v-pre>CTaskBoatChase</code> =&gt; <code v-pre>371</code></li>
+<li><code v-pre>CTaskBoatCombat</code> =&gt; <code v-pre>372</code></li>
+<li><code v-pre>CTaskBoatStrafe</code> =&gt; <code v-pre>373</code></li>
+<li><code v-pre>CTaskHeliChase</code> =&gt; <code v-pre>374</code></li>
+<li><code v-pre>CTaskHeliCombat</code> =&gt; <code v-pre>375</code></li>
+<li><code v-pre>CTaskSubmarineCombat</code> =&gt; <code v-pre>376</code></li>
+<li><code v-pre>CTaskSubmarineChase</code> =&gt; <code v-pre>377</code></li>
+<li><code v-pre>CTaskPlaneChase</code> =&gt; <code v-pre>378</code></li>
+<li><code v-pre>CTaskTargetUnreachable</code> =&gt; <code v-pre>379</code></li>
+<li><code v-pre>CTaskTargetUnreachableInInterior</code> =&gt; <code v-pre>380</code></li>
+<li><code v-pre>CTaskTargetUnreachableInExterior</code> =&gt; <code v-pre>381</code></li>
+<li><code v-pre>CTaskStealthKill</code> =&gt; <code v-pre>382</code></li>
+<li><code v-pre>CTaskWrithe</code> =&gt; <code v-pre>383</code></li>
+<li><code v-pre>CTaskAdvance</code> =&gt; <code v-pre>384</code></li>
+<li><code v-pre>CTaskCharge</code> =&gt; <code v-pre>385</code></li>
+<li><code v-pre>CTaskMoveToTacticalPoint</code> =&gt; <code v-pre>386</code></li>
+<li><code v-pre>CTaskToHurtTransit</code> =&gt; <code v-pre>387</code></li>
+<li><code v-pre>CTaskAnimatedHitByExplosion</code> =&gt; <code v-pre>388</code></li>
+<li><code v-pre>CTaskNMRelax</code> =&gt; <code v-pre>389</code></li>
+<li><code v-pre>CTaskNMPose</code> =&gt; <code v-pre>391</code></li>
+<li><code v-pre>CTaskNMBrace</code> =&gt; <code v-pre>392</code></li>
+<li><code v-pre>CTaskNMBuoyancy</code> =&gt; <code v-pre>393</code></li>
+<li><code v-pre>CTaskNMInjuredOnGround</code> =&gt; <code v-pre>394</code></li>
+<li><code v-pre>CTaskNMShot</code> =&gt; <code v-pre>395</code></li>
+<li><code v-pre>CTaskNMHighFall</code> =&gt; <code v-pre>396</code></li>
+<li><code v-pre>CTaskNMBalance</code> =&gt; <code v-pre>397</code></li>
+<li><code v-pre>CTaskNMElectrocute</code> =&gt; <code v-pre>398</code></li>
+<li><code v-pre>CTaskNMPrototype</code> =&gt; <code v-pre>399</code></li>
+<li><code v-pre>CTaskNMExplosion</code> =&gt; <code v-pre>400</code></li>
+<li><code v-pre>CTaskNMOnFire</code> =&gt; <code v-pre>401</code></li>
+<li><code v-pre>CTaskNMScriptControl</code> =&gt; <code v-pre>402</code></li>
+<li><code v-pre>CTaskNMJumpRollFromRoadVehicle</code> =&gt; <code v-pre>403</code></li>
+<li><code v-pre>CTaskNMFlinch</code> =&gt; <code v-pre>404</code></li>
+<li><code v-pre>CTaskNMSit</code> =&gt; <code v-pre>405</code></li>
+<li><code v-pre>CTaskNMFallDown</code> =&gt; <code v-pre>406</code></li>
+<li><code v-pre>CTaskBlendFromNM</code> =&gt; <code v-pre>407</code></li>
+<li><code v-pre>CTaskNMControl</code> =&gt; <code v-pre>408</code></li>
+<li><code v-pre>CTaskNMDangle</code> =&gt; <code v-pre>409</code></li>
+<li><code v-pre>CTaskNMGenericAttach</code> =&gt; <code v-pre>412</code></li>
+<li><code v-pre>CTaskNMDraggingToSafety</code> =&gt; <code v-pre>414</code></li>
+<li><code v-pre>CTaskNMThroughWindscreen</code> =&gt; <code v-pre>415</code></li>
+<li><code v-pre>CTaskNMRiverRapids</code> =&gt; <code v-pre>416</code></li>
+<li><code v-pre>CTaskNMSimple</code> =&gt; <code v-pre>417</code></li>
+<li><code v-pre>CTaskRageRagdoll</code> =&gt; <code v-pre>418</code></li>
+<li><code v-pre>CTaskJumpVault</code> =&gt; <code v-pre>421</code></li>
+<li><code v-pre>CTaskJump</code> =&gt; <code v-pre>422</code></li>
+<li><code v-pre>CTaskFall</code> =&gt; <code v-pre>423</code></li>
+<li><code v-pre>CTaskReactAimWeapon</code> =&gt; <code v-pre>425</code></li>
+<li><code v-pre>CTaskChat</code> =&gt; <code v-pre>426</code></li>
+<li><code v-pre>CTaskMobilePhone</code> =&gt; <code v-pre>427</code></li>
+<li><code v-pre>CTaskReactToDeadPed</code> =&gt; <code v-pre>428</code></li>
+<li><code v-pre>CTaskSearchForUnknownThreat</code> =&gt; <code v-pre>430</code></li>
+<li><code v-pre>CTaskBomb</code> =&gt; <code v-pre>432</code></li>
+<li><code v-pre>CTaskDetonator</code> =&gt; <code v-pre>433</code></li>
+<li><code v-pre>CTaskAnimatedAttach</code> =&gt; <code v-pre>435</code></li>
+<li><code v-pre>CTaskCutScene</code> =&gt; <code v-pre>441</code></li>
+<li><code v-pre>CTaskReactToExplosion</code> =&gt; <code v-pre>442</code></li>
+<li><code v-pre>CTaskReactToImminentExplosion</code> =&gt; <code v-pre>443</code></li>
+<li><code v-pre>CTaskDiveToGround</code> =&gt; <code v-pre>444</code></li>
+<li><code v-pre>CTaskReactAndFlee</code> =&gt; <code v-pre>445</code></li>
+<li><code v-pre>CTaskSidestep</code> =&gt; <code v-pre>446</code></li>
+<li><code v-pre>CTaskCallPolice</code> =&gt; <code v-pre>447</code></li>
+<li><code v-pre>CTaskReactInDirection</code> =&gt; <code v-pre>448</code></li>
+<li><code v-pre>CTaskReactToBuddyShot</code> =&gt; <code v-pre>449</code></li>
+<li><code v-pre>CTaskVehicleGoToAutomobileNew</code> =&gt; <code v-pre>454</code></li>
+<li><code v-pre>CTaskVehicleGoToPlane</code> =&gt; <code v-pre>455</code></li>
+<li><code v-pre>CTaskVehicleGoToHelicopter</code> =&gt; <code v-pre>456</code></li>
+<li><code v-pre>CTaskVehicleGoToSubmarine</code> =&gt; <code v-pre>457</code></li>
+<li><code v-pre>CTaskVehicleGoToBoat</code> =&gt; <code v-pre>458</code></li>
+<li><code v-pre>CTaskVehicleGoToPointAutomobile</code> =&gt; <code v-pre>459</code></li>
+<li><code v-pre>CTaskVehicleGoToPointWithAvoidanceAutomobile</code> =&gt; <code v-pre>460</code></li>
+<li><code v-pre>CTaskVehiclePursue</code> =&gt; <code v-pre>461</code></li>
+<li><code v-pre>CTaskVehicleRam</code> =&gt; <code v-pre>462</code></li>
+<li><code v-pre>CTaskVehicleSpinOut</code> =&gt; <code v-pre>463</code></li>
+<li><code v-pre>CTaskVehicleApproach</code> =&gt; <code v-pre>464</code></li>
+<li><code v-pre>CTaskVehicleThreePointTurn</code> =&gt; <code v-pre>465</code></li>
+<li><code v-pre>CTaskVehicleDeadDriver</code> =&gt; <code v-pre>466</code></li>
+<li><code v-pre>CTaskVehicleCruiseNew</code> =&gt; <code v-pre>467</code></li>
+<li><code v-pre>CTaskVehicleCruiseBoat</code> =&gt; <code v-pre>468</code></li>
+<li><code v-pre>CTaskVehicleStop</code> =&gt; <code v-pre>469</code></li>
+<li><code v-pre>CTaskVehiclePullOver</code> =&gt; <code v-pre>470</code></li>
+<li><code v-pre>CTaskVehiclePassengerExit</code> =&gt; <code v-pre>471</code></li>
+<li><code v-pre>CTaskVehicleFlee</code> =&gt; <code v-pre>472</code></li>
+<li><code v-pre>CTaskVehicleFleeAirborne</code> =&gt; <code v-pre>473</code></li>
+<li><code v-pre>CTaskVehicleFleeBoat</code> =&gt; <code v-pre>474</code></li>
+<li><code v-pre>CTaskVehicleFollowRecording</code> =&gt; <code v-pre>475</code></li>
+<li><code v-pre>CTaskVehicleFollow</code> =&gt; <code v-pre>476</code></li>
+<li><code v-pre>CTaskVehicleBlock</code> =&gt; <code v-pre>477</code></li>
+<li><code v-pre>CTaskVehicleBlockCruiseInFront</code> =&gt; <code v-pre>478</code></li>
+<li><code v-pre>CTaskVehicleBlockBrakeInFront</code> =&gt; <code v-pre>479</code></li>
+<li><code v-pre>CTaskVehicleBlockBackAndForth</code> =&gt; <code v-pre>478</code></li>
+<li><code v-pre>CTaskVehicleCrash</code> =&gt; <code v-pre>481</code></li>
+<li><code v-pre>CTaskVehicleLand</code> =&gt; <code v-pre>482</code></li>
+<li><code v-pre>CTaskVehicleLandPlane</code> =&gt; <code v-pre>483</code></li>
+<li><code v-pre>CTaskVehicleHover</code> =&gt; <code v-pre>484</code></li>
+<li><code v-pre>CTaskVehicleAttack</code> =&gt; <code v-pre>485</code></li>
+<li><code v-pre>CTaskVehicleAttackTank</code> =&gt; <code v-pre>486</code></li>
+<li><code v-pre>CTaskVehicleCircle</code> =&gt; <code v-pre>487</code></li>
+<li><code v-pre>CTaskVehiclePoliceBehaviour</code> =&gt; <code v-pre>488</code></li>
+<li><code v-pre>CTaskVehiclePoliceBehaviourHelicopter</code> =&gt; <code v-pre>489</code></li>
+<li><code v-pre>CTaskVehiclePoliceBehaviourBoat</code> =&gt; <code v-pre>490</code></li>
+<li><code v-pre>CTaskVehicleEscort</code> =&gt; <code v-pre>491</code></li>
+<li><code v-pre>CTaskVehicleHeliProtect</code> =&gt; <code v-pre>492</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveAutomobile</code> =&gt; <code v-pre>494</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveBike</code> =&gt; <code v-pre>495</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveBoat</code> =&gt; <code v-pre>496</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveSubmarine</code> =&gt; <code v-pre>497</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveSubmarineCar</code> =&gt; <code v-pre>498</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveAmphibiousAutomobile</code> =&gt; <code v-pre>499</code></li>
+<li><code v-pre>CTaskVehiclePlayerDrivePlane</code> =&gt; <code v-pre>500</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveHeli</code> =&gt; <code v-pre>501</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveAutogyro</code> =&gt; <code v-pre>502</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveDiggerArm</code> =&gt; <code v-pre>503</code></li>
+<li><code v-pre>CTaskVehiclePlayerDriveTrain</code> =&gt; <code v-pre>504</code></li>
+<li><code v-pre>CTaskVehiclePlaneChase</code> =&gt; <code v-pre>505</code></li>
+<li><code v-pre>CTaskVehicleNoDriver</code> =&gt; <code v-pre>506</code></li>
+<li><code v-pre>CTaskVehicleAnimation</code> =&gt; <code v-pre>507</code></li>
+<li><code v-pre>CTaskVehicleConvertibleRoof</code> =&gt; <code v-pre>508</code></li>
+<li><code v-pre>CTaskVehicleParkNew</code> =&gt; <code v-pre>509</code></li>
+<li><code v-pre>CTaskVehicleFollowWaypointRecording</code> =&gt; <code v-pre>510</code></li>
+<li><code v-pre>CTaskVehicleGoToNavmesh</code> =&gt; <code v-pre>511</code></li>
+<li><code v-pre>CTaskVehicleReactToCopSiren</code> =&gt; <code v-pre>512</code></li>
+<li><code v-pre>CTaskVehicleGotoLongRange</code> =&gt; <code v-pre>513</code></li>
+<li><code v-pre>CTaskVehicleWait</code> =&gt; <code v-pre>514</code></li>
+<li><code v-pre>CTaskVehicleReverse</code> =&gt; <code v-pre>515</code></li>
+<li><code v-pre>CTaskVehicleBrake</code> =&gt; <code v-pre>516</code></li>
+<li><code v-pre>CTaskVehicleHandBrake</code> =&gt; <code v-pre>517</code></li>
+<li><code v-pre>CTaskVehicleTurn</code> =&gt; <code v-pre>518</code></li>
+<li><code v-pre>CTaskVehicleGoForward</code> =&gt; <code v-pre>519</code></li>
+<li><code v-pre>CTaskVehicleSwerve</code> =&gt; <code v-pre>520</code></li>
+<li><code v-pre>CTaskVehicleFlyDirection</code> =&gt; <code v-pre>521</code></li>
+<li><code v-pre>CTaskVehicleHeadonCollision</code> =&gt; <code v-pre>522</code></li>
+<li><code v-pre>CTaskVehicleBoostUseSteeringAngle</code> =&gt; <code v-pre>523</code></li>
+<li><code v-pre>CTaskVehicleShotTire</code> =&gt; <code v-pre>524</code></li>
+<li><code v-pre>CTaskVehicleBurnout</code> =&gt; <code v-pre>525</code></li>
+<li><code v-pre>CTaskVehicleRevEngine</code> =&gt; <code v-pre>526</code></li>
+<li><code v-pre>CTaskVehicleSurfaceInSubmarine</code> =&gt; <code v-pre>527</code></li>
+<li><code v-pre>CTaskVehiclePullAlongside</code> =&gt; <code v-pre>528</code></li>
+<li><code v-pre>CTaskVehicleTransformToSubmarine</code> =&gt; <code v-pre>529</code></li>
+<li><code v-pre>CTaskAnimatedFallback</code> =&gt; <code v-pre>530</code></li>
+</ul>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/scenario/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Scenario</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/vehicle/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Vehicle</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. Project W1TCH. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Script task", level: 4, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

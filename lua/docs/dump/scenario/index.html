@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773999266819">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Scenario</title>
+    <meta name="title" content="Scenario">
+    <meta name="description" content="Agency_Heist_Peds">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/dump/scenario/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/dump/scenario/">
+    <meta property="og:title" content="Scenario">
+    <meta property="og:description" content="Agency_Heist_Peds">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/dump/scenario/">
+    <meta property="twitter:title" content="Scenario">
+    <meta property="twitter:description" content="Agency_Heist_Peds">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../../image/favicon.png" rel="icon">
+    <link href="../../../../resources/css/retype.css?v=3.5.0.773999266819" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../../resources/js/config.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../../resources/js/lunr.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../../image/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../../image/logo.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="scenario" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scenario">#</doc-anchor-trigger>
+        <span>Scenario</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="scenario-groups">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scenario-groups">#</doc-anchor-trigger>
+        <span>Scenario Groups</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>Agency_Heist_Peds</code></li>
+<li><code v-pre>ALAMO_PLANES</code></li>
+<li><code v-pre>AMMUNATION</code></li>
+<li><code v-pre>ARMY_GUARD</code></li>
+<li><code v-pre>ATTRACT_PAP</code></li>
+<li><code v-pre>BLIMP</code></li>
+<li><code v-pre>CanyonCliffs</code></li>
+<li><code v-pre>CanyonCliffs_Start</code></li>
+<li><code v-pre>CAR_WASH</code></li>
+<li><code v-pre>CHINESE2_HILLBILLIES</code></li>
+<li><code v-pre>Chinese2_Lunch</code></li>
+<li><code v-pre>Chumash_14_Bikers</code></li>
+<li><code v-pre>Chumash_14_Bikers</code></li>
+<li><code v-pre>Chumash_14_Cops</code></li>
+<li><code v-pre>Chumash_14_Cops</code></li>
+<li><code v-pre>Chumash_14_Hookers</code></li>
+<li><code v-pre>Chumash_14_Hookers</code></li>
+<li><code v-pre>Chumash_14_Vagos</code></li>
+<li><code v-pre>Chumash_14_Vagos</code></li>
+<li><code v-pre>Cinema_Downtown</code></li>
+<li><code v-pre>Cinema_Morningwood</code></li>
+<li><code v-pre>Cinema_Textile</code></li>
+<li><code v-pre>City_Banks</code></li>
+<li><code v-pre>clothes_shop</code></li>
+<li><code v-pre>Countryside_Banks</code></li>
+<li><code v-pre>DEALERSHIP</code></li>
+<li><code v-pre>Del_Perro_16_Bikers</code></li>
+<li><code v-pre>Del_Perro_16_Bikers</code></li>
+<li><code v-pre>Del_Perro_16_Cops</code></li>
+<li><code v-pre>Del_Perro_16_Cops</code></li>
+<li><code v-pre>Del_Perro_16_Hookers</code></li>
+<li><code v-pre>Del_Perro_16_Hookers</code></li>
+<li><code v-pre>Del_Perro_16_Vagos</code></li>
+<li><code v-pre>Del_Perro_16_Vagos</code></li>
+<li><code v-pre>DowntownAlley_33_Bikers</code></li>
+<li><code v-pre>DowntownAlley_33_Bikers</code></li>
+<li><code v-pre>DowntownAlley_33_Cops</code></li>
+<li><code v-pre>DowntownAlley_33_Cops</code></li>
+<li><code v-pre>DowntownAlley_33_Hookers</code></li>
+<li><code v-pre>DowntownAlley_33_Hookers</code></li>
+<li><code v-pre>DowntownAlley_33_Vagos</code></li>
+<li><code v-pre>DowntownAlley_33_Vagos</code></li>
+<li><code v-pre>E_Canals_22_Bikers</code></li>
+<li><code v-pre>E_Canals_22_Cops</code></li>
+<li><code v-pre>E_Canals_22_Hookers</code></li>
+<li><code v-pre>E_Canals_22_Vagos</code></li>
+<li><code v-pre>E_Cypress_05_Bikers</code></li>
+<li><code v-pre>E_Cypress_05_Cops</code></li>
+<li><code v-pre>E_Cypress_05_Hookers</code></li>
+<li><code v-pre>E_Cypress_05_Vagos</code></li>
+<li><code v-pre>E_Hollywood_39_Bikers</code></li>
+<li><code v-pre>E_Hollywood_39_Cops</code></li>
+<li><code v-pre>E_Hollywood_39_Hookers</code></li>
+<li><code v-pre>E_Hollywood_39_Vagos</code></li>
+<li><code v-pre>E_PaletoBay_10_Bikers</code></li>
+<li><code v-pre>E_PaletoBay_10_Cops</code></li>
+<li><code v-pre>E_PaletoBay_10_Hookers</code></li>
+<li><code v-pre>E_PaletoBay_10_Vagos</code></li>
+<li><code v-pre>E_Puerto_26_Bikers</code></li>
+<li><code v-pre>E_Puerto_26_Cops</code></li>
+<li><code v-pre>E_Puerto_26_Hookers</code></li>
+<li><code v-pre>E_Puerto_26_Vagos</code></li>
+<li><code v-pre>E_SandyShores_12_Bikers</code></li>
+<li><code v-pre>E_SandyShores_12_Cops</code></li>
+<li><code v-pre>E_SandyShores_12_Hookers</code></li>
+<li><code v-pre>E_SandyShores_12_Vagos</code></li>
+<li><code v-pre>E_Silverlake_40_Bikers</code></li>
+<li><code v-pre>E_Silverlake_40_Cops</code></li>
+<li><code v-pre>E_Silverlake_40_Hookers</code></li>
+<li><code v-pre>E_Silverlake_40_Vagos</code></li>
+<li><code v-pre>EastLS_BMX</code></li>
+<li><code v-pre>EastLS_Chopshop_35_Bikers</code></li>
+<li><code v-pre>EastLS_Chopshop_35_Cops</code></li>
+<li><code v-pre>EastLS_Chopshop_35_Vagos</code></li>
+<li><code v-pre>EastLS_Skatepark_36_Bikers</code></li>
+<li><code v-pre>EastLS_Skatepark_36_Cops</code></li>
+<li><code v-pre>EastLS_Skatepark_36_Hookers</code></li>
+<li><code v-pre>EastLS_Skatepark_36_Vagos</code></li>
+<li><code v-pre>Eclipse_32_Bikers</code></li>
+<li><code v-pre>Eclipse_32_Cops</code></li>
+<li><code v-pre>Eclipse_32_Hookers</code></li>
+<li><code v-pre>Eclipse_32_Vagos</code></li>
+<li><code v-pre>EcoFriendly</code></li>
+<li><code v-pre>EcoFriendly_Start</code></li>
+<li><code v-pre>ElBurro_Shed_38_Bikers</code></li>
+<li><code v-pre>ElBurro_Shed_38_Cops</code></li>
+<li><code v-pre>ElBurro_Shed_38_Hookers</code></li>
+<li><code v-pre>ElBurro_Shed_38_Vagos</code></li>
+<li><code v-pre>ElBurro_Wreck_37_Bikers</code></li>
+<li><code v-pre>ElBurro_Wreck_37_Cops</code></li>
+<li><code v-pre>ElBurro_Wreck_37_Hookers</code></li>
+<li><code v-pre>ElBurro_Wreck_37_Vagos</code></li>
+<li><code v-pre>FIB_AIRPORT</code></li>
+<li><code v-pre>FIB_GROUP_1</code></li>
+<li><code v-pre>FIB_GROUP_2</code></li>
+<li><code v-pre>Fort_Zancudo_Guards</code></li>
+<li><code v-pre>GENTRY_MANNOR</code></li>
+<li><code v-pre>Grapeseed_Planes</code></li>
+<li><code v-pre>GrapeseedAirstrip_07_Security</code></li>
+<li><code v-pre>Guards_At_Prison</code></li>
+<li><code v-pre>Harmony_ChopShop_13_Bikers</code></li>
+<li><code v-pre>Harmony_ChopShop_13_Cops</code></li>
+<li><code v-pre>Harmony_ChopShop_13_Hookers</code></li>
+<li><code v-pre>Harmony_ChopShop_13_Vagos</code></li>
+<li><code v-pre>KORTZ_SECURITY</code></li>
+<li><code v-pre>LakesideSplash</code></li>
+<li><code v-pre>LakesideSplash_Start</code></li>
+<li><code v-pre>LOST_BIKERS</code></li>
+<li><code v-pre>LOST_HANGOUT</code></li>
+<li><code v-pre>LSA_Planes</code></li>
+<li><code v-pre>Mid_Seoul_24_Bikers</code></li>
+<li><code v-pre>Mid_Seoul_24_Cops</code></li>
+<li><code v-pre>Mid_Seoul_24_Hookers</code></li>
+<li><code v-pre>Mid_Seoul_24_Vagos</code></li>
+<li><code v-pre>MinewardSpiral</code></li>
+<li><code v-pre>MinewardSpiral_Start</code></li>
+<li><code v-pre>MirrorPark_41_Bikers</code></li>
+<li><code v-pre>MirrorPark_41_Cops</code></li>
+<li><code v-pre>MirrorPark_41_Hookers</code></li>
+<li><code v-pre>MirrorPark_41_Vagos</code></li>
+<li><code v-pre>Morningwood_17_Bikers</code></li>
+<li><code v-pre>Morningwood_17_Cops</code></li>
+<li><code v-pre>Morningwood_17_Hookers</code></li>
+<li><code v-pre>Morningwood_17_Vagos</code></li>
+<li><code v-pre>Movie_Studio_Security</code></li>
+<li><code v-pre>MP_Police</code></li>
+<li><code v-pre>MP_POLICE2</code></li>
+<li><code v-pre>N_W_Hollywood_31_Bikers</code></li>
+<li><code v-pre>N_W_Hollywood_31_Cops</code></li>
+<li><code v-pre>N_W_Hollywood_31_Hookers</code></li>
+<li><code v-pre>N_W_Hollywood_31_Vagos</code></li>
+<li><code v-pre>New group</code></li>
+<li><code v-pre>New group 1</code></li>
+<li><code v-pre>New group 2</code></li>
+<li><code v-pre>Observatory_Bikers</code></li>
+<li><code v-pre>OceanHighway_15_Bikers</code></li>
+<li><code v-pre>OceanHighway_15_Cops</code></li>
+<li><code v-pre>OceanHighway_15_Hookers</code></li>
+<li><code v-pre>OceanHighway_15_Vagos</code></li>
+<li><code v-pre>Paleto_Bank</code></li>
+<li><code v-pre>Paleto_Cops</code></li>
+<li><code v-pre>Pershing_04_Bikers</code></li>
+<li><code v-pre>Pershing_04_Cops</code></li>
+<li><code v-pre>Pershing_04_Hookers</code></li>
+<li><code v-pre>Pershing_04_Vagos</code></li>
+<li><code v-pre>Pier_18_Bikers</code></li>
+<li><code v-pre>Pier_18_Cops</code></li>
+<li><code v-pre>Pier_18_Hookers</code></li>
+<li><code v-pre>Pier_18_Vagos</code></li>
+<li><code v-pre>PLANE_WRECK</code></li>
+<li><code v-pre>PLANE_WRECK_DOG</code></li>
+<li><code v-pre>Police_At_Court</code></li>
+<li><code v-pre>POLICE_PEDS_CITY</code></li>
+<li><code v-pre>POLICE_POUND1</code></li>
+<li><code v-pre>POLICE_POUND2</code></li>
+<li><code v-pre>POLICE_POUND3</code></li>
+<li><code v-pre>POLICE_POUND4</code></li>
+<li><code v-pre>POLICE_POUND5</code></li>
+<li><code v-pre>Polo_Goon</code></li>
+<li><code v-pre>PRISON_TOWERS</code></li>
+<li><code v-pre>Prison_Transport</code></li>
+<li><code v-pre>QUARRY</code></li>
+<li><code v-pre>Racecourse_06_Bikers</code></li>
+<li><code v-pre>Racecourse_06_Cops</code></li>
+<li><code v-pre>RaceCourse_06_Hookers</code></li>
+<li><code v-pre>RaceCourse_06_Vagos</code></li>
+<li><code v-pre>Rampage1</code></li>
+<li><code v-pre>RidgeRun</code></li>
+<li><code v-pre>RidgeRun_Start</code></li>
+<li><code v-pre>S_SanPedro_28_Bikers</code></li>
+<li><code v-pre>S_SanPedro_28_Cops</code></li>
+<li><code v-pre>S_SanPedro_28_Hookers</code></li>
+<li><code v-pre>S_SanPedro_28_Vagos</code></li>
+<li><code v-pre>S_Seoul_27_Bikers</code></li>
+<li><code v-pre>S_Seoul_27_Cops</code></li>
+<li><code v-pre>S_Seoul_27_Hookers</code></li>
+<li><code v-pre>S_Seoul_27_Vagos</code></li>
+<li><code v-pre>Sandy_Cops</code></li>
+<li><code v-pre>Sandy_Planes</code></li>
+<li><code v-pre>SanPedroGarage_30_Bikers</code></li>
+<li><code v-pre>SanPedroGarage_30_Cops</code></li>
+<li><code v-pre>SanPedroGarage_30_Hookers</code></li>
+<li><code v-pre>SanPedroGarage_30_Vagos</code></li>
+<li><code v-pre>SCRAP_SECURITY</code></li>
+<li><code v-pre>Scrapyard_29_Bikers</code></li>
+<li><code v-pre>Scrapyard_29_Cops</code></li>
+<li><code v-pre>Scrapyard_29_Hookers</code></li>
+<li><code v-pre>Scrapyard_29_Vagos</code></li>
+<li><code v-pre>SenoraAirstrip_08_Security</code></li>
+<li><code v-pre>SeoulPark_23_Bikers</code></li>
+<li><code v-pre>SeoulPark_23_Cops</code></li>
+<li><code v-pre>SeoulPark_23_Hookers</code></li>
+<li><code v-pre>SeoulPark_23_Vagos</code></li>
+<li><code v-pre>SEW_MACHINE</code></li>
+<li><code v-pre>SOLOMON_GATE</code></li>
+<li><code v-pre>StrawberryClub_34_Bikers</code></li>
+<li><code v-pre>StrawberryClub_34_Cops</code></li>
+<li><code v-pre>StrawberryClub_34_Hookers</code></li>
+<li><code v-pre>StrawberryClub_34_Vagos</code></li>
+<li><code v-pre>Triathlon_1</code></li>
+<li><code v-pre>Triathlon_1_Start</code></li>
+<li><code v-pre>Triathlon_2</code></li>
+<li><code v-pre>Triathlon_2_Start</code></li>
+<li><code v-pre>Triathlon_3</code></li>
+<li><code v-pre>Triathlon_3_Start</code></li>
+<li><code v-pre>VAGOS_HANGOUT</code></li>
+<li><code v-pre>ValleyTrail</code></li>
+<li><code v-pre>ValleyTrail_Start</code></li>
+<li><code v-pre>VANGELICO</code></li>
+<li><code v-pre>Vespucci_20_Bikers</code></li>
+<li><code v-pre>Vespucci_20_Cops</code></li>
+<li><code v-pre>Vespucci_20_Hookers</code></li>
+<li><code v-pre>Vespucci_20_Vagos</code></li>
+<li><code v-pre>VespucciBeach_19_Bikers</code></li>
+<li><code v-pre>VespucciBeach_19_Cops</code></li>
+<li><code v-pre>VespucciBeach_19_Hookers</code></li>
+<li><code v-pre>VespucciBeach_19_Vagos</code></li>
+<li><code v-pre>W_Canals_21_Bikers</code></li>
+<li><code v-pre>W_Canals_21_Cops</code></li>
+<li><code v-pre>W_Canals_21_Hookers</code></li>
+<li><code v-pre>W_Canals_21_Vagos</code></li>
+<li><code v-pre>W_PaletoBay_09_Bikers</code></li>
+<li><code v-pre>W_PaletoBay_09_Cops</code></li>
+<li><code v-pre>W_PaletoBay_09_Hookers</code></li>
+<li><code v-pre>W_PaletoBay_09_Vagos</code></li>
+<li><code v-pre>W_Puerto_25_Bikers</code></li>
+<li><code v-pre>W_Puerto_25_Cops</code></li>
+<li><code v-pre>W_Puerto_25_Hookers</code></li>
+<li><code v-pre>W_Puerto_25_Vagos</code></li>
+<li><code v-pre>W_SandyShores_11_Bikers</code></li>
+<li><code v-pre>W_SandyShores_11_Cops</code></li>
+<li><code v-pre>W_SandyShores_11_Hookers</code></li>
+<li><code v-pre>W_SandyShores_11_Vagos</code></li>
+<li><code v-pre>WATERSPORTS</code></li>
+<li><code v-pre>YellowJackInn</code></li>
+</ul>
+<doc-anchor-target id="scenario-types">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scenario-types">#</doc-anchor-trigger>
+        <span>Scenario Types</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>Standing</code></li>
+<li><code v-pre>WORLD_HUMAN_AA_COFFEE</code></li>
+<li><code v-pre>WORLD_HUMAN_AA_SMOKE</code></li>
+<li><code v-pre>WORLD_HUMAN_BINOCULARS</code></li>
+<li><code v-pre>WORLD_HUMAN_BUM_FREEWAY</code></li>
+<li><code v-pre>WORLD_HUMAN_BUM_SLUMPED</code></li>
+<li><code v-pre>WORLD_HUMAN_BUM_STANDING</code></li>
+<li><code v-pre>WORLD_HUMAN_BUM_WASH</code></li>
+<li><code v-pre>WORLD_HUMAN_CAR_PARK_ATTENDANT</code></li>
+<li><code v-pre>WORLD_HUMAN_CHEERING</code></li>
+<li><code v-pre>WORLD_HUMAN_CLIPBOARD</code></li>
+<li><code v-pre>WORLD_HUMAN_CLIPBOARD_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_CONST_DRILL</code></li>
+<li><code v-pre>WORLD_HUMAN_COP_IDLES</code></li>
+<li><code v-pre>WORLD_HUMAN_DRINKING</code></li>
+<li><code v-pre>WORLD_HUMAN_DRINKING_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_DRINKING_CASINO_TERRACE</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_DEALER</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_DEALER_HARD</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_FIELD_WORKERS_RAKE</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_FIELD_WORKERS_WEEDING</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_PROCESSORS_COKE</code></li>
+<li><code v-pre>WORLD_HUMAN_DRUG_PROCESSORS_WEED</code></li>
+<li><code v-pre>WORLD_HUMAN_MOBILE_FILM_SHOCKING</code></li>
+<li><code v-pre>WORLD_HUMAN_GARDENER_LEAF_BLOWER</code></li>
+<li><code v-pre>WORLD_HUMAN_GARDENER_PLANT</code></li>
+<li><code v-pre>WORLD_HUMAN_GOLF_PLAYER</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_PATROL</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_STAND</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_STAND_CASINO</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_STAND_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_STAND_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_GUARD_STAND_ARMY</code></li>
+<li><code v-pre>WORLD_HUMAN_HAMMERING</code></li>
+<li><code v-pre>WORLD_HUMAN_HANG_OUT_STREET</code></li>
+<li><code v-pre>WORLD_HUMAN_HANG_OUT_STREET_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_HIKER</code></li>
+<li><code v-pre>WORLD_HUMAN_HIKER_STANDING</code></li>
+<li><code v-pre>WORLD_HUMAN_HUMAN_STATUE</code></li>
+<li><code v-pre>WORLD_HUMAN_INSPECT_CROUCH</code></li>
+<li><code v-pre>WORLD_HUMAN_INSPECT_STAND</code></li>
+<li><code v-pre>WORLD_HUMAN_JANITOR</code></li>
+<li><code v-pre>WORLD_HUMAN_JOG</code></li>
+<li><code v-pre>WORLD_HUMAN_JOG_STANDING</code></li>
+<li><code v-pre>WORLD_HUMAN_LEANING</code></li>
+<li><code v-pre>WORLD_HUMAN_LEANING_CASINO_TERRACE</code></li>
+<li><code v-pre>WORLD_HUMAN_MAID_CLEAN</code></li>
+<li><code v-pre>WORLD_HUMAN_MUSCLE_FLEX</code></li>
+<li><code v-pre>WORLD_HUMAN_MUSCLE_FREE_WEIGHTS</code></li>
+<li><code v-pre>WORLD_HUMAN_MUSICIAN</code></li>
+<li><code v-pre>WORLD_HUMAN_PAPARAZZI</code></li>
+<li><code v-pre>WORLD_HUMAN_PARTYING</code></li>
+<li><code v-pre>WORLD_HUMAN_PICNIC</code></li>
+<li><code v-pre>WORLD_HUMAN_POWER_WALKER</code></li>
+<li><code v-pre>WORLD_HUMAN_PROSTITUTE_HIGH_CLASS</code></li>
+<li><code v-pre>WORLD_HUMAN_PROSTITUTE_LOW_CLASS</code></li>
+<li><code v-pre>WORLD_HUMAN_PUSH_UPS</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_LEDGE</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_LEDGE_EATING</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_STEPS</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_WALL</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_WALL_EATING</code></li>
+<li><code v-pre>WORLD_HUMAN_SEAT_WALL_TABLET</code></li>
+<li><code v-pre>WORLD_HUMAN_SECURITY_SHINE_TORCH</code></li>
+<li><code v-pre>WORLD_HUMAN_SIT_UPS</code></li>
+<li><code v-pre>WORLD_HUMAN_SMOKING</code></li>
+<li><code v-pre>WORLD_HUMAN_SMOKING_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_SMOKING_POT</code></li>
+<li><code v-pre>WORLD_HUMAN_SMOKING_POT_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_FIRE</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_FISHING</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_IMPATIENT</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_IMPATIENT_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_IMPATIENT_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_IMPATIENT_UPRIGHT</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_IMPATIENT_UPRIGHT_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_MOBILE</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_MOBILE_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_MOBILE_FACILITY</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_MOBILE_UPRIGHT</code></li>
+<li><code v-pre>WORLD_HUMAN_STAND_MOBILE_UPRIGHT_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_STRIP_WATCH_STAND</code></li>
+<li><code v-pre>WORLD_HUMAN_STUPOR</code></li>
+<li><code v-pre>WORLD_HUMAN_STUPOR_CLUBHOUSE</code></li>
+<li><code v-pre>WORLD_HUMAN_WINDOW_SHOP_BROWSE_SHOWROOM</code></li>
+<li><code v-pre>WORLD_HUMAN_SUNBATHE</code></li>
+<li><code v-pre>WORLD_HUMAN_SUNBATHE_BACK</code></li>
+<li><code v-pre>WORLD_HUMAN_SUPERHERO</code></li>
+<li><code v-pre>WORLD_HUMAN_SWIMMING</code></li>
+<li><code v-pre>WORLD_HUMAN_TENNIS_PLAYER</code></li>
+<li><code v-pre>WORLD_HUMAN_TOURIST_MAP</code></li>
+<li><code v-pre>WORLD_HUMAN_TOURIST_MOBILE</code></li>
+<li><code v-pre>WORLD_HUMAN_VALET</code></li>
+<li><code v-pre>WORLD_HUMAN_VEHICLE_MECHANIC</code></li>
+<li><code v-pre>WORLD_HUMAN_WELDING</code></li>
+<li><code v-pre>WORLD_HUMAN_WINDOW_SHOP_BROWSE</code></li>
+<li><code v-pre>WORLD_HUMAN_YOGA</code></li>
+<li><code v-pre>Walk</code></li>
+<li><code v-pre>Walk_Facility</code></li>
+<li><code v-pre>WORLD_BOAR_GRAZING</code></li>
+<li><code v-pre>WORLD_CAT_SLEEPING_GROUND</code></li>
+<li><code v-pre>WORLD_CAT_SLEEPING_LEDGE</code></li>
+<li><code v-pre>WORLD_COW_GRAZING</code></li>
+<li><code v-pre>WORLD_COYOTE_HOWL</code></li>
+<li><code v-pre>WORLD_COYOTE_REST</code></li>
+<li><code v-pre>WORLD_COYOTE_WANDER</code></li>
+<li><code v-pre>WORLD_COYOTE_WALK</code></li>
+<li><code v-pre>WORLD_CHICKENHAWK_FEEDING</code></li>
+<li><code v-pre>WORLD_CHICKENHAWK_STANDING</code></li>
+<li><code v-pre>WORLD_CORMORANT_STANDING</code></li>
+<li><code v-pre>WORLD_CROW_FEEDING</code></li>
+<li><code v-pre>WORLD_CROW_STANDING</code></li>
+<li><code v-pre>WORLD_DEER_GRAZING</code></li>
+<li><code v-pre>WORLD_DOG_BARKING_ROTTWEILER</code></li>
+<li><code v-pre>WORLD_DOG_BARKING_RETRIEVER</code></li>
+<li><code v-pre>WORLD_DOG_BARKING_SHEPHERD</code></li>
+<li><code v-pre>WORLD_DOG_SITTING_ROTTWEILER</code></li>
+<li><code v-pre>WORLD_DOG_SITTING_RETRIEVER</code></li>
+<li><code v-pre>WORLD_DOG_SITTING_SHEPHERD</code></li>
+<li><code v-pre>WORLD_DOG_BARKING_SMALL</code></li>
+<li><code v-pre>WORLD_DOG_SITTING_SMALL</code></li>
+<li><code v-pre>WORLD_DOLPHIN_SWIM</code></li>
+<li><code v-pre>WORLD_FISH_FLEE</code></li>
+<li><code v-pre>WORLD_FISH_IDLE</code></li>
+<li><code v-pre>WORLD_GULL_FEEDING</code></li>
+<li><code v-pre>WORLD_GULL_STANDING</code></li>
+<li><code v-pre>WORLD_HEN_FLEE</code></li>
+<li><code v-pre>WORLD_HEN_PECKING</code></li>
+<li><code v-pre>WORLD_HEN_STANDING</code></li>
+<li><code v-pre>WORLD_MOUNTAIN_LION_REST</code></li>
+<li><code v-pre>WORLD_MOUNTAIN_LION_WANDER</code></li>
+<li><code v-pre>WORLD_ORCA_SWIM</code></li>
+<li><code v-pre>WORLD_PIG_GRAZING</code></li>
+<li><code v-pre>WORLD_PIGEON_FEEDING</code></li>
+<li><code v-pre>WORLD_PIGEON_STANDING</code></li>
+<li><code v-pre>WORLD_RABBIT_EATING</code></li>
+<li><code v-pre>WORLD_RABBIT_FLEE</code></li>
+<li><code v-pre>WORLD_RATS_EATING</code></li>
+<li><code v-pre>WORLD_RATS_FLEEING</code></li>
+<li><code v-pre>WORLD_SHARK_SWIM</code></li>
+<li><code v-pre>WORLD_SHARK_HAMMERHEAD_SWIM</code></li>
+<li><code v-pre>WORLD_STINGRAY_SWIM</code></li>
+<li><code v-pre>WORLD_WHALE_SWIM</code></li>
+<li><code v-pre>DRIVE</code></li>
+<li><code v-pre>WORLD_VEHICLE_ATTRACTOR</code></li>
+<li><code v-pre>PARK_VEHICLE</code></li>
+<li><code v-pre>WORLD_VEHICLE_AMBULANCE</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_BMX</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_BMX_BALLAS</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_BMX_FAMILY</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_BMX_HARMONY</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_BMX_VAGOS</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_MOUNTAIN</code></li>
+<li><code v-pre>WORLD_VEHICLE_BICYCLE_ROAD</code></li>
+<li><code v-pre>WORLD_VEHICLE_BIKE_OFF_ROAD_RACE</code></li>
+<li><code v-pre>WORLD_VEHICLE_BIKER</code></li>
+<li><code v-pre>WORLD_VEHICLE_BOAT_IDLE</code></li>
+<li><code v-pre>WORLD_VEHICLE_BOAT_IDLE_ALAMO</code></li>
+<li><code v-pre>WORLD_VEHICLE_BOAT_IDLE_MARQUIS</code></li>
+<li><code v-pre>WORLD_VEHICLE_BROKEN_DOWN</code></li>
+<li><code v-pre>WORLD_VEHICLE_BUSINESSMEN</code></li>
+<li><code v-pre>WORLD_VEHICLE_HELI_LIFEGUARD</code></li>
+<li><code v-pre>WORLD_VEHICLE_CLUCKIN_BELL_TRAILER</code></li>
+<li><code v-pre>WORLD_VEHICLE_CONSTRUCTION_SOLO</code></li>
+<li><code v-pre>WORLD_VEHICLE_CONSTRUCTION_PASSENGERS</code></li>
+<li><code v-pre>WORLD_VEHICLE_DRIVE_PASSENGERS</code></li>
+<li><code v-pre>WORLD_VEHICLE_DRIVE_PASSENGERS_LIMITED</code></li>
+<li><code v-pre>WORLD_VEHICLE_DRIVE_SOLO</code></li>
+<li><code v-pre>WORLD_VEHICLE_FARM_WORKER</code></li>
+<li><code v-pre>WORLD_VEHICLE_FIRE_TRUCK</code></li>
+<li><code v-pre>WORLD_VEHICLE_EMPTY</code></li>
+<li><code v-pre>WORLD_VEHICLE_MARIACHI</code></li>
+<li><code v-pre>WORLD_VEHICLE_MECHANIC</code></li>
+<li><code v-pre>WORLD_VEHICLE_MILITARY_PLANES_BIG</code></li>
+<li><code v-pre>WORLD_VEHICLE_MILITARY_PLANES_SMALL</code></li>
+<li><code v-pre>WORLD_VEHICLE_PARK_PARALLEL</code></li>
+<li><code v-pre>WORLD_VEHICLE_PARK_PERPENDICULAR_NOSE_IN</code></li>
+<li><code v-pre>WORLD_VEHICLE_PASSENGER_EXIT</code></li>
+<li><code v-pre>WORLD_VEHICLE_POLICE_BIKE</code></li>
+<li><code v-pre>WORLD_VEHICLE_POLICE_CAR</code></li>
+<li><code v-pre>WORLD_VEHICLE_POLICE_NEXT_TO_CAR</code></li>
+<li><code v-pre>WORLD_VEHICLE_QUARRY</code></li>
+<li><code v-pre>WORLD_VEHICLE_SALTON</code></li>
+<li><code v-pre>WORLD_VEHICLE_SALTON_DIRT_BIKE</code></li>
+<li><code v-pre>WORLD_VEHICLE_SECURITY_CAR</code></li>
+<li><code v-pre>WORLD_VEHICLE_STREETRACE</code></li>
+<li><code v-pre>WORLD_VEHICLE_TOURBUS</code></li>
+<li><code v-pre>WORLD_VEHICLE_TOURIST</code></li>
+<li><code v-pre>WORLD_VEHICLE_TANDL</code></li>
+<li><code v-pre>WORLD_VEHICLE_TRACTOR</code></li>
+<li><code v-pre>WORLD_VEHICLE_TRACTOR_BEACH</code></li>
+<li><code v-pre>WORLD_VEHICLE_TRUCK_LOGS</code></li>
+<li><code v-pre>WORLD_VEHICLE_TRUCKS_TRAILERS</code></li>
+<li><code v-pre>PROP_BIRD_IN_TREE</code></li>
+<li><code v-pre>WORLD_VEHICLE_DISTANT_EMPTY_GROUND</code></li>
+<li><code v-pre>PROP_BIRD_TELEGRAPH_POLE</code></li>
+<li><code v-pre>PROP_HUMAN_ATM</code></li>
+<li><code v-pre>PROP_HUMAN_BBQ</code></li>
+<li><code v-pre>PROP_HUMAN_BUM_BIN</code></li>
+<li><code v-pre>PROP_HUMAN_BUM_SHOPPING_CART</code></li>
+<li><code v-pre>PROP_HUMAN_MUSCLE_CHIN_UPS</code></li>
+<li><code v-pre>PROP_HUMAN_MUSCLE_CHIN_UPS_ARMY</code></li>
+<li><code v-pre>PROP_HUMAN_MUSCLE_CHIN_UPS_PRISON</code></li>
+<li><code v-pre>PROP_HUMAN_PARKING_METER</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_ARMCHAIR</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BAR</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_FACILITY</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_DRINK</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_DRINK_FACILITY</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_DRINK_BEER</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_FOOD</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BENCH_FOOD_FACILITY</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_BUS_STOP_WAIT</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_DRINK</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_DRINK_BEER</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_FOOD</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_UPRIGHT</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_UPRIGHT_SHOWROOM</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_CHAIR_MP_PLAYER</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_COMPUTER</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_COMPUTER_LOW</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_DECKCHAIR</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_DECKCHAIR_DRINK</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_MUSCLE_BENCH_PRESS</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_MUSCLE_BENCH_PRESS_PRISON</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_SEWING</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_STRIP_WATCH</code></li>
+<li><code v-pre>PROP_HUMAN_SEAT_SUNLOUNGER</code></li>
+<li><code v-pre>PROP_HUMAN_STAND_IMPATIENT</code></li>
+<li><code v-pre>CODE_HUMAN_COWER</code></li>
+<li><code v-pre>CODE_HUMAN_CROSS_ROAD_WAIT</code></li>
+<li><code v-pre>CODE_HUMAN_PARK_CAR</code></li>
+<li><code v-pre>PROP_HUMAN_MOVIE_BULB</code></li>
+<li><code v-pre>PROP_HUMAN_MOVIE_STUDIO_LIGHT</code></li>
+<li><code v-pre>CODE_HUMAN_MEDIC_KNEEL</code></li>
+<li><code v-pre>CODE_HUMAN_MEDIC_TEND_TO_DEAD</code></li>
+<li><code v-pre>CODE_HUMAN_MEDIC_TIME_OF_DEATH</code></li>
+<li><code v-pre>CODE_HUMAN_POLICE_CROWD_CONTROL</code></li>
+<li><code v-pre>CODE_HUMAN_POLICE_INVESTIGATE</code></li>
+<li><code v-pre>CHAINING_ENTRY</code></li>
+<li><code v-pre>CHAINING_EXIT</code></li>
+<li><code v-pre>CODE_HUMAN_STAND_COWER</code></li>
+<li><code v-pre>EAR_TO_TEXT</code></li>
+<li><code v-pre>EAR_TO_TEXT_FAT</code></li>
+<li><code v-pre>WORLD_LOOKAT_POINT</code></li>
+</ul>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/decompiled_scaleforms/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Decompiled scaleforms</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../../lua/docs/dump/script_task/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Script task</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. Project W1TCH. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Scenario", level: 4, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>

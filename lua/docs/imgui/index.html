@@ -1,0 +1,3968 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.773999266819">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.5.0">
+
+    <!-- Primary Meta Tags -->
+    <title>ImGui</title>
+    <meta name="title" content="ImGui">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="http://docbox.w1tch.net/lua/docs/imgui/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://docbox.w1tch.net/lua/docs/imgui/">
+    <meta property="og:title" content="ImGui">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://docbox.w1tch.net/lua/docs/imgui/">
+    <meta property="twitter:title" content="ImGui">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../../image/favicon.png" rel="icon">
+    <link href="../../../resources/css/retype.css?v=3.5.0.773999266819" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.773999266819" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.5.0.773999266819" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../../image/logo.png">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../../image/logo.png">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">w1tch.docs</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                            </li>
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <!-- Render this div, if config.showSidebarFilter is `true` -->
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/">Main Site</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://w1tch.net/settings/?area=DiscordBot">Discord</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_announcements">Telegram [ EN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://t.me/w1tch_cn">Telegram [ CN ]</a>
+                                    </li>
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://vk.com/projectw1tch">VK Group</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="imgui" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#imgui">#</doc-anchor-trigger>
+        <span>ImGui</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="rawimgui_api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rawimgui_api">#</doc-anchor-trigger>
+        <span>raw.imgui_api</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-cpp"><code v-pre class="language-cpp">namespace ImGui
+{
+	// Windows
+	inline bool Begin(const std::string&amp; name)
+	{
+		return ImGui::Begin(name.c_str());
+	}
+	inline bool Begin(const std::string&amp; name, int flags)
+	{
+		return ImGui::Begin(name.c_str(), nullptr, flags);
+	}
+	inline std::tuple&lt;bool, bool&gt; Begin(const std::string&amp; name, bool open)
+	{
+		if (!open)
+			return std::make_tuple(false, false);
+		const bool shouldDraw = ImGui::Begin(name.c_str(), &amp;open);
+		return std::make_tuple(open, open &amp;&amp; shouldDraw);
+	}
+	inline std::tuple&lt;bool, bool&gt; Begin(const std::string&amp; name, bool open, int flags)
+	{
+		if (!open)
+			return std::make_tuple(false, false);
+		const bool shouldDraw = ImGui::Begin(name.c_str(), &amp;open, flags);
+		return std::make_tuple(open, open &amp;&amp; shouldDraw);
+	}
+	inline void End()
+	{
+		ImGui::End();
+	}
+
+	// Child Windows
+	inline bool BeginChild(const std::string&amp; name)
+	{
+		return ImGui::BeginChild(name.c_str());
+	}
+	inline bool BeginChild(const std::string&amp; name, float sizeX)
+	{
+		return ImGui::BeginChild(name.c_str(), {sizeX, 0});
+	}
+	inline bool BeginChild(const std::string&amp; name, float sizeX, float sizeY)
+	{
+		return ImGui::BeginChild(name.c_str(), {sizeX, sizeY});
+	}
+	inline bool BeginChild(const std::string&amp; name, float sizeX, float sizeY, bool border)
+	{
+		return ImGui::BeginChild(name.c_str(), {sizeX, sizeY}, border);
+	}
+	inline bool BeginChild(const std::string&amp; name, float sizeX, float sizeY, bool border, int flags)
+	{
+		return ImGui::BeginChild(name.c_str(), {sizeX, sizeY}, border, flags);
+	}
+	inline void EndChild()
+	{
+		ImGui::EndChild();
+	}
+
+	// Windows Utilities
+	inline bool IsWindowAppearing()
+	{
+		return ImGui::IsWindowAppearing();
+	}
+	inline bool IsWindowCollapsed()
+	{
+		return ImGui::IsWindowCollapsed();
+	}
+	inline bool IsWindowFocused()
+	{
+		return ImGui::IsWindowFocused();
+	}
+	inline bool IsWindowFocused(int flags)
+	{
+		return ImGui::IsWindowFocused(flags);
+	}
+	inline bool IsWindowHovered()
+	{
+		return ImGui::IsWindowHovered();
+	}
+	inline bool IsWindowHovered(int flags)
+	{
+		return ImGui::IsWindowHovered(flags);
+	}
+	inline ImDrawList* GetWindowDrawList()
+	{
+		return ImGui::GetWindowDrawList();
+	}
+	inline std::tuple&lt;float, float&gt; GetWindowPos()
+	{
+		const auto vec2{ImGui::GetWindowPos()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetWindowSize()
+	{
+		const auto vec2{ImGui::GetWindowSize()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline float GetWindowWidth()
+	{
+		return ImGui::GetWindowWidth();
+	}
+	inline float GetWindowHeight()
+	{
+		return ImGui::GetWindowHeight();
+	}
+
+	// Prefer using SetNext...
+	inline void SetNextWindowPos(float posX, float posY)
+	{
+		ImGui::SetNextWindowPos({posX, posY});
+	}
+	inline void SetNextWindowPos(float posX, float posY, int cond)
+	{
+		ImGui::SetNextWindowPos({posX, posY}, cond);
+	}
+	inline void SetNextWindowPos(float posX, float posY, int cond, float pivotX, float pivotY)
+	{
+		ImGui::SetNextWindowPos({posX, posY}, cond, {pivotX, pivotY});
+	}
+	inline void SetNextWindowSize(float sizeX, float sizeY)
+	{
+		ImGui::SetNextWindowSize({sizeX, sizeY});
+	}
+	inline void SetNextWindowSize(float sizeX, float sizeY, int cond)
+	{
+		ImGui::SetNextWindowSize({sizeX, sizeY}, cond);
+	}
+	inline void SetNextWindowSizeConstraints(float minX, float minY, float maxX, float maxY)
+	{
+		ImGui::SetNextWindowSizeConstraints({minX, minY}, {maxX, maxY});
+	}
+	inline void SetNextWindowContentSize(float sizeX, float sizeY)
+	{
+		ImGui::SetNextWindowContentSize({sizeX, sizeY});
+	}
+	inline void SetNextWindowCollapsed(bool collapsed)
+	{
+		ImGui::SetNextWindowCollapsed(collapsed);
+	}
+	inline void SetNextWindowCollapsed(bool collapsed, int cond)
+	{
+		ImGui::SetNextWindowCollapsed(collapsed, cond);
+	}
+	inline void SetNextWindowFocus()
+	{
+		ImGui::SetNextWindowFocus();
+	}
+	inline void SetNextWindowBgAlpha(float alpha)
+	{
+		ImGui::SetNextWindowBgAlpha(alpha);
+	}
+	inline void SetWindowPos(float posX, float posY)
+	{
+		ImGui::SetWindowPos({posX, posY});
+	}
+	inline void SetWindowPos(float posX, float posY, int cond)
+	{
+		ImGui::SetWindowPos({posX, posY}, cond);
+	}
+	inline void SetWindowSize(float sizeX, float sizeY)
+	{
+		ImGui::SetWindowSize({sizeX, sizeY});
+	}
+	inline void SetWindowSize(float sizeX, float sizeY, int cond)
+	{
+		ImGui::SetWindowSize({sizeX, sizeY}, cond);
+	}
+	inline void SetWindowCollapsed(bool collapsed)
+	{
+		ImGui::SetWindowCollapsed(collapsed);
+	}
+	inline void SetWindowCollapsed(bool collapsed, int cond)
+	{
+		ImGui::SetWindowCollapsed(collapsed, cond);
+	}
+	inline void SetWindowFocus()
+	{
+		ImGui::SetWindowFocus();
+	}
+	inline void SetWindowFontScale(float scale)
+	{
+		ImGui::SetWindowFontScale(scale);
+	}
+	inline void SetWindowPos(const std::string&amp; name, float posX, float posY)
+	{
+		ImGui::SetWindowPos(name.c_str(), {posX, posY});
+	}
+	inline void SetWindowPos(const std::string&amp; name, float posX, float posY, int cond)
+	{
+		ImGui::SetWindowPos(name.c_str(), {posX, posY}, cond);
+	}
+	inline void SetWindowSize(const std::string&amp; name, float sizeX, float sizeY)
+	{
+		ImGui::SetWindowSize(name.c_str(), {sizeX, sizeY});
+	}
+	inline void SetWindowSize(const std::string&amp; name, float sizeX, float sizeY, int cond)
+	{
+		ImGui::SetWindowSize(name.c_str(), {sizeX, sizeY}, cond);
+	}
+	inline void SetWindowCollapsed(const std::string&amp; name, bool collapsed)
+	{
+		ImGui::SetWindowCollapsed(name.c_str(), collapsed);
+	}
+	inline void SetWindowCollapsed(const std::string&amp; name, bool collapsed, int cond)
+	{
+		ImGui::SetWindowCollapsed(name.c_str(), collapsed, cond);
+	}
+	inline void SetWindowFocus(const std::string&amp; name)
+	{
+		ImGui::SetWindowFocus(name.c_str());
+	}
+
+	// Content Region
+	inline std::tuple&lt;float, float&gt; GetContentRegionMax()
+	{
+		const auto vec2{ImGui::GetContentRegionMax()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetContentRegionAvail()
+	{
+		const auto vec2{ImGui::GetContentRegionAvail()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetWindowContentRegionMin()
+	{
+		const auto vec2{ImGui::GetWindowContentRegionMin()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetWindowContentRegionMax()
+	{
+		const auto vec2{ImGui::GetWindowContentRegionMax()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+
+	// Windows Scrolling
+	inline float GetScrollX()
+	{
+		return ImGui::GetScrollX();
+	}
+	inline float GetScrollY()
+	{
+		return ImGui::GetScrollY();
+	}
+	inline float GetScrollMaxX()
+	{
+		return ImGui::GetScrollMaxX();
+	}
+	inline float GetScrollMaxY()
+	{
+		return ImGui::GetScrollMaxY();
+	}
+	inline void SetScrollX(float scrollX)
+	{
+		ImGui::SetScrollX(scrollX);
+	}
+	inline void SetScrollY(float scrollY)
+	{
+		ImGui::SetScrollY(scrollY);
+	}
+	inline void SetScrollHereX()
+	{
+		ImGui::SetScrollHereX();
+	}
+	inline void SetScrollHereX(float centerXRatio)
+	{
+		ImGui::SetScrollHereX(centerXRatio);
+	}
+	inline void SetScrollHereY()
+	{
+		ImGui::SetScrollHereY();
+	}
+	inline void SetScrollHereY(float centerYRatio)
+	{
+		ImGui::SetScrollHereY(centerYRatio);
+	}
+	inline void SetScrollFromPosX(float localX)
+	{
+		ImGui::SetScrollFromPosX(localX);
+	}
+	inline void SetScrollFromPosX(float localX, float centerXRatio)
+	{
+		ImGui::SetScrollFromPosX(localX, centerXRatio);
+	}
+	inline void SetScrollFromPosY(float localY)
+	{
+		ImGui::SetScrollFromPosY(localY);
+	}
+	inline void SetScrollFromPosY(float localY, float centerYRatio)
+	{
+		ImGui::SetScrollFromPosY(localY, centerYRatio);
+	}
+
+// Parameters stacks (shared)
+#ifdef SOL_IMGUI_ENABLE_FONT_MANIPULATORS
+	inline void PushFont(ImFont* pFont)
+	{
+		ImGui::PushFont(pFont);
+	}
+	inline void PopFont()
+	{
+		ImGui::PopFont();
+	}
+#endif // SOL_IMGUI_ENABLE_FONT_MANIPULATORS
+	inline void PushStyleColor(int idx, int col)
+	{
+		ImGui::PushStyleColor(idx, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void PushStyleColor(int idx, float colR, float colG, float colB, float colA)
+	{
+		ImGui::PushStyleColor(idx, {colR, colG, colB, colA});
+	}
+	inline void PopStyleColor()
+	{
+		ImGui::PopStyleColor();
+	}
+	inline void PopStyleColor(int count)
+	{
+		ImGui::PopStyleColor(count);
+	}
+	inline void PushStyleVar(int idx, float val)
+	{
+		ImGui::PushStyleVar(idx, val);
+	}
+	inline void PushStyleVar(int idx, float valX, float valY)
+	{
+		ImGui::PushStyleVar(idx, {valX, valY});
+	}
+	inline void PopStyleVar()
+	{
+		ImGui::PopStyleVar();
+	}
+	inline void PopStyleVar(int count)
+	{
+		ImGui::PopStyleVar(count);
+	}
+	inline std::tuple&lt;float, float, float, float&gt; GetStyleColorVec4(int idx)
+	{
+		const auto col{ImGui::GetStyleColorVec4(idx)};
+		return std::make_tuple(col.x, col.y, col.z, col.w);
+	}
+#ifdef SOL_IMGUI_ENABLE_FONT_MANIPULATORS
+	inline ImFont* GetFont()
+	{
+		return ImGui::GetFont();
+	}
+#endif // SOL_IMGUI_ENABLE_FONT_MANIPULATORS
+	inline float GetFontSize()
+	{
+		return ImGui::GetFontSize();
+	}
+	inline std::tuple&lt;float, float&gt; GetFontTexUvWhitePixel()
+	{
+		const auto vec2{ImGui::GetFontTexUvWhitePixel()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline int GetColorU32(int idx, float alphaMul)
+	{
+		return ImGui::GetColorU32(idx, alphaMul);
+	}
+	inline int GetColorU32(float colR, float colG, float colB, float colA)
+	{
+		return ImGui::GetColorU32({colR, colG, colB, colA});
+	}
+	inline int GetColorU32(int col)
+	{
+		return ImGui::GetColorU32(static_cast&lt;ImU32&gt;(col));
+	}
+
+	// Parameters stacks (current window)
+	inline void PushItemWidth(float itemWidth)
+	{
+		ImGui::PushItemWidth(itemWidth);
+	}
+	inline void PopItemWidth()
+	{
+		ImGui::PopItemWidth();
+	}
+	inline void SetNextItemWidth(float itemWidth)
+	{
+		ImGui::SetNextItemWidth(itemWidth);
+	}
+	inline float CalcItemWidth()
+	{
+		return ImGui::CalcItemWidth();
+	}
+	inline void PushTextWrapPos()
+	{
+		ImGui::PushTextWrapPos();
+	}
+	inline void PushTextWrapPos(float wrapLocalPosX)
+	{
+		ImGui::PushTextWrapPos(wrapLocalPosX);
+	}
+	inline void PopTextWrapPos()
+	{
+		ImGui::PopTextWrapPos();
+	}
+	inline void PushAllowKeyboardFocus(bool allowKeyboardFocus)
+	{
+		ImGui::PushAllowKeyboardFocus(allowKeyboardFocus);
+	}
+	inline void PopAllowKeyboardFocus()
+	{
+		ImGui::PopAllowKeyboardFocus();
+	}
+	inline void PushButtonRepeat(bool repeat)
+	{
+		ImGui::PushButtonRepeat(repeat);
+	}
+	inline void PopButtonRepeat()
+	{
+		ImGui::PopButtonRepeat();
+	}
+
+	// Cursor / Layout
+	inline void Separator()
+	{
+		ImGui::Separator();
+	}
+	inline void SameLine()
+	{
+		ImGui::SameLine();
+	}
+	inline void SameLine(float offsetFromStartX)
+	{
+		ImGui::SameLine(offsetFromStartX);
+	}
+	inline void SameLine(float offsetFromStartX, float spacing)
+	{
+		ImGui::SameLine(offsetFromStartX, spacing);
+	}
+	inline void NewLine()
+	{
+		ImGui::NewLine();
+	}
+	inline void Spacing()
+	{
+		ImGui::Spacing();
+	}
+	inline void Dummy(float sizeX, float sizeY)
+	{
+		ImGui::Dummy({sizeX, sizeY});
+	}
+	inline void Indent()
+	{
+		ImGui::Indent();
+	}
+	inline void Indent(float indentW)
+	{
+		ImGui::Indent(indentW);
+	}
+	inline void Unindent()
+	{
+		ImGui::Unindent();
+	}
+	inline void Unindent(float indentW)
+	{
+		ImGui::Unindent(indentW);
+	}
+	inline void BeginGroup()
+	{
+		ImGui::BeginGroup();
+	}
+	inline void EndGroup()
+	{
+		ImGui::EndGroup();
+	}
+	inline std::tuple&lt;float, float&gt; GetCursorPos()
+	{
+		const auto vec2{ImGui::GetCursorPos()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline float GetCursorPosX()
+	{
+		return ImGui::GetCursorPosX();
+	}
+	inline float GetCursorPosY()
+	{
+		return ImGui::GetCursorPosY();
+	}
+	inline void SetCursorPos(float localX, float localY)
+	{
+		ImGui::SetCursorPos({localX, localY});
+	}
+	inline void SetCursorPosX(float localX)
+	{
+		ImGui::SetCursorPosX(localX);
+	}
+	inline void SetCursorPosY(float localY)
+	{
+		ImGui::SetCursorPosY(localY);
+	}
+	inline std::tuple&lt;float, float&gt; GetCursorStartPos()
+	{
+		const auto vec2{ImGui::GetCursorStartPos()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetCursorScreenPos()
+	{
+		const auto vec2{ImGui::GetCursorScreenPos()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline void SetCursorScreenPos(float posX, float posY)
+	{
+		ImGui::SetCursorScreenPos({posX, posY});
+	}
+	inline void AlignTextToFramePadding()
+	{
+		ImGui::AlignTextToFramePadding();
+	}
+	inline float GetTextLineHeight()
+	{
+		return ImGui::GetTextLineHeight();
+	}
+	inline float GetTextLineHeightWithSpacing()
+	{
+		return ImGui::GetTextLineHeightWithSpacing();
+	}
+	inline float GetFrameHeight()
+	{
+		return ImGui::GetFrameHeight();
+	}
+	inline float GetFrameHeightWithSpacing()
+	{
+		return ImGui::GetFrameHeightWithSpacing();
+	}
+
+	// ID stack / scopes
+	inline void PushID(const std::string&amp; stringID)
+	{
+		ImGui::PushID(stringID.c_str());
+	}
+	inline void PushID(int intID)
+	{
+		ImGui::PushID(intID);
+	}
+	inline void PopID()
+	{
+		ImGui::PopID();
+	}
+	inline int GetID(const std::string&amp; stringID)
+	{
+		return ImGui::GetID(stringID.c_str());
+	}
+
+	// Widgets: Text
+	inline void TextUnformatted(const std::string&amp; text)
+	{
+		ImGui::TextUnformatted(text.c_str());
+	}
+	inline void Text(const std::string&amp; text)
+	{
+		ImGui::TextUnformatted(text.c_str());
+	} // TODO - make this proper call to ImGui::Text, allowing real formatting!
+	inline void TextColored(float colR, float colG, float colB, float colA, const std::string&amp; text)
+	{
+		ImGui::TextColored({colR, colG, colB, colA},
+		&quot;%s&quot;, text.c_str());
+	}
+	inline void TextDisabled(const std::string&amp; text)
+	{
+		ImGui::TextDisabled(&quot;%s&quot;, text.c_str());
+	}
+	inline void TextWrapped(const std::string&amp; text)
+	{
+		ImGui::TextWrapped(&quot;%s&quot;, text.c_str());
+	}
+	inline void LabelText(const std::string&amp; label, const std::string&amp; text)
+	{
+		ImGui::LabelText(label.c_str(),
+		&quot;%s&quot;, text.c_str());
+	}
+	inline void BulletText(const std::string&amp; text)
+	{
+		ImGui::BulletText(&quot;%s&quot;, text.c_str());
+	}
+	inline void SeparatorText(const std::string&amp; text)
+	{
+		ImGui::SeparatorText(text.c_str());
+	}
+
+	// Widgets: Main
+	inline bool Button(const std::string&amp; label)
+	{
+		return ImGui::Button(label.c_str());
+	}
+	inline bool Button(const std::string&amp; label, float sizeX, float sizeY)
+	{
+		return ImGui::Button(label.c_str(), {sizeX, sizeY});
+	}
+	inline bool SmallButton(const std::string&amp; label)
+	{
+		return ImGui::SmallButton(label.c_str());
+	}
+	inline bool InvisibleButton(const std::string&amp; stringID, float sizeX, float sizeY)
+	{
+		return ImGui::InvisibleButton(stringID.c_str(), {sizeX, sizeY});
+	}
+	inline bool ArrowButton(const std::string&amp; stringID, int dir)
+	{
+		return ImGui::ArrowButton(stringID.c_str(), static_cast&lt;ImGuiDir&gt;(dir));
+	}
+	inline void Image()
+	{ /* TODO: Image(...) ==&gt; UNSUPPORTED */
+	}
+	inline void ImageButton()
+	{ /* TODO: ImageButton(...) ==&gt; UNSUPPORTED */
+	}
+	inline std::tuple&lt;bool, bool&gt; Checkbox(const std::string&amp; label, bool v)
+	{
+		bool value{v};
+		bool pressed = ImGui::Checkbox(label.c_str(), &amp;value);
+
+		return std::make_tuple(value, pressed);
+	}
+	inline bool CheckboxFlags()
+	{
+		return false; /* TODO: CheckboxFlags(...) ==&gt; UNSUPPORTED */
+	}
+	inline bool RadioButton(const std::string&amp; label, bool active)
+	{
+		return ImGui::RadioButton(label.c_str(), active);
+	}
+	inline std::tuple&lt;int, bool&gt; RadioButton(const std::string&amp; label, int v, int vButton)
+	{
+		bool ret{ImGui::RadioButton(label.c_str(), &amp;v, vButton)};
+		return std::make_tuple(v, ret);
+	}
+	inline void ProgressBar(float fraction)
+	{
+		ImGui::ProgressBar(fraction);
+	}
+	inline void ProgressBar(float fraction, float sizeX, float sizeY)
+	{
+		ImGui::ProgressBar(fraction, {sizeX, sizeY});
+	}
+	inline void ProgressBar(float fraction, float sizeX, float sizeY, const std::string&amp; overlay)
+	{
+		ImGui::ProgressBar(fraction, {sizeX, sizeY}, overlay.c_str());
+	}
+	inline void Bullet()
+	{
+		ImGui::Bullet();
+	}
+
+	// Widgets: Combo Box
+	inline bool BeginCombo(const std::string&amp; label, const std::string&amp; previewValue)
+	{
+		return ImGui::BeginCombo(label.c_str(), previewValue.c_str());
+	}
+	inline bool BeginCombo(const std::string&amp; label, const std::string&amp; previewValue, int flags)
+	{
+		return ImGui::BeginCombo(label.c_str(), previewValue.c_str(), flags);
+	}
+	inline void EndCombo()
+	{
+		ImGui::EndCombo();
+	}
+	inline std::tuple&lt;int, bool&gt; Combo(const std::string&amp; label, int currentItem, const sol::table&amp; items, int itemsCount)
+	{
+		std::vector&lt;std::string&gt; strings;
+		strings.reserve(itemsCount);
+		std::vector&lt;const char*&gt; cstrings;
+		cstrings.reserve(itemsCount);
+		for (int i{1}; i &lt;= itemsCount; i++)
+		{
+			const auto&amp; stringItem = items.get&lt;sol::optional&lt;std::string&gt;&gt;(i);
+			cstrings.emplace_back(strings.emplace_back(std::move(stringItem.value_or(&quot;Missing&quot;))).c_str());
+		}
+
+		bool clicked = ImGui::Combo(label.c_str(), &amp;currentItem, cstrings.data(), itemsCount);
+		return std::make_tuple(currentItem, clicked);
+	}
+	inline std::tuple&lt;int, bool&gt; Combo(const std::string&amp; label, int currentItem, const sol::table&amp; items, int itemsCount, int popupMaxHeightInItems)
+	{
+		std::vector&lt;std::string&gt; strings;
+		strings.reserve(itemsCount);
+		std::vector&lt;const char*&gt; cstrings;
+		cstrings.reserve(itemsCount);
+		for (int i{1}; i &lt;= itemsCount; i++)
+		{
+			const auto&amp; stringItem = items.get&lt;sol::optional&lt;std::string&gt;&gt;(i);
+			cstrings.emplace_back(strings.emplace_back(std::move(stringItem.value_or(&quot;Missing&quot;))).c_str());
+		}
+
+		bool clicked = ImGui::Combo(label.c_str(), &amp;currentItem, cstrings.data(), itemsCount, popupMaxHeightInItems);
+		return std::make_tuple(currentItem, clicked);
+	}
+	inline std::tuple&lt;int, bool&gt; Combo(const std::string&amp; label, int currentItem, const std::string&amp; itemsSeparatedByZeros)
+	{
+		bool clicked = ImGui::Combo(label.c_str(), &amp;currentItem, itemsSeparatedByZeros.c_str());
+		return std::make_tuple(currentItem, clicked);
+	}
+	inline std::tuple&lt;int, bool&gt; Combo(const std::string&amp; label, int currentItem, const std::string&amp; itemsSeparatedByZeros, int popupMaxHeightInItems)
+	{
+		bool clicked = ImGui::Combo(label.c_str(), &amp;currentItem, itemsSeparatedByZeros.c_str(), popupMaxHeightInItems);
+		return std::make_tuple(currentItem, clicked);
+	}
+	// TODO: 3rd Combo from ImGui not Supported
+
+	// Widgets: Drags
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v, float v_speed)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v, v_speed);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v, float v_speed, float v_min)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v, v_speed, v_min);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v, float v_speed, float v_min, float v_max)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v, v_speed, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v, float v_speed, float v_min, float v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v, v_speed, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; DragFloat(const std::string&amp; label, float v, float v_speed, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::DragFloat(label.c_str(), &amp;v, v_speed, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value, v_speed);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat2(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::DragFloat2(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value, v_speed);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat3(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::DragFloat3(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value, v_speed);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; DragFloat4(const std::string&amp; label, const sol::table&amp; v, float v_speed, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::DragFloat4(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline void DragFloatRange2()
+	{ /* TODO: DragFloatRange2(...) ==&gt; UNSUPPORTED */
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v, float v_speed)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v, v_speed);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v, float v_speed, int v_min)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v, v_speed, v_min);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v, float v_speed, int v_min, int v_max)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v, v_speed, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v, float v_speed, int v_min, int v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v, v_speed, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; DragInt(const std::string&amp; label, int v, float v_speed, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::DragInt(label.c_str(), &amp;v, v_speed, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value, v_speed);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt2(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::DragInt2(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value, v_speed);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt3(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::DragInt3(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v, float v_speed)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value, v_speed);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value, v_speed, v_min);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value, v_speed, v_min, v_max);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value, v_speed, v_min, v_max, format.c_str());
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; DragInt4(const std::string&amp; label, const sol::table&amp; v, float v_speed, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::DragInt4(label.c_str(), value, v_speed, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline void DragIntRange2()
+	{ /* TODO: DragIntRange2(...) ==&gt; UNSUPPORTED */
+	}
+	inline void DragScalar()
+	{ /* TODO: DragScalar(...) ==&gt; UNSUPPORTED */
+	}
+	inline void DragScalarN()
+	{ /* TODO: DragScalarN(...) ==&gt; UNSUPPORTED */
+	}
+
+	// Widgets: Sliders
+	inline std::tuple&lt;float, bool&gt; SliderFloat(const std::string&amp; label, float v, float v_min, float v_max)
+	{
+		bool used = ImGui::SliderFloat(label.c_str(), &amp;v, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderFloat(const std::string&amp; label, float v, float v_min, float v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::SliderFloat(label.c_str(), &amp;v, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderFloat(const std::string&amp; label, float v, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::SliderFloat(label.c_str(), &amp;v, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat2(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::SliderFloat2(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat2(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::SliderFloat2(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat2(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::SliderFloat2(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat3(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::SliderFloat3(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[3]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat3(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::SliderFloat3(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[3]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat3(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::SliderFloat3(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[3]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat4(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::SliderFloat4(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat4(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::SliderFloat4(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; SliderFloat4(const std::string&amp; label, const sol::table&amp; v, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::SliderFloat4(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderAngle(const std::string&amp; label, float v_rad)
+	{
+		bool used = ImGui::SliderAngle(label.c_str(), &amp;v_rad);
+		return std::make_tuple(v_rad, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderAngle(const std::string&amp; label, float v_rad, float v_degrees_min)
+	{
+		bool used = ImGui::SliderAngle(label.c_str(), &amp;v_rad, v_degrees_min);
+		return std::make_tuple(v_rad, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderAngle(const std::string&amp; label, float v_rad, float v_degrees_min, float v_degrees_max)
+	{
+		bool used = ImGui::SliderAngle(label.c_str(), &amp;v_rad, v_degrees_min, v_degrees_max);
+		return std::make_tuple(v_rad, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderAngle(const std::string&amp; label, float v_rad, float v_degrees_min, float v_degrees_max, const std::string&amp; format)
+	{
+		bool used = ImGui::SliderAngle(label.c_str(), &amp;v_rad, v_degrees_min, v_degrees_max, format.c_str());
+		return std::make_tuple(v_rad, used);
+	}
+	inline std::tuple&lt;float, bool&gt; SliderAngle(const std::string&amp; label, float v_rad, float v_degrees_min, float v_degrees_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::SliderAngle(label.c_str(), &amp;v_rad, v_degrees_min, v_degrees_max, format.c_str(), flags);
+		return std::make_tuple(v_rad, used);
+	}
+	inline std::tuple&lt;int, bool&gt; SliderInt(const std::string&amp; label, int v, int v_min, int v_max)
+	{
+		bool used = ImGui::SliderInt(label.c_str(), &amp;v, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; SliderInt(const std::string&amp; label, int v, int v_min, int v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::SliderInt(label.c_str(), &amp;v, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; SliderInt(const std::string&amp; label, int v, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::SliderInt(label.c_str(), &amp;v, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt2(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::SliderInt2(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt2(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::SliderInt2(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt2(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::SliderInt2(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt3(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::SliderInt3(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt3(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::SliderInt3(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt3(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::SliderInt3(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt4(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::SliderInt4(label.c_str(), value, v_min, v_max);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt4(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::SliderInt4(label.c_str(), value, v_min, v_max, format.c_str());
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; SliderInt4(const std::string&amp; label, const sol::table&amp; v, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::SliderInt4(label.c_str(), value, v_min, v_max, format.c_str(), flags);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline void SliderScalar()
+	{ /* TODO: SliderScalar(...) ==&gt; UNSUPPORTED */
+	}
+	inline void SliderScalarN()
+	{ /* TODO: SliderScalarN(...) ==&gt; UNSUPPORTED */
+	}
+	inline std::tuple&lt;float, bool&gt; VSliderFloat(const std::string&amp; label, float sizeX, float sizeY, float v, float v_min, float v_max)
+	{
+		bool used = ImGui::VSliderFloat(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; VSliderFloat(const std::string&amp; label, float sizeX, float sizeY, float v, float v_min, float v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::VSliderFloat(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;float, bool&gt; VSliderFloat(const std::string&amp; label, float sizeX, float sizeY, float v, float v_min, float v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::VSliderFloat(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; VSliderInt(const std::string&amp; label, float sizeX, float sizeY, int v, int v_min, int v_max)
+	{
+		bool used = ImGui::VSliderInt(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max);
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; VSliderInt(const std::string&amp; label, float sizeX, float sizeY, int v, int v_min, int v_max, const std::string&amp; format)
+	{
+		bool used = ImGui::VSliderInt(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max, format.c_str());
+		return std::make_tuple(v, used);
+	}
+	inline std::tuple&lt;int, bool&gt; VSliderInt(const std::string&amp; label, float sizeX, float sizeY, int v, int v_min, int v_max, const std::string&amp; format, int flags)
+	{
+		bool used = ImGui::VSliderInt(label.c_str(), {sizeX, sizeY}, &amp;v, v_min, v_max, format.c_str(), flags);
+		return std::make_tuple(v, used);
+	}
+	inline void VSliderScalar()
+	{ /* TODO: VSliderScalar(...) ==&gt; UNSUPPORTED */
+	}
+
+	// Widgets: Input with Keyboard
+	inline std::tuple&lt;std::string, bool&gt; InputText(const std::string&amp; label, std::string text, unsigned int buf_size)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputText(label.c_str(), text.data(), buf_size);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputText(const std::string&amp; label, std::string text, unsigned int buf_size, int flags)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputText(label.c_str(), text.data(), buf_size, flags);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputTextMultiline(const std::string&amp; label, std::string text, unsigned int buf_size)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputTextMultiline(label.c_str(), text.data(), buf_size);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputTextMultiline(const std::string&amp; label, std::string text, unsigned int buf_size, float sizeX, float sizeY)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputTextMultiline(label.c_str(), text.data(), buf_size, {sizeX, sizeY});
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputTextMultiline(const std::string&amp; label, std::string text, unsigned int buf_size, float sizeX, float sizeY, int flags)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputTextMultiline(label.c_str(), text.data(), buf_size, {sizeX, sizeY}, flags);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputTextWithHint(const std::string&amp; label, const std::string&amp; hint, std::string text, unsigned int buf_size)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputTextWithHint(label.c_str(), hint.c_str(), text.data(), buf_size);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;std::string, bool&gt; InputTextWithHint(const std::string&amp; label, const std::string&amp; hint, std::string text, unsigned int buf_size, int flags)
+	{
+		text.resize(buf_size);
+		bool selected = ImGui::InputTextWithHint(label.c_str(), hint.c_str(), text.data(), buf_size, flags);
+		return std::make_tuple(text.c_str(), selected);
+	}
+	inline std::tuple&lt;float, bool&gt; InputFloat(const std::string&amp; label, float v)
+	{
+		bool selected = ImGui::InputFloat(label.c_str(), &amp;v);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;float, bool&gt; InputFloat(const std::string&amp; label, float v, float step)
+	{
+		bool selected = ImGui::InputFloat(label.c_str(), &amp;v, step);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;float, bool&gt; InputFloat(const std::string&amp; label, float v, float step, float step_fast)
+	{
+		bool selected = ImGui::InputFloat(label.c_str(), &amp;v, step, step_fast);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;float, bool&gt; InputFloat(const std::string&amp; label, float v, float step, float step_fast, const std::string&amp; format)
+	{
+		bool selected = ImGui::InputFloat(label.c_str(), &amp;v, step, step_fast, format.c_str());
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;float, bool&gt; InputFloat(const std::string&amp; label, float v, float step, float step_fast, const std::string&amp; format, int flags)
+	{
+		bool selected = ImGui::InputFloat(label.c_str(), &amp;v, step, step_fast, format.c_str(), flags);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat2(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::InputFloat2(label.c_str(), value);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat2(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::InputFloat2(label.c_str(), value, format.c_str());
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat2(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[2] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2)};
+		bool used      = ImGui::InputFloat2(label.c_str(), value, format.c_str(), flags);
+
+		sol::as_table_t float2 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1]});
+
+		return std::make_tuple(float2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat3(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::InputFloat3(label.c_str(), value);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat3(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::InputFloat3(label.c_str(), value, format.c_str());
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat3(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[3] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3)};
+		bool used      = ImGui::InputFloat3(label.c_str(), value, format.c_str(), flags);
+
+		sol::as_table_t float3 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(float3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat4(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::InputFloat4(label.c_str(), value);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat4(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::InputFloat4(label.c_str(), value, format.c_str());
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; InputFloat4(const std::string&amp; label, const sol::table&amp; v, const std::string&amp; format, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float value[4] = {static_cast&lt;float&gt;(v1), static_cast&lt;float&gt;(v2), static_cast&lt;float&gt;(v3), static_cast&lt;float&gt;(v4)};
+		bool used = ImGui::InputFloat4(label.c_str(), value, format.c_str(), flags);
+
+		sol::as_table_t float4 = sol::as_table(std::vector&lt;float&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(float4, used);
+	}
+	inline std::tuple&lt;int, bool&gt; InputInt(const std::string&amp; label, int v)
+	{
+		bool selected = ImGui::InputInt(label.c_str(), &amp;v);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;int, bool&gt; InputInt(const std::string&amp; label, int v, int step)
+	{
+		bool selected = ImGui::InputInt(label.c_str(), &amp;v, step);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;int, bool&gt; InputInt(const std::string&amp; label, int v, int step, int step_fast)
+	{
+		bool selected = ImGui::InputInt(label.c_str(), &amp;v, step, step_fast);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;int, bool&gt; InputInt(const std::string&amp; label, int v, int step, int step_fast, int flags)
+	{
+		bool selected = ImGui::InputInt(label.c_str(), &amp;v, step, step_fast, flags);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt2(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::InputInt2(label.c_str(), value);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt2(const std::string&amp; label, const sol::table&amp; v, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[2] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2)};
+		bool used    = ImGui::InputInt2(label.c_str(), value, flags);
+
+		sol::as_table_t int2 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1]});
+
+		return std::make_tuple(int2, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt3(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::InputInt3(label.c_str(), value);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt3(const std::string&amp; label, const sol::table&amp; v, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[3] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3)};
+		bool used    = ImGui::InputInt3(label.c_str(), value, flags);
+
+		sol::as_table_t int3 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2]});
+
+		return std::make_tuple(int3, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt4(const std::string&amp; label, const sol::table&amp; v)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::InputInt4(label.c_str(), value);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;int&gt;&gt;, bool&gt; InputInt4(const std::string&amp; label, const sol::table&amp; v, int flags)
+	{
+		const lua_Number v1{v[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v2{v[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v3{v[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    v4{v[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		int value[4] = {static_cast&lt;int&gt;(v1), static_cast&lt;int&gt;(v2), static_cast&lt;int&gt;(v3), static_cast&lt;int&gt;(v4)};
+		bool used    = ImGui::InputInt4(label.c_str(), value, flags);
+
+		sol::as_table_t int4 = sol::as_table(std::vector&lt;int&gt;{value[0], value[1], value[2], value[3]});
+
+		return std::make_tuple(int4, used);
+	}
+	inline std::tuple&lt;double, bool&gt; InputDouble(const std::string&amp; label, double v)
+	{
+		bool selected = ImGui::InputDouble(label.c_str(), &amp;v);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;double, bool&gt; InputDouble(const std::string&amp; label, double v, double step)
+	{
+		bool selected = ImGui::InputDouble(label.c_str(), &amp;v, step);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;double, bool&gt; InputDouble(const std::string&amp; label, double v, double step, double step_fast)
+	{
+		bool selected = ImGui::InputDouble(label.c_str(), &amp;v, step, step_fast);
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;double, bool&gt; InputDouble(const std::string&amp; label, double v, double step, double step_fast, const std::string&amp; format)
+	{
+		bool selected = ImGui::InputDouble(label.c_str(), &amp;v, step, step_fast, format.c_str());
+		return std::make_tuple(v, selected);
+	}
+	inline std::tuple&lt;double, bool&gt; InputDouble(const std::string&amp; label, double v, double step, double step_fast, const std::string&amp; format, int flags)
+	{
+		bool selected = ImGui::InputDouble(label.c_str(), &amp;v, step, step_fast, format.c_str(), flags);
+		return std::make_tuple(v, selected);
+	}
+	inline void InputScalar()
+	{ /* TODO: InputScalar(...) ==&gt; UNSUPPORTED */
+	}
+	inline void InputScalarN()
+	{ /* TODO: InputScalarN(...) ==&gt; UNSUPPORTED */
+	}
+
+	// Widgets: Color Editor / Picker
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorEdit3(const std::string&amp; label, const sol::table&amp; col)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[3] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b)};
+		bool used      = ImGui::ColorEdit3(label.c_str(), color);
+
+		sol::as_table_t rgb = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2]});
+
+		return std::make_tuple(rgb, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorEdit3(const std::string&amp; label, const sol::table&amp; col, int flags)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[3] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b)};
+		bool used      = ImGui::ColorEdit3(label.c_str(), color, flags);
+
+		sol::as_table_t rgb = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2]});
+
+		return std::make_tuple(rgb, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorEdit4(const std::string&amp; label, const sol::table&amp; col)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[4] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		bool used      = ImGui::ColorEdit4(label.c_str(), color);
+
+		sol::as_table_t rgba = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2], color[3]});
+
+		return std::make_tuple(rgba, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorEdit4(const std::string&amp; label, const sol::table&amp; col, int flags)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[4] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		bool used      = ImGui::ColorEdit4(label.c_str(), color, flags);
+
+		sol::as_table_t rgba = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2], color[3]});
+
+		return std::make_tuple(rgba, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorPicker3(const std::string&amp; label, const sol::table&amp; col)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[3] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b)};
+		bool used      = ImGui::ColorPicker3(label.c_str(), color);
+
+		sol::as_table_t rgb = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2]});
+
+		return std::make_tuple(rgb, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorPicker3(const std::string&amp; label, const sol::table&amp; col, int flags)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[3] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b)};
+		bool used      = ImGui::ColorPicker3(label.c_str(), color, flags);
+
+		sol::as_table_t rgb = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2]});
+
+		return std::make_tuple(rgb, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorPicker4(const std::string&amp; label, const sol::table&amp; col)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[4] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		bool used      = ImGui::ColorPicker4(label.c_str(), color);
+
+		sol::as_table_t rgba = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2], color[3]});
+
+		return std::make_tuple(rgba, used);
+	}
+	inline std::tuple&lt;sol::as_table_t&lt;std::vector&lt;float&gt;&gt;, bool&gt; ColorPicker4(const std::string&amp; label, const sol::table&amp; col, int flags)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		float color[4] = {static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		bool used      = ImGui::ColorPicker4(label.c_str(), color, flags);
+
+		sol::as_table_t rgba = sol::as_table(std::vector&lt;float&gt;{color[0], color[1], color[2], color[3]});
+
+		return std::make_tuple(rgba, used);
+	}
+	inline bool ColorButton(const std::string&amp; desc_id, const sol::table&amp; col)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		const ImVec4 color{static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		return ImGui::ColorButton(desc_id.c_str(), color);
+	}
+	inline bool ColorButton(const std::string&amp; desc_id, const sol::table&amp; col, int flags)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		const ImVec4 color{static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		return ImGui::ColorButton(desc_id.c_str(), color, flags);
+	}
+	inline bool ColorButton(const std::string&amp; desc_id, const sol::table&amp; col, int flags, float sizeX, float sizeY)
+	{
+		const lua_Number r{col[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{col[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{col[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{col[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+		const ImVec4 color{static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)};
+		return ImGui::ColorButton(desc_id.c_str(), color, flags, {sizeX, sizeY});
+	}
+	inline void SetColorEditOptions(int flags)
+	{
+		ImGui::SetColorEditOptions(flags);
+	}
+
+	// Widgets: Trees
+	inline bool TreeNode(const std::string&amp; label)
+	{
+		return ImGui::TreeNode(label.c_str());
+	}
+	inline bool TreeNode(const std::string&amp; label, const std::string&amp; fmt)
+	{
+		return ImGui::TreeNode(label.c_str(),
+		&quot;%s&quot;, fmt.c_str());
+	}
+	/* TODO: TreeNodeV(...) (2) ==&gt; UNSUPPORTED */
+	inline bool TreeNodeEx(const std::string&amp; label)
+	{
+		return ImGui::TreeNodeEx(label.c_str());
+	}
+	inline bool TreeNodeEx(const std::string&amp; label, int flags)
+	{
+		return ImGui::TreeNodeEx(label.c_str(), flags);
+	}
+	inline bool TreeNodeEx(const std::string&amp; label, int flags, const std::string&amp; fmt)
+	{
+		return ImGui::TreeNodeEx(label.c_str(), flags,
+		&quot;%s&quot;, fmt.c_str());
+	}
+	/* TODO: TreeNodeExV(...) (2) ==&gt; UNSUPPORTED */
+	inline void TreePush(const std::string&amp; str_id)
+	{
+		ImGui::TreePush(str_id.c_str());
+	}
+	/* TODO: TreePush(const void*) ==&gt; UNSUPPORTED */
+	inline void TreePop()
+	{
+		ImGui::TreePop();
+	}
+	inline float GetTreeNodeToLabelSpacing()
+	{
+		return ImGui::GetTreeNodeToLabelSpacing();
+	}
+	inline bool CollapsingHeader(const std::string&amp; label)
+	{
+		return ImGui::CollapsingHeader(label.c_str());
+	}
+	inline bool CollapsingHeader(const std::string&amp; label, int flags)
+	{
+		return ImGui::CollapsingHeader(label.c_str(), flags);
+	}
+	inline std::tuple&lt;bool, bool&gt; CollapsingHeader(const std::string&amp; label, bool open)
+	{
+		bool notCollapsed = ImGui::CollapsingHeader(label.c_str(), &amp;open);
+		return std::make_tuple(open, notCollapsed);
+	}
+	inline std::tuple&lt;bool, bool&gt; CollapsingHeader(const std::string&amp; label, bool open, int flags)
+	{
+		bool notCollapsed = ImGui::CollapsingHeader(label.c_str(), &amp;open, flags);
+		return std::make_tuple(open, notCollapsed);
+	}
+	inline void SetNextItemOpen(bool is_open)
+	{
+		ImGui::SetNextItemOpen(is_open);
+	}
+	inline void SetNextItemOpen(bool is_open, int cond)
+	{
+		ImGui::SetNextItemOpen(is_open, cond);
+	}
+
+	// Widgets: Selectables
+	// TODO: Only one of Selectable variations is possible due to same parameters for Lua
+	inline bool Selectable(const std::string&amp; label)
+	{
+		return ImGui::Selectable(label.c_str());
+	}
+	inline bool Selectable(const std::string&amp; label, bool selected)
+	{
+		ImGui::Selectable(label.c_str(), &amp;selected);
+		return selected;
+	}
+	inline bool Selectable(const std::string&amp; label, bool selected, int flags)
+	{
+		ImGui::Selectable(label.c_str(), &amp;selected, flags);
+		return selected;
+	}
+	inline bool Selectable(const std::string&amp; label, bool selected, int flags, float sizeX, float sizeY)
+	{
+		ImGui::Selectable(label.c_str(), &amp;selected, flags, {sizeX, sizeY});
+		return selected;
+	}
+
+	// Widgets: List Boxes
+	inline std::tuple&lt;int, bool&gt; ListBox(const std::string&amp; label, int current_item, const sol::table&amp; items, int items_count)
+	{
+		std::vector&lt;std::string&gt; strings;
+		for (int i{1}; i &lt;= items_count; i++)
+		{
+			const auto&amp; stringItem = items.get&lt;sol::optional&lt;std::string&gt;&gt;(i);
+			strings.emplace_back(stringItem.value_or(&quot;Missing&quot;));
+		}
+
+		std::vector&lt;const char*&gt; cstrings;
+		for (auto&amp; string : strings)
+			cstrings.emplace_back(string.c_str());
+
+		bool clicked = ImGui::ListBox(label.c_str(), &amp;current_item, cstrings.data(), items_count);
+		return std::make_tuple(current_item, clicked);
+	}
+	inline std::tuple&lt;int, bool&gt; ListBox(const std::string&amp; label, int current_item, const sol::table&amp; items, int items_count, int height_in_items)
+	{
+		std::vector&lt;std::string&gt; strings;
+		for (int i{1}; i &lt;= items_count; i++)
+		{
+			const auto&amp; stringItem = items.get&lt;sol::optional&lt;std::string&gt;&gt;(i);
+			strings.emplace_back(stringItem.value_or(&quot;Missing&quot;));
+		}
+
+		std::vector&lt;const char*&gt; cstrings;
+		for (auto&amp; string : strings)
+			cstrings.emplace_back(string.c_str());
+
+		bool clicked = ImGui::ListBox(label.c_str(), &amp;current_item, cstrings.data(), items_count, height_in_items);
+		return std::make_tuple(current_item, clicked);
+	}
+	inline bool BeginListBox(const std::string&amp; label)
+	{
+		return ImGui::BeginListBox(label.c_str());
+	}
+	inline bool BeginListBox(const std::string&amp; label, float sizeX, float sizeY)
+	{
+		return ImGui::BeginListBox(label.c_str(), {sizeX, sizeY});
+	}
+	inline void EndListBox()
+	{
+		ImGui::EndListBox();
+	}
+
+	// Widgets: Data Plotting
+	/* TODO: Widgets Data Plotting ==&gt; UNSUPPORTED (barely used and quite long functions) */
+
+	// Widgets: Value() helpers
+	inline void Value(const std::string&amp; prefix, bool b)
+	{
+		ImGui::Value(prefix.c_str(), b);
+	}
+	inline void Value(const std::string&amp; prefix, int v)
+	{
+		ImGui::Value(prefix.c_str(), v);
+	}
+	inline void Value(const std::string&amp; prefix, unsigned int v)
+	{
+		ImGui::Value(prefix.c_str(), v);
+	}
+	inline void Value(const std::string&amp; prefix, float v)
+	{
+		ImGui::Value(prefix.c_str(), v);
+	}
+	inline void Value(const std::string&amp; prefix, float v, const std::string&amp; float_format)
+	{
+		ImGui::Value(prefix.c_str(), v, float_format.c_str());
+	}
+
+	// Widgets: Menus
+	inline bool BeginMenuBar()
+	{
+		return ImGui::BeginMenuBar();
+	}
+	inline void EndMenuBar()
+	{
+		ImGui::EndMenuBar();
+	}
+	inline bool BeginMainMenuBar()
+	{
+		return ImGui::BeginMainMenuBar();
+	}
+	inline void EndMainMenuBar()
+	{
+		ImGui::EndMainMenuBar();
+	}
+	inline bool BeginMenu(const std::string&amp; label)
+	{
+		return ImGui::BeginMenu(label.c_str());
+	}
+	inline bool BeginMenu(const std::string&amp; label, bool enabled)
+	{
+		return ImGui::BeginMenu(label.c_str(), enabled);
+	}
+	inline void EndMenu()
+	{
+		ImGui::EndMenu();
+	}
+	inline bool MenuItem(const std::string&amp; label)
+	{
+		return ImGui::MenuItem(label.c_str());
+	}
+	inline bool MenuItem(const std::string&amp; label, const std::string&amp; shortcut)
+	{
+		return ImGui::MenuItem(label.c_str(), shortcut.c_str());
+	}
+	inline std::tuple&lt;bool, bool&gt; MenuItem(const std::string&amp; label, const std::string&amp; shortcut, bool selected)
+	{
+		bool activated = ImGui::MenuItem(label.c_str(), shortcut.c_str(), &amp;selected);
+		return std::make_tuple(selected, activated);
+	}
+	inline std::tuple&lt;bool, bool&gt; MenuItem(const std::string&amp; label, const std::string&amp; shortcut, bool selected, bool enabled)
+	{
+		bool activated = ImGui::MenuItem(label.c_str(), shortcut.c_str(), &amp;selected, enabled);
+		return std::make_tuple(selected, activated);
+	}
+
+	// Tooltips
+	inline void BeginTooltip()
+	{
+		ImGui::BeginTooltip();
+	}
+	inline void EndTooltip()
+	{
+		ImGui::EndTooltip();
+	}
+	inline void SetTooltip(const std::string&amp; fmt)
+	{
+		ImGui::SetTooltip(&quot;%s&quot;, fmt.c_str());
+	}
+	inline void SetTooltipV()
+	{ /* TODO: SetTooltipV(...) ==&gt; UNSUPPORTED */
+	}
+
+	// Popups, Modals
+	inline bool BeginPopup(const std::string&amp; str_id)
+	{
+		return ImGui::BeginPopup(str_id.c_str());
+	}
+	inline bool BeginPopup(const std::string&amp; str_id, int flags)
+	{
+		return ImGui::BeginPopup(str_id.c_str(), flags);
+	}
+	inline bool BeginPopupModal(const std::string&amp; name)
+	{
+		return ImGui::BeginPopupModal(name.c_str());
+	}
+	inline bool BeginPopupModal(const std::string&amp; name, int flags)
+	{
+		return ImGui::BeginPopupModal(name.c_str(), nullptr, flags);
+	}
+	inline bool BeginPopupModal(const std::string&amp; name, bool open)
+	{
+		return ImGui::BeginPopupModal(name.c_str(), &amp;open);
+	}
+	inline bool BeginPopupModal(const std::string&amp; name, bool open, int flags)
+	{
+		return ImGui::BeginPopupModal(name.c_str(), &amp;open, flags);
+	}
+	inline void EndPopup()
+	{
+		ImGui::EndPopup();
+	}
+	inline void OpenPopup(const std::string&amp; str_id)
+	{
+		ImGui::OpenPopup(str_id.c_str());
+	}
+	inline void OpenPopup(const std::string&amp; str_id, int popup_flags)
+	{
+		ImGui::OpenPopup(str_id.c_str(), popup_flags);
+	}
+	inline void CloseCurrentPopup()
+	{
+		ImGui::CloseCurrentPopup();
+	}
+	inline bool BeginPopupContextItem()
+	{
+		return ImGui::BeginPopupContextItem();
+	}
+	inline bool BeginPopupContextItem(const std::string&amp; str_id)
+	{
+		return ImGui::BeginPopupContextItem(str_id.c_str());
+	}
+	inline bool BeginPopupContextItem(const std::string&amp; str_id, int popup_flags)
+	{
+		return ImGui::BeginPopupContextItem(str_id.c_str(), popup_flags);
+	}
+	inline bool BeginPopupContextWindow()
+	{
+		return ImGui::BeginPopupContextWindow();
+	}
+	inline bool BeginPopupContextWindow(const std::string&amp; str_id)
+	{
+		return ImGui::BeginPopupContextWindow(str_id.c_str());
+	}
+	inline bool BeginPopupContextWindow(const std::string&amp; str_id, int popup_flags)
+	{
+		return ImGui::BeginPopupContextWindow(str_id.c_str(), popup_flags);
+	}
+	inline bool BeginPopupContextVoid()
+	{
+		return ImGui::BeginPopupContextVoid();
+	}
+	inline bool BeginPopupContextVoid(const std::string&amp; str_id)
+	{
+		return ImGui::BeginPopupContextVoid(str_id.c_str());
+	}
+	inline bool BeginPopupContextVoid(const std::string&amp; str_id, int popup_flags)
+	{
+		return ImGui::BeginPopupContextVoid(str_id.c_str(), popup_flags);
+	}
+	inline bool IsPopupOpen(const std::string&amp; str_id)
+	{
+		return ImGui::IsPopupOpen(str_id.c_str());
+	}
+	inline bool IsPopupOpen(const std::string&amp; str_id, int popup_flags)
+	{
+		return ImGui::IsPopupOpen(str_id.c_str(), popup_flags);
+	}
+
+	// Tables
+	inline bool BeginTable(const std::string&amp; str_id, int columns)
+	{
+		return ImGui::BeginTable(str_id.c_str(), columns);
+	}
+	inline bool BeginTable(const std::string&amp; str_id, int columns, int flags)
+	{
+		return ImGui::BeginTable(str_id.c_str(), columns, flags);
+	}
+	inline bool BeginTable(const std::string&amp; str_id, int columns, int flags, float outer_sizeX, float outer_sizeY)
+	{
+		return ImGui::BeginTable(str_id.c_str(), columns, flags, {outer_sizeX, outer_sizeY});
+	}
+	inline bool BeginTable(const std::string&amp; str_id, int columns, int flags, float outer_sizeX, float outer_sizeY, float inner_width)
+	{
+		return ImGui::BeginTable(str_id.c_str(), columns, flags, {outer_sizeX, outer_sizeY}, inner_width);
+	}
+	inline void EndTable()
+	{
+		ImGui::EndTable();
+	}
+	inline void TableNextRow()
+	{
+		ImGui::TableNextRow();
+	}
+	inline void TableNextRow(int flags)
+	{
+		ImGui::TableNextRow(flags);
+	}
+	inline void TableNextRow(int flags, float min_row_height)
+	{
+		ImGui::TableNextRow(flags, min_row_height);
+	}
+	inline bool TableNextColumn()
+	{
+		return ImGui::TableNextColumn();
+	}
+	inline bool TableSetColumnIndex(int column_n)
+	{
+		return ImGui::TableSetColumnIndex(column_n);
+	}
+	inline void TableSetupColumn(const std::string&amp; label)
+	{
+		ImGui::TableSetupColumn(label.c_str());
+	}
+	inline void TableSetupColumn(const std::string&amp; label, int flags)
+	{
+		ImGui::TableSetupColumn(label.c_str(), ImGuiTableColumnFlags(flags));
+	}
+	inline void TableSetupColumn(const std::string&amp; label, int flags, float init_width_or_weight)
+	{
+		ImGui::TableSetupColumn(label.c_str(), ImGuiTableColumnFlags(flags), init_width_or_weight);
+	}
+	inline void TableSetupColumn(const std::string&amp; label, int flags, float init_width_or_weight, int user_id)
+	{
+		ImGui::TableSetupColumn(label.c_str(), ImGuiTableColumnFlags(flags), init_width_or_weight, static_cast&lt;ImU32&gt;(user_id));
+	}
+	inline void TableSetupScrollFreeze(int cols, int rows)
+	{
+		ImGui::TableSetupScrollFreeze(cols, rows);
+	}
+	inline void TableHeadersRow()
+	{
+		ImGui::TableHeadersRow();
+	}
+	inline void TableHeader(const std::string&amp; label)
+	{
+		ImGui::TableHeader(label.c_str());
+	}
+	inline ImGuiTableSortSpecs* TableGetSortSpecs()
+	{
+		return ImGui::TableGetSortSpecs();
+	}
+	inline int TableGetColumnCount()
+	{
+		return ImGui::TableGetColumnCount();
+	}
+	inline int TableGetColumnIndex()
+	{
+		return ImGui::TableGetColumnIndex();
+	}
+	inline int TableGetRowIndex()
+	{
+		return ImGui::TableGetRowIndex();
+	}
+	inline std::string TableGetColumnName()
+	{
+		return std::string(ImGui::TableGetColumnName());
+	}
+	inline std::string TableGetColumnName(int column_n)
+	{
+		return std::string(ImGui::TableGetColumnName(column_n));
+	}
+	inline ImGuiTableColumnFlags TableGetColumnFlags()
+	{
+		return ImGui::TableGetColumnFlags();
+	}
+	inline ImGuiTableColumnFlags TableGetColumnFlags(int column_n)
+	{
+		return ImGui::TableGetColumnFlags(column_n);
+	}
+	inline void TableSetBgColor(int target, int color)
+	{
+		ImGui::TableSetBgColor(target, static_cast&lt;ImU32&gt;(color));
+	}
+	inline void TableSetBgColor(int target, float colR, float colG, float colB, float colA)
+	{
+		ImGui::TableSetBgColor(target, ImGui::ColorConvertFloat4ToU32({colR, colG, colB, colA}));
+	}
+	inline void TableSetBgColor(int target, int color, int column_n)
+	{
+		ImGui::TableSetBgColor(target, static_cast&lt;ImU32&gt;(color), column_n);
+	}
+	inline void TableSetBgColor(int target, float colR, float colG, float colB, float colA, int column_n)
+	{
+		ImGui::TableSetBgColor(target, ImGui::ColorConvertFloat4ToU32({colR, colG, colB, colA}), column_n);
+	}
+
+	// Columns
+	inline void Columns()
+	{
+		ImGui::Columns();
+	}
+	inline void Columns(int count)
+	{
+		ImGui::Columns(count);
+	}
+	inline void Columns(int count, const std::string&amp; id)
+	{
+		ImGui::Columns(count, id.c_str());
+	}
+	inline void Columns(int count, const std::string&amp; id, bool border)
+	{
+		ImGui::Columns(count, id.c_str(), border);
+	}
+	inline void NextColumn()
+	{
+		ImGui::NextColumn();
+	}
+	inline int GetColumnIndex()
+	{
+		return ImGui::GetColumnIndex();
+	}
+	inline float GetColumnWidth()
+	{
+		return ImGui::GetColumnWidth();
+	}
+	inline float GetColumnWidth(int column_index)
+	{
+		return ImGui::GetColumnWidth(column_index);
+	}
+	inline void SetColumnWidth(int column_index, float width)
+	{
+		ImGui::SetColumnWidth(column_index, width);
+	}
+	inline float GetColumnOffset()
+	{
+		return ImGui::GetColumnOffset();
+	}
+	inline float GetColumnOffset(int column_index)
+	{
+		return ImGui::GetColumnOffset(column_index);
+	}
+	inline void SetColumnOffset(int column_index, float offset_x)
+	{
+		ImGui::SetColumnOffset(column_index, offset_x);
+	}
+	inline int GetColumnsCount()
+	{
+		return ImGui::GetColumnsCount();
+	}
+
+	// Tab Bars, Tabs
+	inline bool BeginTabBar(const std::string&amp; str_id)
+	{
+		return ImGui::BeginTabBar(str_id.c_str());
+	}
+	inline bool BeginTabBar(const std::string&amp; str_id, int flags)
+	{
+		return ImGui::BeginTabBar(str_id.c_str(), flags);
+	}
+	inline void EndTabBar()
+	{
+		ImGui::EndTabBar();
+	}
+	inline bool BeginTabItem(const std::string&amp; label)
+	{
+		return ImGui::BeginTabItem(label.c_str());
+	}
+	inline bool BeginTabItem(const std::string&amp; label, int flags)
+	{
+		return ImGui::BeginTabItem(label.c_str(), nullptr, flags);
+	}
+	inline std::tuple&lt;bool, bool&gt; BeginTabItem(const std::string&amp; label, bool open)
+	{
+		bool selected = ImGui::BeginTabItem(label.c_str(), &amp;open);
+		return std::make_tuple(open, selected);
+	}
+	inline std::tuple&lt;bool, bool&gt; BeginTabItem(const std::string&amp; label, bool open, int flags)
+	{
+		bool selected = ImGui::BeginTabItem(label.c_str(), &amp;open, flags);
+		return std::make_tuple(open, selected);
+	}
+	inline void EndTabItem()
+	{
+		ImGui::EndTabItem();
+	}
+	inline void SetTabItemClosed(const std::string&amp; tab_or_docked_window_label)
+	{
+		ImGui::SetTabItemClosed(tab_or_docked_window_label.c_str());
+	}
+
+	// Drag and Drop
+	// TODO: Drag and Drop ==&gt; UNSUPPORTED
+
+	// Disabling
+	inline void BeginDisabled()
+	{
+		ImGui::BeginDisabled();
+	}
+	inline void BeginDisabled(bool disabled)
+	{
+		ImGui::BeginDisabled(disabled);
+	}
+	inline void EndDisabled()
+	{
+		ImGui::EndDisabled();
+	}
+
+	// Clipping
+	inline void PushClipRect(float min_x, float min_y, float max_x, float max_y, bool intersect_current)
+	{
+		ImGui::PushClipRect({min_x, min_y}, {max_x, max_y}, intersect_current);
+	}
+	inline void PopClipRect()
+	{
+		ImGui::PopClipRect();
+	}
+
+	// Focus, Activation
+	inline void SetItemDefaultFocus()
+	{
+		ImGui::SetItemDefaultFocus();
+	}
+	inline void SetKeyboardFocusHere()
+	{
+		ImGui::SetKeyboardFocusHere();
+	}
+	inline void SetKeyboardFocusHere(int offset)
+	{
+		ImGui::SetKeyboardFocusHere(offset);
+	}
+
+	// Item/Widgets Utilities
+	inline bool IsItemHovered()
+	{
+		return ImGui::IsItemHovered();
+	}
+	inline bool IsItemHovered(int flags)
+	{
+		return ImGui::IsItemHovered(flags);
+	}
+	inline bool IsItemActive()
+	{
+		return ImGui::IsItemActive();
+	}
+	inline bool IsItemFocused()
+	{
+		return ImGui::IsItemFocused();
+	}
+	inline bool IsItemClicked()
+	{
+		return ImGui::IsItemClicked();
+	}
+	inline bool IsItemClicked(int mouse_button)
+	{
+		return ImGui::IsItemClicked(mouse_button);
+	}
+	inline bool IsItemVisible()
+	{
+		return ImGui::IsItemVisible();
+	}
+	inline bool IsItemEdited()
+	{
+		return ImGui::IsItemEdited();
+	}
+	inline bool IsItemActivated()
+	{
+		return ImGui::IsItemActivated();
+	}
+	inline bool IsItemDeactivated()
+	{
+		return ImGui::IsItemDeactivated();
+	}
+	inline bool IsItemDeactivatedAfterEdit()
+	{
+		return ImGui::IsItemDeactivatedAfterEdit();
+	}
+	inline bool IsItemToggledOpen()
+	{
+		return ImGui::IsItemToggledOpen();
+	}
+	inline bool IsAnyItemHovered()
+	{
+		return ImGui::IsAnyItemHovered();
+	}
+	inline bool IsAnyItemActive()
+	{
+		return ImGui::IsAnyItemActive();
+	}
+	inline bool IsAnyItemFocused()
+	{
+		return ImGui::IsAnyItemFocused();
+	}
+	inline std::tuple&lt;float, float&gt; GetItemRectMin()
+	{
+		const auto vec2{ImGui::GetItemRectMin()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetItemRectMax()
+	{
+		const auto vec2{ImGui::GetItemRectMax()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetItemRectSize()
+	{
+		const auto vec2{ImGui::GetItemRectSize()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline void SetItemAllowOverlap()
+	{
+		ImGui::SetItemAllowOverlap();
+	}
+
+	// Miscellaneous Utilities
+	inline bool IsRectVisible(float sizeX, float sizeY)
+	{
+		return ImGui::IsRectVisible({sizeX, sizeY});
+	}
+	inline bool IsRectVisible(float minX, float minY, float maxX, float maxY)
+	{
+		return ImGui::IsRectVisible({minX, minY}, {maxX, maxY});
+	}
+	inline double GetTime()
+	{
+		return ImGui::GetTime();
+	}
+	inline int GetFrameCount()
+	{
+		return ImGui::GetFrameCount();
+	}
+	inline ImDrawList* GetBackgroundDrawList()
+	{
+		return ImGui::GetBackgroundDrawList();
+	}
+	inline ImDrawList* GetForegroundDrawList()
+	{
+		return ImGui::GetForegroundDrawList();
+	}
+	/* TODO: GetDrawListSharedData() ==&gt; UNSUPPORTED */
+	inline std::string GetStyleColorName(int idx)
+	{
+		return std::string(ImGui::GetStyleColorName(idx));
+	}
+	/* TODO: SetStateStorage(), GetStateStorage(), CalcListClipping() ==&gt; UNSUPPORTED */
+	inline bool BeginChildFrame(unsigned int id, float sizeX, float sizeY)
+	{
+		return ImGui::BeginChildFrame(id, {sizeX, sizeY});
+	}
+	inline bool BeginChildFrame(unsigned int id, float sizeX, float sizeY, int flags)
+	{
+		return ImGui::BeginChildFrame(id, {sizeX, sizeY}, flags);
+	}
+	inline void EndChildFrame()
+	{
+		return ImGui::EndChildFrame();
+	}
+	inline ImGuiStyle&amp; GetStyle()
+	{
+		return ImGui::GetStyle();
+	}
+
+	// Text Utilities
+	inline std::tuple&lt;float, float&gt; CalcTextSize(const std::string&amp; text)
+	{
+		const auto vec2{ImGui::CalcTextSize(text.c_str())};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; CalcTextSize(const std::string&amp; text, bool hide_text_after_double_hash)
+	{
+		const auto vec2{ImGui::CalcTextSize(text.c_str(), nullptr, hide_text_after_double_hash)};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; CalcTextSize(const std::string&amp; text, bool hide_text_after_double_hash, float wrap_width)
+	{
+		const auto vec2{ImGui::CalcTextSize(text.c_str(), nullptr, hide_text_after_double_hash, wrap_width)};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+
+	// Color Utilities
+	inline sol::as_table_t&lt;std::vector&lt;float&gt;&gt; ColorConvertU32ToFloat4(unsigned int in)
+	{
+		const auto vec4      = ImGui::ColorConvertU32ToFloat4(in);
+		sol::as_table_t rgba = sol::as_table(std::vector&lt;float&gt;{vec4.x, vec4.y, vec4.z, vec4.w});
+
+		return rgba;
+	}
+	inline unsigned int ColorConvertFloat4ToU32(const sol::table&amp; rgba)
+	{
+		const lua_Number r{rgba[1].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    g{rgba[2].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    b{rgba[3].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))},
+		    a{rgba[4].get&lt;std::optional&lt;lua_Number&gt;&gt;().value_or(static_cast&lt;lua_Number&gt;(0))};
+
+		return ImGui::ColorConvertFloat4ToU32({static_cast&lt;float&gt;(r), static_cast&lt;float&gt;(g), static_cast&lt;float&gt;(b), static_cast&lt;float&gt;(a)});
+	}
+	inline std::tuple&lt;float, float, float&gt; ColorConvertRGBtoHSV(float r, float g, float b)
+	{
+		float h{}, s{}, v{};
+		ImGui::ColorConvertRGBtoHSV(r, g, b, h, s, v);
+		return std::make_tuple(h, s, v);
+	}
+	inline std::tuple&lt;float, float, float&gt; ColorConvertHSVtoRGB(float h, float s, float v)
+	{
+		float r{}, g{}, b{};
+		ImGui::ColorConvertHSVtoRGB(h, s, v, r, g, b);
+		return std::make_tuple(r, g, b);
+	}
+
+	// Inputs Utilities: Keyboard
+	inline ImGuiKey GetKeyIndex(ImGuiKey imgui_key)
+	{
+		return ImGui::GetKeyIndex(imgui_key);
+	}
+	inline bool IsKeyDown(ImGuiKey user_key_index)
+	{
+		return ImGui::IsKeyDown(user_key_index);
+	}
+	inline bool IsKeyPressed(ImGuiKey user_key_index)
+	{
+		return ImGui::IsKeyPressed(user_key_index);
+	}
+	inline bool IsKeyPressed(ImGuiKey user_key_index, bool repeat)
+	{
+		return ImGui::IsKeyPressed(user_key_index, repeat);
+	}
+	inline bool IsKeyReleased(ImGuiKey user_key_index)
+	{
+		return ImGui::IsKeyReleased(user_key_index);
+	}
+	inline int GetKeyPressedAmount(ImGuiKey key_index, float repeat_delay, float rate)
+	{
+		return ImGui::GetKeyPressedAmount(key_index, repeat_delay, rate);
+	}
+	inline void CaptureKeyboardFromApp()
+	{
+		ImGui::CaptureKeyboardFromApp();
+	}
+	inline void CaptureKeyboardFromApp(bool want_capture_keyboard_value)
+	{
+		ImGui::CaptureKeyboardFromApp(want_capture_keyboard_value);
+	}
+
+	// Inputs Utilities: Mouse
+	inline bool IsMouseDown(int button)
+	{
+		return ImGui::IsMouseDown(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline bool IsMouseClicked(int button)
+	{
+		return ImGui::IsMouseClicked(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline bool IsMouseClicked(int button, bool repeat)
+	{
+		return ImGui::IsMouseClicked(static_cast&lt;ImGuiMouseButton&gt;(button), repeat);
+	}
+	inline bool IsMouseReleased(int button)
+	{
+		return ImGui::IsMouseReleased(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline bool IsMouseDoubleClicked(int button)
+	{
+		return ImGui::IsMouseDoubleClicked(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline bool IsMouseHoveringRect(float min_x, float min_y, float max_x, float max_y)
+	{
+		return ImGui::IsMouseHoveringRect({min_x, min_y}, {max_x, max_y});
+	}
+	inline bool IsMouseHoveringRect(float min_x, float min_y, float max_x, float max_y, bool clip)
+	{
+		return ImGui::IsMouseHoveringRect({min_x, min_y}, {max_x, max_y}, clip);
+	}
+	inline bool IsMousePosValid()
+	{
+		return false; /* TODO: IsMousePosValid() ==&gt; UNSUPPORTED */
+	}
+	inline bool IsAnyMouseDown()
+	{
+		return ImGui::IsAnyMouseDown();
+	}
+	inline std::tuple&lt;float, float&gt; GetMousePos()
+	{
+		const auto vec2{ImGui::GetMousePos()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetMousePosOnOpeningCurrentPopup()
+	{
+		const auto vec2{ImGui::GetMousePosOnOpeningCurrentPopup()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline bool IsMouseDragging(int button)
+	{
+		return ImGui::IsMouseDragging(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline bool IsMouseDragging(int button, float lock_threshold)
+	{
+		return ImGui::IsMouseDragging(static_cast&lt;ImGuiMouseButton&gt;(button), lock_threshold);
+	}
+	inline std::tuple&lt;float, float&gt; GetMouseDragDelta()
+	{
+		const auto vec2{ImGui::GetMouseDragDelta()};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetMouseDragDelta(int button)
+	{
+		const auto vec2{ImGui::GetMouseDragDelta(static_cast&lt;ImGuiMouseButton&gt;(button))};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline std::tuple&lt;float, float&gt; GetMouseDragDelta(int button, float lock_threshold)
+	{
+		const auto vec2{ImGui::GetMouseDragDelta(static_cast&lt;ImGuiMouseButton&gt;(button), lock_threshold)};
+		return std::make_tuple(vec2.x, vec2.y);
+	}
+	inline void ResetMouseDragDelta()
+	{
+		ImGui::ResetMouseDragDelta();
+	}
+	inline void ResetMouseDragDelta(int button)
+	{
+		ImGui::ResetMouseDragDelta(static_cast&lt;ImGuiMouseButton&gt;(button));
+	}
+	inline int GetMouseCursor()
+	{
+		return ImGui::GetMouseCursor();
+	}
+	inline void SetMouseCursor(int cursor_type)
+	{
+		ImGui::SetMouseCursor(static_cast&lt;ImGuiMouseCursor&gt;(cursor_type));
+	}
+	inline void CaptureMouseFromApp()
+	{
+		ImGui::CaptureMouseFromApp();
+	}
+	inline void CaptureMouseFromApp(bool want_capture_mouse_value)
+	{
+		ImGui::CaptureMouseFromApp(want_capture_mouse_value);
+	}
+
+	// Clipboard Utilities
+	inline std::string GetClipboardText()
+	{
+		return std::string(ImGui::GetClipboardText());
+	}
+	inline void SetClipboardText(const std::string&amp; text)
+	{
+		ImGui::SetClipboardText(text.c_str());
+	}
+
+	// Drawing APIs
+	// Primitives
+	inline void ImDrawListAddLine(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, int col)
+	{
+		drawlist-&gt;AddLine({p1X, p1Y}, {p2X, p2Y}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddLine(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, int col, float thickness)
+	{
+		drawlist-&gt;AddLine({p1X, p1Y}, {p2X, p2Y}, static_cast&lt;ImU32&gt;(col), thickness);
+	}
+	inline void ImDrawListAddRect(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col)
+	{
+		drawlist-&gt;AddRect({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddRect(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col, float rounding)
+	{
+		drawlist-&gt;AddRect({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col), rounding);
+	}
+	inline void ImDrawListAddRect(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col, float rounding, int flags)
+	{
+		drawlist-&gt;AddRect({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col), rounding, static_cast&lt;ImDrawFlags&gt;(flags));
+	}
+	inline void ImDrawListAddRect(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col, float rounding, int flags, float thickness)
+	{
+		drawlist-&gt;AddRect({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col), rounding, static_cast&lt;ImDrawFlags&gt;(flags), thickness);
+	}
+	inline void ImDrawListAddRectFilled(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col)
+	{
+		drawlist-&gt;AddRectFilled({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddRectFilled(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col, float rounding)
+	{
+		drawlist-&gt;AddRectFilled({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col), rounding);
+	}
+	inline void ImDrawListAddRectFilled(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col, float rounding, int flags)
+	{
+		drawlist-&gt;AddRectFilled({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col), rounding, static_cast&lt;ImDrawFlags&gt;(flags));
+	}
+	inline void ImDrawListAddRectFilledMultiColor(ImDrawList* drawlist, float p_minX, float p_minY, float p_maxX, float p_maxY, int col_upr_left, int col_upr_right, int col_bot_right, int col_bot_left)
+	{
+		drawlist-&gt;AddRectFilledMultiColor({p_minX, p_minY}, {p_maxX, p_maxY}, static_cast&lt;ImU32&gt;(col_upr_left), static_cast&lt;ImU32&gt;(col_upr_right), static_cast&lt;ImU32&gt;(col_bot_right), static_cast&lt;ImU32&gt;(col_bot_left));
+	}
+	inline void ImDrawListAddQuad(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, float p4X, float p4Y, int col)
+	{
+		drawlist-&gt;AddQuad({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, {p4X, p4Y}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddQuad(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, float p4X, float p4Y, int col, float thickness)
+	{
+		drawlist-&gt;AddQuad({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, {p4X, p4Y}, static_cast&lt;ImU32&gt;(col), thickness);
+	}
+	inline void ImDrawListAddQuadFilled(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, float p4X, float p4Y, int col)
+	{
+		drawlist-&gt;AddQuadFilled({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, {p4X, p4Y}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddTriangle(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, int col)
+	{
+		drawlist-&gt;AddTriangle({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddTriangle(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, int col, float thickness)
+	{
+		drawlist-&gt;AddTriangle({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, static_cast&lt;ImU32&gt;(col), thickness);
+	}
+	inline void ImDrawListAddTriangleFilled(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, int col)
+	{
+		drawlist-&gt;AddTriangleFilled({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddCircle(ImDrawList* drawlist, float centerX, float centerY, float radius, int col)
+	{
+		drawlist-&gt;AddCircle({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddCircle(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments)
+	{
+		drawlist-&gt;AddCircle({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments);
+	}
+	inline void ImDrawListAddCircle(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments, float thickness)
+	{
+		drawlist-&gt;AddCircle({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments, thickness);
+	}
+	inline void ImDrawListAddCircleFilled(ImDrawList* drawlist, float centerX, float centerY, float radius, int col)
+	{
+		drawlist-&gt;AddCircleFilled({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col));
+	}
+	inline void ImDrawListAddCircleFilled(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments)
+	{
+		drawlist-&gt;AddCircleFilled({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments);
+	}
+	inline void ImDrawListAddNgon(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments)
+	{
+		drawlist-&gt;AddNgon({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments);
+	}
+	inline void ImDrawListAddNgon(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments, float thickness)
+	{
+		drawlist-&gt;AddNgon({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments, thickness);
+	}
+	inline void ImDrawListAddNgonFilled(ImDrawList* drawlist, float centerX, float centerY, float radius, int col, int num_segments)
+	{
+		drawlist-&gt;AddNgonFilled({centerX, centerY}, radius, static_cast&lt;ImU32&gt;(col), num_segments);
+	}
+	inline void ImDrawListAddText(ImDrawList* drawlist, float posX, float posY, int col, const std::string&amp; text_begin)
+	{
+		drawlist-&gt;AddText({posX, posY}, static_cast&lt;ImU32&gt;(col), text_begin.c_str());
+	}
+	inline void ImDrawListAddText(ImDrawList* drawlist, float font_size, float posX, float posY, int col, const std::string&amp; text_begin)
+	{
+		drawlist-&gt;AddText(ImGui::GetFont(), font_size, {posX, posY}, static_cast&lt;ImU32&gt;(col), text_begin.c_str());
+	}
+	inline void ImDrawListAddText(ImDrawList* drawlist, float font_size, float posX, float posY, int col, const std::string&amp; text_begin, float wrap_width)
+	{
+		drawlist-&gt;AddText(ImGui::GetFont(), font_size, {posX, posY}, static_cast&lt;ImU32&gt;(col), text_begin.c_str(), nullptr, wrap_width);
+	}
+	inline void ImDrawListAddBezierCubic(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, float p4X, float p4Y, int col, float thickness)
+	{
+		drawlist-&gt;AddBezierCubic({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, {p4X, p4Y}, static_cast&lt;ImU32&gt;(col), thickness);
+	}
+	inline void ImDrawListAddBezierCubic(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, float p4X, float p4Y, int col, float thickness, int num_segments)
+	{
+		drawlist-&gt;AddBezierCubic({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, {p4X, p4Y}, static_cast&lt;ImU32&gt;(col), thickness, num_segments);
+	}
+	inline void ImDrawListAddBezierQuadratic(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, int col, float thickness)
+	{
+		drawlist-&gt;AddBezierQuadratic({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, static_cast&lt;ImU32&gt;(col), thickness);
+	}
+	inline void ImDrawListAddBezierQuadratic(ImDrawList* drawlist, float p1X, float p1Y, float p2X, float p2Y, float p3X, float p3Y, int col, float thickness, int num_segments)
+	{
+		drawlist-&gt;AddBezierQuadratic({p1X, p1Y}, {p2X, p2Y}, {p3X, p3Y}, static_cast&lt;ImU32&gt;(col), thickness, num_segments);
+	}
+
+	inline void init_types(sol::table luaGlobals)
+	{
+		luaGlobals.new_usertype&lt;ImFont&gt;(&quot;ImFont&quot;);
+
+		luaGlobals.new_usertype&lt;ImVec2&gt;(&quot;ImVec2&quot;, sol::constructors&lt;ImVec2(), ImVec2(float, float)&gt;(),
+		&quot;x&quot;, &amp;ImVec2::x,
+		&quot;y&quot;, &amp;ImVec2::y);
+
+		luaGlobals.new_usertype&lt;ImVec4&gt;(&quot;ImVec4&quot;, sol::constructors&lt;ImVec4(), ImVec4(float, float, float, float)&gt;(),
+		&quot;x&quot;, &amp;ImVec4::x,
+		&quot;y&quot;, &amp;ImVec4::y,
+		&quot;z&quot;, &amp;ImVec4::z,
+		&quot;w&quot;, &amp;ImVec4::w);
+
+		luaGlobals.new_usertype&lt;ImGuiStyle&gt;(&quot;ImGuiStyle&quot;,
+		&quot;Alpha&quot;, &amp;ImGuiStyle::Alpha,
+		&quot;DisabledAlpha&quot;, &amp;ImGuiStyle::DisabledAlpha,
+		&quot;WindowPadding&quot;, &amp;ImGuiStyle::WindowPadding,
+		&quot;WindowRounding&quot;, &amp;ImGuiStyle::WindowRounding,
+		&quot;WindowBorderSize&quot;, &amp;ImGuiStyle::WindowBorderSize,
+		&quot;WindowMinSize&quot;, &amp;ImGuiStyle::WindowMinSize,
+		&quot;WindowTitleAlign&quot;, &amp;ImGuiStyle::WindowTitleAlign,
+		&quot;WindowMenuButtonPosition&quot;, &amp;ImGuiStyle::WindowMenuButtonPosition,
+		&quot;ChildRounding&quot;, &amp;ImGuiStyle::ChildRounding,
+		&quot;ChildBorderSize&quot;, &amp;ImGuiStyle::ChildBorderSize,
+		&quot;PopupRounding&quot;, &amp;ImGuiStyle::PopupRounding,
+		&quot;PopupBorderSize&quot;, &amp;ImGuiStyle::PopupBorderSize,
+		&quot;FramePadding&quot;, &amp;ImGuiStyle::FramePadding,
+		&quot;FrameRounding&quot;, &amp;ImGuiStyle::FrameRounding,
+		&quot;FrameBorderSize&quot;, &amp;ImGuiStyle::FrameBorderSize,
+		&quot;ItemSpacing&quot;, &amp;ImGuiStyle::ItemSpacing,
+		&quot;ItemInnerSpacing&quot;, &amp;ImGuiStyle::ItemInnerSpacing,
+		&quot;CellPadding&quot;, &amp;ImGuiStyle::CellPadding,
+		&quot;TouchExtraPadding&quot;, &amp;ImGuiStyle::TouchExtraPadding,
+		&quot;IndentSpacing&quot;, &amp;ImGuiStyle::IndentSpacing,
+		&quot;ColumnsMinSpacing&quot;, &amp;ImGuiStyle::ColumnsMinSpacing,
+		&quot;ScrollbarSize&quot;, &amp;ImGuiStyle::ScrollbarSize,
+		&quot;ScrollbarRounding&quot;, &amp;ImGuiStyle::ScrollbarRounding,
+		&quot;GrabMinSize&quot;, &amp;ImGuiStyle::GrabMinSize,
+		&quot;GrabRounding&quot;, &amp;ImGuiStyle::GrabRounding,
+		&quot;LogSliderDeadzone&quot;, &amp;ImGuiStyle::LogSliderDeadzone,
+		&quot;TabRounding&quot;, &amp;ImGuiStyle::TabRounding,
+		&quot;TabBorderSize&quot;, &amp;ImGuiStyle::TabBorderSize,
+		&quot;TabMinWidthForCloseButton&quot;, &amp;ImGuiStyle::TabMinWidthForCloseButton,
+		&quot;ColorButtonPosition&quot;, &amp;ImGuiStyle::ColorButtonPosition,
+		&quot;ButtonTextAlign&quot;, &amp;ImGuiStyle::ButtonTextAlign,
+		&quot;SelectableTextAlign&quot;, &amp;ImGuiStyle::SelectableTextAlign,
+		&quot;DisplayWindowPadding&quot;, &amp;ImGuiStyle::DisplayWindowPadding,
+		&quot;DisplaySafeAreaPadding&quot;, &amp;ImGuiStyle::DisplaySafeAreaPadding,
+		&quot;MouseCursorScale&quot;, &amp;ImGuiStyle::MouseCursorScale,
+		&quot;AntiAliasedLines&quot;, &amp;ImGuiStyle::AntiAliasedLines,
+		&quot;AntiAliasedLinesUseTex&quot;, &amp;ImGuiStyle::AntiAliasedLinesUseTex,
+		&quot;AntiAliasedFill&quot;, &amp;ImGuiStyle::AntiAliasedFill,
+		&quot;CurveTessellationTol&quot;, &amp;ImGuiStyle::CurveTessellationTol,
+		&quot;CircleTessellationMaxError&quot;, &amp;ImGuiStyle::CircleTessellationMaxError,
+		&quot;ScaleAllSizes&quot;, &amp;ImGuiStyle::ScaleAllSizes);
+
+		luaGlobals.new_usertype&lt;ImGuiListClipper&gt;(&quot;ImGuiListClipper&quot;, sol::constructors&lt;ImGuiListClipper()&gt;(),
+		&quot;Begin&quot;, &amp;ImGuiListClipper::Begin,
+		&quot;Step&quot;, &amp;ImGuiListClipper::Step,
+		&quot;DisplayStart&quot;, &amp;ImGuiListClipper::DisplayStart,
+		&quot;DisplayEnd&quot;, &amp;ImGuiListClipper::DisplayEnd);
+	}
+
+	inline void init_enums(sol::table luaGlobals)
+	{
+
+#pragma region Fonts Flags
+		luaGlobals.new_enum(&quot;GlyphRange&quot;,
+		&quot;Default&quot;, GlyphRange::Default,
+		&quot;Korean&quot;, GlyphRange::Korean,
+		&quot;Japanese&quot;, GlyphRange::Japanese,
+		&quot;ChineseFull&quot;, GlyphRange::ChineseFull,
+		&quot;ChineseSimplifiedCommon&quot;, GlyphRange::ChineseSimplifiedCommon,
+		&quot;Cyrillic&quot;,  GlyphRange::Cyrillic,
+		&quot;Greek&quot;, GlyphRange::Greek,
+		&quot;Thai&quot;, GlyphRange::Thai,
+		&quot;Vietnamese&quot;, GlyphRange::Vietnamese);
+#pragma endregion Fonts Flags
+
+#pragma region Window Flags
+		luaGlobals.new_enum(&quot;ImGuiWindowFlags&quot;,
+		&quot;None&quot;, ImGuiWindowFlags_None,
+		&quot;NoTitleBar&quot;, ImGuiWindowFlags_NoTitleBar,
+		&quot;NoResize&quot;, ImGuiWindowFlags_NoResize,
+		&quot;NoMove&quot;, ImGuiWindowFlags_NoMove,
+		&quot;NoScrollbar&quot;, ImGuiWindowFlags_NoScrollbar,
+		&quot;NoScrollWithMouse&quot;, ImGuiWindowFlags_NoScrollWithMouse,
+		&quot;NoCollapse&quot;, ImGuiWindowFlags_NoCollapse,
+		&quot;AlwaysAutoResize&quot;, ImGuiWindowFlags_AlwaysAutoResize,
+		&quot;NoBackground&quot;, ImGuiWindowFlags_NoBackground,
+		&quot;NoSavedSettings&quot;, ImGuiWindowFlags_NoSavedSettings,
+		&quot;NoMouseInputs&quot;, ImGuiWindowFlags_NoMouseInputs,
+		&quot;MenuBar&quot;, ImGuiWindowFlags_MenuBar,
+		&quot;HorizontalScrollbar&quot;, ImGuiWindowFlags_HorizontalScrollbar,
+		&quot;NoFocusOnAppearing&quot;, ImGuiWindowFlags_NoFocusOnAppearing,
+		&quot;NoBringToFrontOnFocus&quot;, ImGuiWindowFlags_NoBringToFrontOnFocus,
+		&quot;AlwaysVerticalScrollbar&quot;, ImGuiWindowFlags_AlwaysVerticalScrollbar,
+		&quot;AlwaysHorizontalScrollbar&quot;, ImGuiWindowFlags_AlwaysHorizontalScrollbar,
+		&quot;AlwaysUseWindowPadding&quot;, ImGuiWindowFlags_AlwaysUseWindowPadding,
+		&quot;NoNavInputs&quot;, ImGuiWindowFlags_NoNavInputs,
+		&quot;NoNavFocus&quot;, ImGuiWindowFlags_NoNavFocus,
+		&quot;UnsavedDocument&quot;, ImGuiWindowFlags_UnsavedDocument,
+		&quot;NoNav&quot;, ImGuiWindowFlags_NoNav,
+		&quot;NoDecoration&quot;, ImGuiWindowFlags_NoDecoration,
+		&quot;NoInputs&quot;, ImGuiWindowFlags_NoInputs,
+		&quot;NavFlattened&quot;, ImGuiWindowFlags_NavFlattened,
+		&quot;ChildWindow&quot;, ImGuiWindowFlags_ChildWindow,
+		&quot;Tooltip&quot;, ImGuiWindowFlags_Tooltip,
+		&quot;Popup&quot;, ImGuiWindowFlags_Popup,
+		&quot;Modal&quot;, ImGuiWindowFlags_Modal,
+		&quot;ChildMenu&quot;, ImGuiWindowFlags_ChildMenu);
+#pragma endregion Window Flags
+
+#pragma region Mouse Cursors
+		luaGlobals.new_enum(&quot;ImGuiMouseCursor&quot;,
+		&quot;None&quot;, ImGuiMouseCursor_None,
+		&quot;Arrow&quot;, ImGuiMouseCursor_Arrow,
+		&quot;TextInput&quot;, ImGuiMouseCursor_TextInput,
+		&quot;ResizeAll&quot;, ImGuiMouseCursor_ResizeAll,
+		&quot;ResizeNS&quot;, ImGuiMouseCursor_ResizeNS,
+		&quot;ResizeEW&quot;, ImGuiMouseCursor_ResizeEW,
+		&quot;ResizeNESW&quot;, ImGuiMouseCursor_ResizeNESW,
+		&quot;ResizeNWSE&quot;, ImGuiMouseCursor_ResizeNWSE,
+		&quot;Hand&quot;, ImGuiMouseCursor_Hand,
+		&quot;NotAllowed&quot;, ImGuiMouseCursor_NotAllowed);
+#pragma endregion Mouse Cursors
+
+#pragma region Focused Flags
+		luaGlobals.new_enum(&quot;ImGuiFocusedFlags&quot;,
+		&quot;None&quot;, ImGuiFocusedFlags_None,
+		&quot;ChildWindows&quot;, ImGuiFocusedFlags_ChildWindows,
+		&quot;RootWindow&quot;, ImGuiFocusedFlags_RootWindow,
+		&quot;AnyWindow&quot;, ImGuiFocusedFlags_AnyWindow,
+		&quot;RootAndChildWindows&quot;, ImGuiFocusedFlags_RootAndChildWindows);
+#pragma endregion Focused Flags
+
+#pragma region Hovered Flags
+		luaGlobals.new_enum(&quot;ImGuiHoveredFlags&quot;,
+		&quot;None&quot;, ImGuiHoveredFlags_None,
+		&quot;ChildWindows&quot;, ImGuiHoveredFlags_ChildWindows,
+		&quot;RootWindow&quot;, ImGuiHoveredFlags_RootWindow,
+		&quot;AnyWindow&quot;, ImGuiHoveredFlags_AnyWindow,
+		&quot;AllowWhenBlockedByPopup&quot;, ImGuiHoveredFlags_AllowWhenBlockedByPopup,
+		&quot;AllowWhenBlockedByActiveItem&quot;, ImGuiHoveredFlags_AllowWhenBlockedByActiveItem,
+		&quot;AllowWhenOverlapped&quot;, ImGuiHoveredFlags_AllowWhenOverlapped,
+		&quot;AllowWhenDisabled&quot;, ImGuiHoveredFlags_AllowWhenDisabled,
+		&quot;RectOnly&quot;, ImGuiHoveredFlags_RectOnly,
+		&quot;RootAndChildWindows&quot;, ImGuiHoveredFlags_RootAndChildWindows);
+#pragma endregion Hovered Flags
+
+#pragma region Cond
+		luaGlobals.new_enum(&quot;ImGuiCond&quot;,
+		&quot;None&quot;, ImGuiCond_None,
+		&quot;Always&quot;, ImGuiCond_Always,
+		&quot;Once&quot;, ImGuiCond_Once,
+		&quot;FirstUseEver&quot;, ImGuiCond_FirstUseEver,
+		&quot;Appearing&quot;, ImGuiCond_Appearing);
+#pragma endregion Cond
+
+#pragma region Col
+		luaGlobals.new_enum(&quot;ImGuiCol&quot;,
+		&quot;Text&quot;, ImGuiCol_Text,
+		&quot;TextDisabled&quot;, ImGuiCol_TextDisabled,
+		&quot;WindowBg&quot;, ImGuiCol_WindowBg,
+		&quot;ChildBg&quot;, ImGuiCol_ChildBg,
+		&quot;PopupBg&quot;, ImGuiCol_PopupBg,
+		&quot;Border&quot;, ImGuiCol_Border,
+		&quot;BorderShadow&quot;, ImGuiCol_BorderShadow,
+		&quot;FrameBg&quot;, ImGuiCol_FrameBg,
+		&quot;FrameBgHovered&quot;, ImGuiCol_FrameBgHovered,
+		&quot;FrameBgActive&quot;, ImGuiCol_FrameBgActive,
+		&quot;TitleBg&quot;, ImGuiCol_TitleBg,
+		&quot;TitleBgActive&quot;, ImGuiCol_TitleBgActive,
+		&quot;TitleBgCollapsed&quot;, ImGuiCol_TitleBgCollapsed,
+		&quot;MenuBarBg&quot;, ImGuiCol_MenuBarBg,
+		&quot;ScrollbarBg&quot;, ImGuiCol_ScrollbarBg,
+		&quot;ScrollbarGrab&quot;, ImGuiCol_ScrollbarGrab,
+		&quot;ScrollbarGrabHovered&quot;, ImGuiCol_ScrollbarGrabHovered,
+		&quot;ScrollbarGrabActive&quot;, ImGuiCol_ScrollbarGrabActive,
+		&quot;CheckMark&quot;, ImGuiCol_CheckMark,
+		&quot;SliderGrab&quot;, ImGuiCol_SliderGrab,
+		&quot;SliderGrabActive&quot;, ImGuiCol_SliderGrabActive,
+		&quot;Button&quot;, ImGuiCol_Button,
+		&quot;ButtonHovered&quot;, ImGuiCol_ButtonHovered,
+		&quot;ButtonActive&quot;, ImGuiCol_ButtonActive,
+		&quot;Header&quot;, ImGuiCol_Header,
+		&quot;HeaderHovered&quot;, ImGuiCol_HeaderHovered,
+		&quot;HeaderActive&quot;, ImGuiCol_HeaderActive,
+		&quot;Separator&quot;, ImGuiCol_Separator,
+		&quot;SeparatorHovered&quot;, ImGuiCol_SeparatorHovered,
+		&quot;SeparatorActive&quot;, ImGuiCol_SeparatorActive,
+		&quot;ResizeGrip&quot;, ImGuiCol_ResizeGrip,
+		&quot;ResizeGripHovered&quot;, ImGuiCol_ResizeGripHovered,
+		&quot;ResizeGripActive&quot;, ImGuiCol_ResizeGripActive,
+		&quot;Tab&quot;, ImGuiCol_Tab,
+		&quot;TabHovered&quot;, ImGuiCol_TabHovered,
+		&quot;TabActive&quot;, ImGuiCol_TabActive,
+		&quot;TabUnfocused&quot;, ImGuiCol_TabUnfocused,
+		&quot;TabUnfocusedActive&quot;, ImGuiCol_TabUnfocusedActive,
+		&quot;PlotLines&quot;, ImGuiCol_PlotLines,
+		&quot;PlotLinesHovered&quot;, ImGuiCol_PlotLinesHovered,
+		&quot;PlotHistogram&quot;, ImGuiCol_PlotHistogram,
+		&quot;PlotHistogramHovered&quot;, ImGuiCol_PlotHistogramHovered,
+		&quot;TableHeaderBg&quot;, ImGuiCol_TableHeaderBg,
+		&quot;TableBorderStrong&quot;, ImGuiCol_TableBorderStrong,
+		&quot;TableBorderLight&quot;, ImGuiCol_TableBorderLight,
+		&quot;TableRowBg&quot;, ImGuiCol_TableRowBg,
+		&quot;TableRowBgAlt&quot;, ImGuiCol_TableRowBgAlt,
+		&quot;TextSelectedBg&quot;, ImGuiCol_TextSelectedBg,
+		&quot;DragDropTarget&quot;, ImGuiCol_DragDropTarget,
+		&quot;NavHighlight&quot;, ImGuiCol_NavHighlight,
+		&quot;NavWindowingHighlight&quot;, ImGuiCol_NavWindowingHighlight,
+		&quot;NavWindowingDimBg&quot;, ImGuiCol_NavWindowingDimBg,
+		&quot;ModalWindowDimBg&quot;, ImGuiCol_ModalWindowDimBg,
+		&quot;COUNT&quot;, ImGuiCol_COUNT);
+#pragma endregion Col
+
+#pragma region Style
+		luaGlobals.new_enum(&quot;ImGuiStyleVar&quot;,
+		&quot;Alpha&quot;, ImGuiStyleVar_Alpha,
+		&quot;DisabledAlpha&quot;, ImGuiStyleVar_DisabledAlpha,
+		&quot;WindowPadding&quot;, ImGuiStyleVar_WindowPadding,
+		&quot;WindowRounding&quot;, ImGuiStyleVar_WindowRounding,
+		&quot;WindowBorderSize&quot;, ImGuiStyleVar_WindowBorderSize,
+		&quot;WindowMinSize&quot;, ImGuiStyleVar_WindowMinSize,
+		&quot;WindowTitleAlign&quot;, ImGuiStyleVar_WindowTitleAlign,
+		&quot;ChildRounding&quot;, ImGuiStyleVar_ChildRounding,
+		&quot;ChildBorderSize&quot;, ImGuiStyleVar_ChildBorderSize,
+		&quot;PopupRounding&quot;, ImGuiStyleVar_PopupRounding,
+		&quot;PopupBorderSize&quot;, ImGuiStyleVar_PopupBorderSize,
+		&quot;FramePadding&quot;, ImGuiStyleVar_FramePadding,
+		&quot;FrameRounding&quot;, ImGuiStyleVar_FrameRounding,
+		&quot;FrameBorderSize&quot;, ImGuiStyleVar_FrameBorderSize,
+		&quot;ItemSpacing&quot;, ImGuiStyleVar_ItemSpacing,
+		&quot;ItemInnerSpacing&quot;, ImGuiStyleVar_ItemInnerSpacing,
+		&quot;IndentSpacing&quot;, ImGuiStyleVar_IndentSpacing,
+		&quot;CellPadding&quot;, ImGuiStyleVar_CellPadding,
+		&quot;ScrollbarSize&quot;, ImGuiStyleVar_ScrollbarSize,
+		&quot;ScrollbarRounding&quot;, ImGuiStyleVar_ScrollbarRounding,
+		&quot;GrabMinSize&quot;, ImGuiStyleVar_GrabMinSize,
+		&quot;GrabRounding&quot;, ImGuiStyleVar_GrabRounding,
+		&quot;TabRounding&quot;, ImGuiStyleVar_TabRounding,
+		&quot;SelectableTextAlign&quot;, ImGuiStyleVar_SelectableTextAlign,
+		&quot;ButtonTextAlign&quot;, ImGuiStyleVar_ButtonTextAlign,
+		&quot;COUNT&quot;, ImGuiStyleVar_COUNT);
+#pragma endregion Style
+
+#pragma region Dir
+		luaGlobals.new_enum(&quot;ImGuiDir&quot;,
+		&quot;None&quot;, ImGuiDir_None,
+		&quot;Left&quot;, ImGuiDir_Left,
+		&quot;Right&quot;, ImGuiDir_Right,
+		&quot;Up&quot;, ImGuiDir_Up,
+		&quot;Down&quot;, ImGuiDir_Down,
+		&quot;COUNT&quot;, ImGuiDir_COUNT);
+#pragma endregion Dir
+
+#pragma region Combo Flags
+		luaGlobals.new_enum(&quot;ImGuiComboFlags&quot;,
+		&quot;None&quot;, ImGuiComboFlags_None,
+		&quot;PopupAlignLeft&quot;, ImGuiComboFlags_PopupAlignLeft,
+		&quot;HeightSmall&quot;, ImGuiComboFlags_HeightSmall,
+		&quot;HeightRegular&quot;, ImGuiComboFlags_HeightRegular,
+		&quot;HeightLarge&quot;, ImGuiComboFlags_HeightLarge,
+		&quot;HeightLargest&quot;, ImGuiComboFlags_HeightLargest,
+		&quot;NoArrowButton&quot;, ImGuiComboFlags_NoArrowButton,
+		&quot;NoPreview&quot;, ImGuiComboFlags_NoPreview,
+		&quot;HeightMask&quot;, ImGuiComboFlags_HeightMask_);
+#pragma endregion Combo Flags
+
+#pragma region InputText Flags
+		luaGlobals.new_enum(&quot;ImGuiInputTextFlags&quot;,
+		&quot;None&quot;, ImGuiInputTextFlags_None,
+		&quot;CharsDecimal&quot;, ImGuiInputTextFlags_CharsDecimal,
+		&quot;CharsHexadecimal&quot;, ImGuiInputTextFlags_CharsHexadecimal,
+		&quot;CharsUppercase&quot;, ImGuiInputTextFlags_CharsUppercase,
+		&quot;CharsNoBlank&quot;, ImGuiInputTextFlags_CharsNoBlank,
+		&quot;AutoSelectAll&quot;, ImGuiInputTextFlags_AutoSelectAll,
+		&quot;EnterReturnsTrue&quot;, ImGuiInputTextFlags_EnterReturnsTrue,
+		&quot;CallbackCompletion&quot;, ImGuiInputTextFlags_CallbackCompletion,
+		&quot;CallbackHistory&quot;, ImGuiInputTextFlags_CallbackHistory,
+		&quot;CallbackAlways&quot;, ImGuiInputTextFlags_CallbackAlways,
+		&quot;CallbackCharFilter&quot;, ImGuiInputTextFlags_CallbackCharFilter,
+		&quot;AllowTabInput&quot;, ImGuiInputTextFlags_AllowTabInput,
+		&quot;CtrlEnterForNewLine&quot;, ImGuiInputTextFlags_CtrlEnterForNewLine,
+		&quot;NoHorizontalScroll&quot;, ImGuiInputTextFlags_NoHorizontalScroll,
+		&quot;AlwaysOverwrite&quot;, ImGuiInputTextFlags_AlwaysOverwrite,
+		&quot;ReadOnly&quot;, ImGuiInputTextFlags_ReadOnly,
+		&quot;Password&quot;, ImGuiInputTextFlags_Password,
+		&quot;NoUndoRedo&quot;, ImGuiInputTextFlags_NoUndoRedo,
+		&quot;CharsScientific&quot;, ImGuiInputTextFlags_CharsScientific,
+		&quot;CallbackResize&quot;, ImGuiInputTextFlags_CallbackResize,
+		&quot;CallbackEdit&quot;, ImGuiInputTextFlags_CallbackEdit);
+#pragma endregion InputText Flags
+
+#pragma region Slider Flags
+		luaGlobals.new_enum(&quot;ImGuiSliderFlags&quot;,
+		&quot;None&quot;, ImGuiSliderFlags_None,
+		&quot;AlwaysClamp&quot;, ImGuiSliderFlags_AlwaysClamp,
+		&quot;Logarithmic&quot;, ImGuiSliderFlags_Logarithmic,
+		&quot;NoRoundToFormat&quot;, ImGuiSliderFlags_NoRoundToFormat,
+		&quot;NoInput&quot;, ImGuiSliderFlags_NoInput);
+#pragma endregion Slider Flags
+
+#pragma region ColorEdit Flags
+		luaGlobals.new_enum(&quot;ImGuiColorEditFlags&quot;,
+		&quot;None&quot;, ImGuiColorEditFlags_None,
+		&quot;NoAlpha&quot;, ImGuiColorEditFlags_NoAlpha,
+		&quot;NoPicker&quot;, ImGuiColorEditFlags_NoPicker,
+		&quot;NoOptions&quot;, ImGuiColorEditFlags_NoOptions,
+		&quot;NoSmallPreview&quot;, ImGuiColorEditFlags_NoSmallPreview,
+		&quot;NoInputs&quot;, ImGuiColorEditFlags_NoInputs,
+		&quot;NoTooltip&quot;, ImGuiColorEditFlags_NoTooltip,
+		&quot;NoLabel&quot;, ImGuiColorEditFlags_NoLabel,
+		&quot;NoSidePreview&quot;, ImGuiColorEditFlags_NoSidePreview,
+		&quot;NoDragDrop&quot;, ImGuiColorEditFlags_NoDragDrop,
+		&quot;NoBorder&quot;, ImGuiColorEditFlags_NoBorder,
+		&quot;AlphaBar&quot;, ImGuiColorEditFlags_AlphaBar,
+		&quot;AlphaPreview&quot;, ImGuiColorEditFlags_AlphaPreview,
+		&quot;AlphaPreviewHalf&quot;, ImGuiColorEditFlags_AlphaPreviewHalf,
+		&quot;HDR&quot;, ImGuiColorEditFlags_HDR,
+		&quot;DisplayRGB&quot;, ImGuiColorEditFlags_DisplayRGB,
+		&quot;DisplayHSV&quot;, ImGuiColorEditFlags_DisplayHSV,
+		&quot;DisplayHex&quot;, ImGuiColorEditFlags_DisplayHex,
+		&quot;Uint8&quot;, ImGuiColorEditFlags_Uint8,
+		&quot;Float&quot;, ImGuiColorEditFlags_Float,
+		&quot;PickerHueBar&quot;, ImGuiColorEditFlags_PickerHueBar,
+		&quot;PickerHueWheel&quot;, ImGuiColorEditFlags_PickerHueWheel,
+		&quot;InputRGB&quot;, ImGuiColorEditFlags_InputRGB,
+		&quot;InputHSV&quot;, ImGuiColorEditFlags_InputHSV,
+		&quot;_OptionsDefault&quot;, ImGuiColorEditFlags_DefaultOptions_,
+		&quot;_DisplayMask&quot;, ImGuiColorEditFlags_DisplayMask_,
+		&quot;_DataTypeMask&quot;, ImGuiColorEditFlags_DataTypeMask_,
+		&quot;_PickerMask&quot;, ImGuiColorEditFlags_PickerMask_,
+		&quot;_InputMask&quot;, ImGuiColorEditFlags_InputMask_);
+#pragma endregion ColorEdit Flags
+
+#pragma region TreeNode Flags
+		luaGlobals.new_enum(&quot;ImGuiTreeNodeFlags&quot;,
+		&quot;None&quot;, ImGuiTreeNodeFlags_None,
+		&quot;Selected&quot;, ImGuiTreeNodeFlags_Selected,
+		&quot;Framed&quot;, ImGuiTreeNodeFlags_Framed,
+		&quot;AllowItemOverlap&quot;, ImGuiTreeNodeFlags_AllowItemOverlap,
+		&quot;NoTreePushOnOpen&quot;, ImGuiTreeNodeFlags_NoTreePushOnOpen,
+		&quot;NoAutoOpenOnLog&quot;, ImGuiTreeNodeFlags_NoAutoOpenOnLog,
+		&quot;DefaultOpen&quot;, ImGuiTreeNodeFlags_DefaultOpen,
+		&quot;OpenOnDoubleClick&quot;, ImGuiTreeNodeFlags_OpenOnDoubleClick,
+		&quot;OpenOnArrow&quot;, ImGuiTreeNodeFlags_OpenOnArrow,
+		&quot;Leaf&quot;, ImGuiTreeNodeFlags_Leaf,
+		&quot;Bullet&quot;, ImGuiTreeNodeFlags_Bullet,
+		&quot;FramePadding&quot;, ImGuiTreeNodeFlags_FramePadding,
+		&quot;SpanAvailWidth&quot;, ImGuiTreeNodeFlags_SpanAvailWidth,
+		&quot;SpanFullWidth&quot;, ImGuiTreeNodeFlags_SpanFullWidth,
+		&quot;NavLeftJumpsBackHere&quot;, ImGuiTreeNodeFlags_NavLeftJumpsBackHere,
+		&quot;CollapsingHeader&quot;, ImGuiTreeNodeFlags_CollapsingHeader);
+#pragma endregion TreeNode Flags
+
+#pragma region Selectable Flags
+		luaGlobals.new_enum(&quot;ImGuiSelectableFlags&quot;,
+		&quot;None&quot;, ImGuiSelectableFlags_None,
+		&quot;DontClosePopups&quot;, ImGuiSelectableFlags_DontClosePopups,
+		&quot;SpanAllColumns&quot;, ImGuiSelectableFlags_SpanAllColumns,
+		&quot;AllowDoubleClick&quot;, ImGuiSelectableFlags_AllowDoubleClick,
+		&quot;Disabled&quot;, ImGuiSelectableFlags_Disabled,
+		&quot;AllowItemOverlap&quot;, ImGuiSelectableFlags_AllowItemOverlap);
+#pragma endregion Selectable Flags
+
+#pragma region Popup Flags
+		luaGlobals.new_enum(&quot;ImGuiPopupFlags&quot;,
+		&quot;None&quot;, ImGuiPopupFlags_None,
+		&quot;MouseButtonLeft&quot;, ImGuiPopupFlags_MouseButtonLeft,
+		&quot;MouseButtonRight&quot;, ImGuiPopupFlags_MouseButtonRight,
+		&quot;MouseButtonMiddle&quot;, ImGuiPopupFlags_MouseButtonMiddle,
+		&quot;MouseButtonMask_&quot;, ImGuiPopupFlags_MouseButtonMask_,
+		&quot;MouseButtonDefault_&quot;, ImGuiPopupFlags_MouseButtonDefault_,
+		&quot;NoOpenOverExistingPopup&quot;, ImGuiPopupFlags_NoOpenOverExistingPopup,
+		&quot;NoOpenOverItems&quot;, ImGuiPopupFlags_NoOpenOverItems,
+		&quot;AnyPopupId&quot;, ImGuiPopupFlags_AnyPopupId,
+		&quot;AnyPopupLevel&quot;, ImGuiPopupFlags_AnyPopupLevel,
+		&quot;AnyPopup&quot;, ImGuiPopupFlags_AnyPopup);
+#pragma endregion Popup Flags
+      
+#pragma region Table Flags
+		luaGlobals.new_enum(&quot;ImGuiTableFlags&quot;,
+		    // Features
+		    &quot;None&quot;,
+		    ImGuiTableFlags_None,
+		    &quot;Resizable&quot;,
+		    ImGuiTableFlags_Resizable,
+		    &quot;Reorderable&quot;,
+		    ImGuiTableFlags_Reorderable,
+		    &quot;Hideable&quot;,
+		    ImGuiTableFlags_Hideable,
+		    &quot;Sortable&quot;,
+		    ImGuiTableFlags_Sortable,
+		    &quot;NoSavedSettings&quot;,
+		    ImGuiTableFlags_NoSavedSettings,
+		    &quot;ContextMenuInBody&quot;,
+		    ImGuiTableFlags_ContextMenuInBody,
+		    // Decorations
+		    &quot;RowBg&quot;,
+		    ImGuiTableFlags_RowBg,
+		    &quot;BordersInnerH&quot;,
+		    ImGuiTableFlags_BordersInnerH,
+		    &quot;BordersOuterH&quot;,
+		    ImGuiTableFlags_BordersOuterH,
+		    &quot;BordersInnerV&quot;,
+		    ImGuiTableFlags_BordersInnerV,
+		    &quot;BordersOuterV&quot;,
+		    ImGuiTableFlags_BordersOuterV,
+		    &quot;BordersH&quot;,
+		    ImGuiTableFlags_BordersH,
+		    &quot;BordersV&quot;,
+		    ImGuiTableFlags_BordersV,
+		    &quot;BordersInner&quot;,
+		    ImGuiTableFlags_BordersInner,
+		    &quot;BordersOuter&quot;,
+		    ImGuiTableFlags_BordersOuter,
+		    &quot;Borders&quot;,
+		    ImGuiTableFlags_Borders,
+		    &quot;NoBordersInBody&quot;,
+		    ImGuiTableFlags_NoBordersInBody,
+		    &quot;NoBordersInBodyUntilResize&quot;,
+		    ImGuiTableFlags_NoBordersInBodyUntilResize,
+		    // Sizing Policy (read above for defaults)
+		    &quot;SizingFixedFit&quot;,
+		    ImGuiTableFlags_SizingFixedFit,
+		    &quot;SizingFixedSame&quot;,
+		    ImGuiTableFlags_SizingFixedSame,
+		    &quot;SizingStretchProp&quot;,
+		    ImGuiTableFlags_SizingStretchProp,
+		    &quot;SizingStretchSame&quot;,
+		    ImGuiTableFlags_SizingStretchSame,
+		    // Sizing Extra Options
+		    &quot;NoHostExtendX&quot;,
+		    ImGuiTableFlags_NoHostExtendX,
+		    &quot;NoHostExtendY&quot;,
+		    ImGuiTableFlags_NoHostExtendY,
+		    &quot;NoKeepColumnsVisible&quot;,
+		    ImGuiTableFlags_NoKeepColumnsVisible,
+		    &quot;PreciseWidths&quot;,
+		    ImGuiTableFlags_PreciseWidths,
+		    // Clipping
+		    &quot;NoClip&quot;,
+		    ImGuiTableFlags_NoClip,
+		    // Padding
+		    &quot;PadOuterX&quot;,
+		    ImGuiTableFlags_PadOuterX,
+		    &quot;NoPadOuterX&quot;,
+		    ImGuiTableFlags_NoPadOuterX,
+		    &quot;NoPadInnerX&quot;,
+		    ImGuiTableFlags_NoPadInnerX,
+		    // Scrolling
+		    &quot;ScrollX&quot;,
+		    ImGuiTableFlags_ScrollX,
+		    &quot;ScrollY&quot;,
+		    ImGuiTableFlags_ScrollY,
+		    // Sorting
+		    &quot;SortMulti&quot;,
+		    ImGuiTableFlags_SortMulti,
+		    &quot;SortTristate&quot;,
+		    ImGuiTableFlags_SortTristate,
+		    // [Internal] Combinations and masks
+		    &quot;SizingMask&quot;,
+		    ImGuiTableFlags_SizingMask_);
+#pragma endregion Table Flags
+
+#pragma region TableColumn Flags
+		luaGlobals.new_enum(&quot;ImGuiTableColumnFlags&quot;,
+		    // Input configuration flags
+		    &quot;None&quot;,
+		    ImGuiTableColumnFlags_None,
+		    &quot;Disabled&quot;,
+		    ImGuiTableColumnFlags_Disabled,
+		    &quot;DefaultHide&quot;,
+		    ImGuiTableColumnFlags_DefaultHide,
+		    &quot;DefaultSort&quot;,
+		    ImGuiTableColumnFlags_DefaultSort,
+		    &quot;WidthStretch&quot;,
+		    ImGuiTableColumnFlags_WidthStretch,
+		    &quot;WidthFixed&quot;,
+		    ImGuiTableColumnFlags_WidthFixed,
+		    &quot;NoResize&quot;,
+		    ImGuiTableColumnFlags_NoResize,
+		    &quot;NoReorder&quot;,
+		    ImGuiTableColumnFlags_NoReorder,
+		    &quot;NoHide&quot;,
+		    ImGuiTableColumnFlags_NoHide,
+		    &quot;NoClip&quot;,
+		    ImGuiTableColumnFlags_NoClip,
+		    &quot;NoSort&quot;,
+		    ImGuiTableColumnFlags_NoSort,
+		    &quot;NoSortAscending&quot;,
+		    ImGuiTableColumnFlags_NoSortAscending,
+		    &quot;NoSortDescending&quot;,
+		    ImGuiTableColumnFlags_NoSortDescending,
+		    &quot;NoHeaderLabel&quot;,
+		    ImGuiTableColumnFlags_NoHeaderLabel,
+		    &quot;NoHeaderWidth&quot;,
+		    ImGuiTableColumnFlags_NoHeaderWidth,
+		    &quot;PreferSortAscending&quot;,
+		    ImGuiTableColumnFlags_PreferSortAscending,
+		    &quot;PreferSortDescending&quot;,
+		    ImGuiTableColumnFlags_PreferSortDescending,
+		    &quot;IndentEnable&quot;,
+		    ImGuiTableColumnFlags_IndentEnable,
+		    &quot;IndentDisable&quot;,
+		    ImGuiTableColumnFlags_IndentDisable,
+		    // Output status flags, read-only via TableGetColumnFlags()
+		    &quot;IsEnabled&quot;,
+		    ImGuiTableColumnFlags_IsEnabled,
+		    &quot;IsVisible&quot;,
+		    ImGuiTableColumnFlags_IsVisible,
+		    &quot;IsSorted&quot;,
+		    ImGuiTableColumnFlags_IsSorted,
+		    &quot;IsHovered&quot;,
+		    ImGuiTableColumnFlags_IsHovered,
+		    // [Internal] Combinations and masks
+		    &quot;WidthMask_&quot;,
+		    ImGuiTableColumnFlags_WidthMask_,
+		    &quot;IndentMask_&quot;,
+		    ImGuiTableColumnFlags_IndentMask_,
+		    &quot;StatusMask_&quot;,
+		    ImGuiTableColumnFlags_StatusMask_,
+		    &quot;NoDirectResize_&quot;,
+		    ImGuiTableColumnFlags_NoDirectResize_);
+#pragma endregion TableColumn Flags
+
+#pragma region TableRow Flags
+		luaGlobals.new_enum(&quot;ImGuiTableRowFlags&quot;,
+		&quot;None&quot;, ImGuiTableRowFlags_None,
+		&quot;Headers&quot;, ImGuiTableRowFlags_Headers);
+#pragma endregion TableRow Flags
+
+#pragma region TableBg Target
+		luaGlobals.new_enum(&quot;ImGuiTableBgTarget&quot;,
+		&quot;None&quot;, ImGuiTableBgTarget_None,
+		&quot;RowBg0&quot;, ImGuiTableBgTarget_RowBg0,
+		&quot;RowBg1&quot;, ImGuiTableBgTarget_RowBg1,
+		&quot;CellBg&quot;, ImGuiTableBgTarget_CellBg);
+#pragma endregion TableBg Target
+
+#pragma region Draw Flags
+		luaGlobals.new_enum(&quot;ImDrawFlags&quot;,
+		&quot;None&quot;, ImDrawFlags_None,
+		&quot;Closed&quot;, ImDrawFlags_Closed,
+		&quot;ImDrawFlags_RoundCornersTopLeft&quot;, ImDrawFlags_RoundCornersTopLeft,
+		&quot;RoundCornersTopRight&quot;, ImDrawFlags_RoundCornersTopRight,
+		&quot;RoundCornersBottomLeft&quot;, ImDrawFlags_RoundCornersBottomLeft,
+		&quot;RoundCornersBottomRight&quot;, ImDrawFlags_RoundCornersBottomRight,
+		&quot;RoundCornersNone&quot;, ImDrawFlags_RoundCornersNone,
+		&quot;RoundCornersTop&quot;, ImDrawFlags_RoundCornersTop,
+		&quot;RoundCornersBottom&quot;, ImDrawFlags_RoundCornersBottom,
+		&quot;RoundCornersLeft&quot;, ImDrawFlags_RoundCornersLeft,
+		&quot;RoundCornersRight&quot;, ImDrawFlags_RoundCornersRight,
+		&quot;RoundCornersAll&quot;, ImDrawFlags_RoundCornersAll);
+#pragma endregion Draw Flags
+
+#pragma region TabBar Flags
+		luaGlobals.new_enum(&quot;ImGuiTabBarFlags&quot;,
+		&quot;None&quot;, ImGuiTabBarFlags_None,
+		&quot;Reorderable&quot;, ImGuiTabBarFlags_Reorderable,
+		&quot;AutoSelectNewTabs&quot;, ImGuiTabBarFlags_AutoSelectNewTabs,
+		&quot;TabListPopupButton&quot;, ImGuiTabBarFlags_TabListPopupButton,
+		&quot;NoCloseWithMiddleMouseButton&quot;, ImGuiTabBarFlags_NoCloseWithMiddleMouseButton,
+		&quot;NoTabListScrollingButtons&quot;, ImGuiTabBarFlags_NoTabListScrollingButtons,
+		&quot;NoTooltip&quot;, ImGuiTabBarFlags_NoTooltip,
+		&quot;FittingPolicyResizeDown&quot;, ImGuiTabBarFlags_FittingPolicyResizeDown,
+		&quot;FittingPolicyScroll&quot;, ImGuiTabBarFlags_FittingPolicyScroll,
+		&quot;FittingPolicyMask_&quot;, ImGuiTabBarFlags_FittingPolicyMask_,
+		&quot;FittingPolicyDefault_&quot;, ImGuiTabBarFlags_FittingPolicyDefault_);
+#pragma endregion TabBar Flags
+
+#pragma region TabItem Flags
+		luaGlobals.new_enum(&quot;ImGuiTabItemFlags&quot;,
+		&quot;None&quot;, ImGuiTabItemFlags_None,
+		&quot;UnsavedDocument&quot;, ImGuiTabItemFlags_UnsavedDocument,
+		&quot;SetSelected&quot;, ImGuiTabItemFlags_SetSelected,
+		&quot;NoCloseWithMiddleMouseButton&quot;, ImGuiTabItemFlags_NoCloseWithMiddleMouseButton,
+		&quot;NoPushId&quot;, ImGuiTabItemFlags_NoPushId,
+		&quot;NoTooltip&quot;, ImGuiTabItemFlags_NoTooltip,
+		&quot;NoReorder&quot;, ImGuiTabItemFlags_NoReorder,
+		&quot;Leading&quot;, ImGuiTabItemFlags_Leading,
+		&quot;Trailing&quot;, ImGuiTabItemFlags_Trailing);
+#pragma endregion TabItem Flags
+
+#pragma region MouseButton
+		luaGlobals.new_enum(&quot;ImGuiMouseButton&quot;,
+		&quot;Left&quot;, ImGuiMouseButton_Left,
+		&quot;Right&quot;, ImGuiMouseButton_Right,
+		&quot;Middle&quot;, ImGuiMouseButton_Middle,
+		&quot;COUNT&quot;, ImGuiMouseButton_COUNT);
+#pragma endregion MouseButton
+
+#pragma region ImGuiKey
+		luaGlobals.new_enum(&quot;ImGuiKey&quot;,
+		&quot;Tab&quot;, ImGuiKey_Tab,
+		&quot;LeftArrow&quot;, ImGuiKey_LeftArrow,
+		&quot;RightArrow&quot;, ImGuiKey_RightArrow,
+		&quot;UpArrow&quot;, ImGuiKey_UpArrow,
+		&quot;DownArrow&quot;, ImGuiKey_DownArrow,
+		&quot;PageUp&quot;, ImGuiKey_PageUp,
+		&quot;PageDown&quot;, ImGuiKey_PageDown,
+		&quot;Home&quot;, ImGuiKey_Home,
+		&quot;End&quot;, ImGuiKey_End,
+		&quot;Insert&quot;, ImGuiKey_Insert,
+		&quot;Delete&quot;, ImGuiKey_Delete,
+		&quot;Backspace&quot;, ImGuiKey_Backspace,
+		&quot;Space&quot;, ImGuiKey_Space,
+		&quot;Enter&quot;, ImGuiKey_Enter,
+		&quot;Escape&quot;, ImGuiKey_Escape,
+		&quot;LeftCtrl&quot;, ImGuiKey_LeftCtrl,
+		&quot;LeftShift&quot;, ImGuiKey_LeftShift,
+		&quot;LeftAlt&quot;, ImGuiKey_LeftAlt,
+		&quot;LeftSuper&quot;, ImGuiKey_LeftSuper,
+		&quot;RightCtrl&quot;, ImGuiKey_RightCtrl,
+		&quot;RightShift&quot;, ImGuiKey_RightShift,
+		&quot;RightAlt&quot;, ImGuiKey_RightAlt,
+		&quot;RightSuper&quot;, ImGuiKey_RightSuper,
+		&quot;Menu&quot;, ImGuiKey_Menu,
+		&quot;A&quot;, ImGuiKey_A,
+		&quot;B&quot;, ImGuiKey_B,
+		&quot;C&quot;, ImGuiKey_C,
+		&quot;D&quot;, ImGuiKey_D,
+		&quot;E&quot;, ImGuiKey_E,
+		&quot;F&quot;, ImGuiKey_F,
+		&quot;G&quot;, ImGuiKey_G,
+		&quot;H&quot;, ImGuiKey_H,
+		&quot;I&quot;, ImGuiKey_I,
+		&quot;J&quot;, ImGuiKey_J,
+		&quot;K&quot;, ImGuiKey_K,
+		&quot;L&quot;, ImGuiKey_L,
+		&quot;M&quot;, ImGuiKey_M,
+		&quot;N&quot;, ImGuiKey_N,
+		&quot;O&quot;, ImGuiKey_O,
+		&quot;P&quot;, ImGuiKey_P,
+		&quot;Q&quot;, ImGuiKey_Q,
+		&quot;R&quot;, ImGuiKey_R,
+		&quot;S&quot;, ImGuiKey_S,
+		&quot;T&quot;, ImGuiKey_T,
+		&quot;U&quot;, ImGuiKey_U,
+		&quot;V&quot;, ImGuiKey_V,
+		&quot;W&quot;, ImGuiKey_W,
+		&quot;X&quot;, ImGuiKey_X,
+		&quot;Y&quot;, ImGuiKey_Y,
+		&quot;Z&quot;, ImGuiKey_Z,
+		&quot;0&quot;, ImGuiKey_0,
+		&quot;1&quot;, ImGuiKey_1,
+		&quot;2&quot;, ImGuiKey_2,
+		&quot;3&quot;, ImGuiKey_3,
+		&quot;4&quot;, ImGuiKey_4,
+		&quot;5&quot;, ImGuiKey_5,
+		&quot;6&quot;, ImGuiKey_6,
+		&quot;7&quot;, ImGuiKey_7,
+		&quot;8&quot;, ImGuiKey_8,
+		&quot;9&quot;, ImGuiKey_9,
+		&quot;F1&quot;, ImGuiKey_F1,
+		&quot;F2&quot;, ImGuiKey_F2,
+		&quot;F3&quot;, ImGuiKey_F3,
+		&quot;F4&quot;, ImGuiKey_F4,
+		&quot;F5&quot;, ImGuiKey_F5,
+		&quot;F6&quot;, ImGuiKey_F6,
+		&quot;F7&quot;, ImGuiKey_F7,
+		&quot;F8&quot;, ImGuiKey_F8,
+		&quot;F9&quot;, ImGuiKey_F9,
+		&quot;F10&quot;, ImGuiKey_F10,
+		&quot;F11&quot;, ImGuiKey_F11,
+		&quot;F12&quot;, ImGuiKey_F12,
+		&quot;Apostrophe&quot;, ImGuiKey_Apostrophe,
+		&quot;Comma&quot;, ImGuiKey_Comma,
+		&quot;Minus&quot;, ImGuiKey_Minus,
+		&quot;Period&quot;, ImGuiKey_Period,
+		&quot;Slash&quot;, ImGuiKey_Slash,
+		&quot;Semicolon&quot;, ImGuiKey_Semicolon,
+		&quot;Equal&quot;, ImGuiKey_Equal,
+		&quot;LeftBracket&quot;, ImGuiKey_LeftBracket,
+		&quot;Backslash&quot;, ImGuiKey_Backslash,
+		&quot;RightBracket&quot;, ImGuiKey_RightBracket,
+		&quot;GraveAccent&quot;, ImGuiKey_GraveAccent,
+		&quot;CapsLock&quot;, ImGuiKey_CapsLock,
+		&quot;ScrollLock&quot;, ImGuiKey_ScrollLock,
+		&quot;NumLock&quot;, ImGuiKey_NumLock,
+		&quot;PrintScreen&quot;, ImGuiKey_PrintScreen,
+		&quot;Pause&quot;, ImGuiKey_Pause,
+		&quot;Keypad0&quot;, ImGuiKey_Keypad0,
+		&quot;Keypad1&quot;, ImGuiKey_Keypad1,
+		&quot;Keypad2&quot;, ImGuiKey_Keypad2,
+		&quot;Keypad3&quot;, ImGuiKey_Keypad3,
+		&quot;Keypad4&quot;, ImGuiKey_Keypad4,
+		&quot;Keypad5&quot;, ImGuiKey_Keypad5,
+		&quot;Keypad6&quot;, ImGuiKey_Keypad6,
+		&quot;Keypad7&quot;, ImGuiKey_Keypad7,
+		&quot;Keypad8&quot;, ImGuiKey_Keypad8,
+		&quot;Keypad9&quot;, ImGuiKey_Keypad9,
+		&quot;KeypadDecimal&quot;, ImGuiKey_KeypadDecimal,
+		&quot;KeypadDivide&quot;, ImGuiKey_KeypadDivide,
+		&quot;KeypadMultiply&quot;, ImGuiKey_KeypadMultiply,
+		&quot;KeypadSubtract&quot;, ImGuiKey_KeypadSubtract,
+		&quot;KeypadAdd&quot;, ImGuiKey_KeypadAdd,
+		&quot;KeypadEnter&quot;, ImGuiKey_KeypadEnter,
+		&quot;KeypadEqual&quot;, ImGuiKey_KeypadEqual,
+		&quot;GamepadStart&quot;, ImGuiKey_GamepadStart,
+		&quot;GamepadBack&quot;, ImGuiKey_GamepadBack,
+		&quot;GamepadFaceLeft&quot;, ImGuiKey_GamepadFaceLeft,
+		&quot;GamepadFaceRight&quot;, ImGuiKey_GamepadFaceRight,
+		&quot;GamepadFaceUp&quot;, ImGuiKey_GamepadFaceUp,
+		&quot;GamepadFaceDown&quot;, ImGuiKey_GamepadFaceDown,
+		&quot;GamepadDpadLeft&quot;, ImGuiKey_GamepadDpadLeft,
+		&quot;GamepadDpadRight&quot;, ImGuiKey_GamepadDpadRight,
+		&quot;GamepadDpadUp&quot;, ImGuiKey_GamepadDpadUp,
+		&quot;GamepadDpadDown&quot;, ImGuiKey_GamepadDpadDown,
+		&quot;GamepadL1&quot;, ImGuiKey_GamepadL1,
+		&quot;GamepadR1&quot;, ImGuiKey_GamepadR1,
+		&quot;GamepadL2&quot;, ImGuiKey_GamepadL2,
+		&quot;GamepadR2&quot;, ImGuiKey_GamepadR2,
+		&quot;GamepadL3&quot;, ImGuiKey_GamepadL3,
+		&quot;GamepadR3&quot;, ImGuiKey_GamepadR3,
+		&quot;GamepadLStickLeft&quot;, ImGuiKey_GamepadLStickLeft,
+		&quot;GamepadLStickRight&quot;, ImGuiKey_GamepadLStickRight,
+		&quot;GamepadLStickUp&quot;, ImGuiKey_GamepadLStickUp,
+		&quot;GamepadLStickDown&quot;, ImGuiKey_GamepadLStickDown,
+		&quot;GamepadRStickLeft&quot;, ImGuiKey_GamepadRStickLeft,
+		&quot;GamepadRStickRight&quot;, ImGuiKey_GamepadRStickRight,
+		&quot;GamepadRStickUp&quot;, ImGuiKey_GamepadRStickUp,
+		&quot;GamepadRStickDown&quot;, ImGuiKey_GamepadRStickDown,
+		&quot;MouseRight&quot;, ImGuiKey_MouseRight,
+		&quot;MouseMiddle&quot;, ImGuiKey_MouseMiddle,
+		&quot;MouseX1&quot;, ImGuiKey_MouseX1,
+		&quot;MouseX2&quot;, ImGuiKey_MouseX2,
+		&quot;MouseWheelX&quot;, ImGuiKey_MouseWheelX,
+		&quot;MouseWheelY&quot;, ImGuiKey_MouseWheelY,
+		&quot;ModCtrl&quot;, ImGuiMod_Ctrl,
+		&quot;ModShift&quot;, ImGuiMod_Shift,
+		&quot;ModAlt&quot;, ImGuiMod_Alt,
+		&quot;ModSuper&quot;, ImGuiMod_Super,
+		&quot;ModShortcut&quot;, ImGuiMod_Shortcut);
+#pragma endregion ImGuiKey
+	}
+}</code></pre>
+</doc-codeblock></div>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/docs/namespaces/http/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">HTTP</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/docs/imgui/window/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Windows</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2024. Project W1TCH. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "ImGui", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>
