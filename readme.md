@@ -2,6 +2,9 @@
 order: 0
 icon: book
 ---
+!!!
+# This documentation is no longer supported; another site with more convenient mechanics will be created in the near future.
+!!!
 # What is Requiem Engine?
 
 All information about Requiem Engine and its Lua Engine.
@@ -22,9 +25,6 @@ All information about Requiem Engine and its Lua Engine.
 
 Breaking or conspiring to break any of these terms will result in your W1TCH account being terminated without chance to appeal.
 
-!!!danger
-# Documentation is under development
-!!!
 
 ## Special Thanks
 
