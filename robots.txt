@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://docbox.w1tch.net/sitemap.xml.gz
+Sitemap: https://med1ed.github.io/temporary/sitemap.xml.gz
