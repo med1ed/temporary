@@ -1,29 +1,22 @@
 input: .
 output: .retype
-url: http://docbox.w1tch.net/
+url: https://med1ed.github.io/temporary/
 favicon: image/favicon.png
 
 branding:
   title: w1tch.docs
-  # label: Docs
   logo: image/logo.png
 
 links:
 - text: Main Site
   link: https://w1tch.net/
-- text: Discord
-  link: https://w1tch.net/settings/?area=DiscordBot
+- text: Discord [ Welcome Server ]
+  link: https://discord.gg/CJaTCT8ZPD
+- text: Discord [ Main Server ]
+  link: https://discord.com/5P9BbxuNPy
 - text: Telegram [ EN ]
   link: https://t.me/w1tch_announcements
 - text: Telegram [ CN ]
   link: https://t.me/w1tch_cn
 - text: VK Group
   link: https://vk.com/projectw1tch
-
-# edit:
-#   repo: "https://github.com/med1ed/w1tch.docs"
-#   label: Found a mistake?
-
-footer:
-  copyright: "&copy; Copyright {{ year }}. Project W1TCH. All rights reserved."
-
