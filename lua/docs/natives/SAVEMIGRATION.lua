@@ -1,0 +1,54 @@
+SAVEMIGRATION = {}
+
+-- BOOL SAVEMIGRATION_IS_MP_ENABLED() // 0x84B418E93894AC1C
+function SAVEMIGRATION.SAVEMIGRATION_IS_MP_ENABLED()
+  return native.invoke(
+    Type.Bool, 4776, false
+  )
+end
+
+-- BOOL SAVEMIGRATION_MP_REQUEST_ACCOUNTS() // 0x85F41F9225D08C72
+function SAVEMIGRATION.SAVEMIGRATION_MP_REQUEST_ACCOUNTS()
+  return native.invoke(
+    Type.Bool, 4777, false
+  )
+end
+
+-- int SAVEMIGRATION_MP_GET_ACCOUNTS_STATUS() // 0xC8CB5999919EA2CA
+function SAVEMIGRATION.SAVEMIGRATION_MP_GET_ACCOUNTS_STATUS()
+  return native.invoke(
+    Type.Int, 4778, false
+  )
+end
+
+-- int SAVEMIGRATION_MP_NUM_ACCOUNTS() // 0x77A16200E18E0C55
+function SAVEMIGRATION.SAVEMIGRATION_MP_NUM_ACCOUNTS()
+  return native.invoke(
+    Type.Int, 4779, false
+  )
+end
+
+-- BOOL SAVEMIGRATION_MP_GET_ACCOUNT(int p0, Any* p1) // 0xFCE2747EEF1D05FC
+function SAVEMIGRATION.SAVEMIGRATION_MP_GET_ACCOUNT(p0, p1)
+  return native.invoke(
+    Type.Bool, 4780, false,
+    arg(Type.Int, p0),
+    ref(Type.Any, p1)
+  )
+end
+
+-- BOOL SAVEMIGRATION_MP_REQUEST_STATUS() // 0xE5E9746A66359F9D
+function SAVEMIGRATION.SAVEMIGRATION_MP_REQUEST_STATUS()
+  return native.invoke(
+    Type.Bool, 4781, false
+  )
+end
+
+-- int SAVEMIGRATION_MP_GET_STATUS() // 0x690B76BD2763E068
+function SAVEMIGRATION.SAVEMIGRATION_MP_GET_STATUS()
+  return native.invoke(
+    Type.Int, 4782, false
+  )
+end
+
+

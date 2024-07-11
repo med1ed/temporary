@@ -1,0 +1,292 @@
+---
+order: -34
+---
+
+# Weapon & Ammo
+
+## Ammo Info Parameters
+
+- `iAmmoMax`
+- `iAmmoMax50`
+- `iAmmoMax100`
+- `iAmmoMaxMp`
+- `iAmmoMax50Mp`
+- `iAmmoMax100Mp`
+- `uAmmoFlags`
+- `eAmmoSpecialType`
+- `fMissileSpeed`
+- `uLockOnTime`
+
+## Ammo Flags
+
+- `None` => `0`
+- `ArmorPiercing` => `1`
+- `Explosive` => `2`
+- `FMJ` => `3`
+- `HollowPoint` => `4`
+- `Incendiary` => `5`
+- `Tracer` => `6`
+
+## Ammo Types
+
+- `AMMO_PISTOL` => `0x743D4F54`
+- `AMMO_SMG` => `0x6C7D23B8`
+- `AMMO_RIFLE` => `0xD05319F`
+- `AMMO_MG` => `0x6AA1343F`
+- `AMMO_SHOTGUN` => `0x90083D3B`
+- `AMMO_STUNGUN` => `0xB02EADE0`
+- `AMMO_SNIPER` => `0x4C98087B`
+- `AMMO_SNIPER_REMOTE` => `0xFEDA7D30`
+- `AMMO_GRENADELAUNCHER` => `0x3BCCA5EE`
+- `AMMO_GRENADELAUNCHER_SMOKE` => `0x313FD340`
+- `AMMO_RPG` => `0x67DD81F2`
+- `AMMO_STINGER` => `0x914C813A`
+- `AMMO_MINIGUN` => `0x9FC5C882`
+- `AMMO_GRENADE` => `0x3BD313B1`
+- `AMMO_STICKYBOMB` => `0x5424B617`
+- `AMMO_SMOKEGRENADE` => `0xE60E08A6`
+- `AMMO_BZGAS` => `0x9B747EA4`
+- `AMMO_MOLOTOV` => `0x5633F9D5`
+- `AMMO_FIREEXTINGUISHER` => `0x5106B43C`
+- `AMMO_PETROLCAN` => `0xCA6318A1`
+- `AMMO_BALL` => `0xFF956666`
+- `AMMO_FLARE` => `0x6BCCF76F`
+- `AMMO_TANK` => `0xA81B4220`
+- `AMMO_SPACE_ROCKET` => `0x1F75106C`
+- `AMMO_PLANE_ROCKET` => `0x47735976`
+- `AMMO_PLAYER_LASER` => `0xF624D80A`
+- `AMMO_ENEMY_LASER` => `0xAE2EA48C`
+- `AMMO_BIRD_CRAP` => `0x4298C094`
+- `AMMO_PIPEBOMB` => `0x155663F8`
+- `AMMO_HOMINGLAUNCHER` => `0x99150E2D`
+- `AMMO_PROXMINE` => `0xAF2208A7`
+- `AMMO_SNOWBALL` => `0x8218416D`
+- `AMMO_RIFLE_ARMORPIERCING` => `0x1941D244`
+- `AMMO_RIFLE_FMJ` => `0x5E962DDC`
+- `AMMO_RIFLE_INCENDIARY` => `0x92F129CD`
+- `AMMO_RIFLE_TRACER` => `0xB0198D5F`
+- `AMMO_SNIPER_ARMORPIERCING` => `0xA6BCBDA9`
+- `AMMO_SNIPER_FMJ` => `0xF5F1C616`
+- `AMMO_SNIPER_INCENDIARY` => `0x2F7CA4A6`
+- `AMMO_SNIPER_TRACER` => `0x469293CD`
+- `AMMO_SHOTGUN_ARMORPIERCING` => `0x72A3A760`
+- `AMMO_SHOTGUN_EXPLOSIVE` => `0xED906955`
+- `AMMO_SHOTGUN_HOLLOWPOINT` => `0x7C867272`
+- `AMMO_SHOTGUN_INCENDIARY` => `0xDBACD794`
+- `AMMO_PISTOL_FMJ` => `0xBC7AF403`
+- `AMMO_PISTOL_HOLLOWPOINT` => `0xCE23B916`
+- `AMMO_PISTOL_INCENDIARY` => `0xAB8EA0F9`
+- `AMMO_PISTOL_TRACER` => `0xB8DCEE2B`
+- `AMMO_MG_ARMORPIERCING` => `0x2EC80A10`
+- `AMMO_MG_FMJ` => `0xDFD80B5`
+- `AMMO_MG_INCENDIARY` => `0x57237470`
+- `AMMO_MG_TRACER` => `0x4919B4EB`
+- `AMMO_SNIPER_EXPLOSIVE` => `0xADD16CB9`
+- `AMMO_SMG_FMJ` => `0x2D31ADD9`
+- `AMMO_SMG_HOLLOWPOINT` => `0x27F43E92`
+- `AMMO_SMG_INCENDIARY` => `0xEC2875E7`
+- `AMMO_SMG_TRACER` => `0x5D9106D1`
+- `AMMO_FLAREGUN` => `0x45F0E965`
+- `AMMO_FIREWORK` => `0xAF23EE0F`
+- `AMMO_RAILGUN` => `0x794446FD`
+
+## Weapon Info Parameters
+
+- `uModel`
+- `eDamageType`
+- `eImpactType`
+- `eFireType`
+- `eWheelSlot`
+- `uGroup`
+- `uClipSize`
+- `fAccuracySpread`
+- `fAccurateModeAccuracyModifier`
+- `fRunAndGunAccuracy`
+- `fRunAndGunMinAccuracy`
+- `fRecoilAccuracyMax`
+- `fRecoilErrorTime`
+- `fRecoilRecoveryRate`
+- `fRecoilAccuracyToAllowHeadshotAi`
+- `fMinHeadshotDistanceAi`
+- `fMaxHeadshotDistanceAi`
+- `fHeadshotDamageModifierAi`
+- `fRecoilAccuracyToAllowHeadshotPlayer`
+- `fMinHeadshotDistancePlayer`
+- `fMaxHeadshotDistancePlayer`
+- `fHeadshotDamageModifierPlayer`
+- `fDamage`
+- `fDamageTime`
+- `fDamageTimeInVehicle`
+- `fDamageTimeInVehicleHeadshot`
+- `fHitLimbsDamageModifier`
+- `fNetworkHitLimbsDamageModifier`
+- `fLightlyArmouredDamageModifier`
+- `fVehicleDamageModifier`
+- `fForce`
+- `fForceOnPed`
+- `fForceOnVehicle`
+- `fForceOnHeli`
+- `fForceMaxStrengthMult`
+- `fForceFalloffRangeStart`
+- `fForceFalloffRangeEnd`
+- `fForceFalloffRangeMin`
+- `fProjectForce`
+- `fFragImpulse`
+- `fPenetration`
+- `fVerticalLaunchAdjustment`
+- `fDropForwardVelocity`
+- `fSpeed`
+- `uBulletsInBatch`
+- `fBatchSpread`
+- `fReloadTimeMp`
+- `fReloadTimeSp`
+- `fVehicleReloadTime`
+- `fAnimReloadTime`
+- `iBulletsPerAnimeLoop`
+- `fTimeBetweenShots`
+- `fTimeLeftBetweenShotsWhereShouldFireIsCached`
+- `fSpinupTime`
+- `fSpinTime`
+- `fSpindownTime`
+- `fAlternateWaitTime`
+- `fNetworkPlayerDamageModifier`
+- `fNetworkPedDamageModifier`
+- `fNetworkHeadshotModifier`
+- `fLockOnRange`
+- `fWeaponRange`
+- `fDamageFallOffRangeMin`
+- `fDamageFallOffRangeMax`
+- `fDamageFallOffModifier`
+- `uRecoilShakeHash`
+- `uRecoilShakeHashFirstPerson`
+- `fMinTimeBetweenRecoilShakes`
+- `fRecoilShakeAmplitude`
+- `fExplosionShakeAmplitude`
+
+## Weapon Damage Type
+
+- `Unknown` => `0`
+- `None` => `1`
+- `Melee` => `2`
+- `Bullet` => `3`
+- `Unknown2` => `4`
+- `Explosive` => `5`
+- `Fire` => `6`
+- `Unknown3` => `7`
+- `Fall` => `8`
+- `Unknown4` => `9`
+- `Electric` => `10`
+- `BarbedWire` => `11`
+- `FireExtinguisher` => `12`
+- `Smoke` => `13`
+- `WaterCannon` => `14`
+- `Unknown5` => `15`
+
+## Weapon Impact Type
+
+- `DefaultBullets` => `-1`
+- `Grenade` => `0`
+- `Grenadelauncher` => `1`
+- `Stickybomb` => `2`
+- `Molotov` => `3`
+- `Rocket` => `4`
+- `Tankshell` => `5`
+- `HiOctane` => `6`
+- `Car` => `7`
+- `Plane` => `8`
+- `PetrolPump` => `9`
+- `Bike` => `10`
+- `DirSteam` => `11`
+- `DirFlame` => `12`
+- `DirWaterHydrant` => `13`
+- `DirGasCanister` => `14`
+- `Boat` => `15`
+- `ShipDestroy` => `16`
+- `Truck` => `17`
+- `Mk2ExplosiveBullets` => `18`
+- `Smokegrenadelauncher` => `19`
+- `Smokegrenade` => `20`
+- `Bzgas` => `21`
+- `Flare` => `22`
+- `GasCanister` => `23`
+- `Extinguisher1` => `24`
+- `Programmablear` => `25`
+- `Train` => `26`
+- `Barrel` => `27`
+- `Propane` => `28`
+- `Blimp` => `29`
+- `DirFlameExplode` => `30`
+- `Tanker` => `31`
+- `PlaneRocket` => `32`
+- `VehicleBullet` => `33`
+- `GasTank` => `34`
+- `BirdCrap` => `35`
+- `Railgun` => `36`
+- `Blimp2` => `37`
+- `Firework` => `38`
+- `Snowball` => `39`
+- `Proxmine` => `40`
+- `ValkyrieCannon` => `41`
+- `AirDefence` => `42`
+- `Pipebomb` => `43`
+- `Vehiclemine` => `44`
+- `Explosiveammo` => `45`
+- `Apcshell` => `46`
+- `BombCluster` => `47`
+- `BombGas` => `48`
+- `BombIncendiary` => `49`
+- `BombStandard` => `50`
+- `Torpedo` => `51`
+- `TorpedoUnderwater` => `52`
+- `BombushkaCannon` => `53`
+- `BombClusterSecondary` => `54`
+- `HunterBarrage` => `55`
+- `HunterCannon` => `56`
+- `RogueCannon` => `57`
+- `MineUnderwater` => `58`
+- `OrbitalCannon` => `59`
+- `BombStandardWide` => `60`
+- `ExplosiveammoShotgun` => `61`
+- `Oppressor2Cannon` => `62`
+- `MortarKinetic` => `63`
+- `VehiclemineKinetic` => `64`
+- `VehiclemineEmp` => `65`
+- `VehiclemineSpike` => `66`
+- `VehiclemineSlick` => `67`
+- `VehiclemineTar` => `68`
+- `ScriptDrone` => `69`
+- `Raygun` => `70`
+- `Buriedmine` => `71`
+- `ScriptMissile` => `72`
+- `RctankRocket` => `73`
+- `BombWater` => `74`
+- `BombWaterSecondary` => `75`
+- `Extinguisher2` => `76`
+- `Extinguisher3` => `77`
+- `Extinguisher4` => `78`
+- `Extinguisher5` => `79`
+- `Extinguisher6` => `80`
+- `ScriptMissileLarge` => `81`
+- `SubmarineBig` => `82`
+- `EmplauncherEmp` => `83`
+- `SpoofExplosion` => `99`
+
+## Fire type
+
+- `None` => `0`
+- `Melee` => `1`
+- `InstantHit` => `2`
+- `DelayedHit` => `3`
+- `ProjectTile` => `4`
+- `VolumetricParticle` => `5`
+
+## Wheel slot IDs
+
+- `Pistol` => `0`
+- `SMG` => `1`
+- `Rifle` => `2`
+- `Sniper` => `3`
+- `UnarmedMelee` => `4`
+- `ShotGun` => `5`
+- `Heavy` => `6`
+- `Throwable` => `7`
